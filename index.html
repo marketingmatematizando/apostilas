@@ -184,17 +184,16 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 .src{font-size:13px;color:var(--muted);margin:12px 0 0}
 
 /* ---------- comprar ---------- */
-.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;position:relative}
-.flow::before{content:"";position:absolute;top:22px;left:calc(100%/6);right:calc(100%/6);border-top:2px dashed var(--line);z-index:0}
-.flow li{position:relative;z-index:1;text-align:center;padding:0 8px}
-.ico{width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;flex:none}
-.ico svg{width:22px;height:22px;fill:none;stroke:var(--deep);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.flow small{display:block;margin-top:12px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
-.flow h3{font:700 17px/1.2 var(--sans);color:var(--ink);margin:4px 0 6px}
-.flow p{margin:0 auto;color:var(--muted);font-size:14px;max-width:26ch}
-.guar{margin-top:36px;display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);color:var(--text);border-radius:18px;padding:18px 20px}
-.guar h3{font:700 16px/1.2 var(--sans);color:var(--ink);margin:0 0 2px}
-.guar p{margin:0;font-size:14px;color:var(--muted)}
+#como-comprar{padding-top:0}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.flow li{background:#fff;color:var(--text);border-radius:24px;padding:22px 22px 24px;box-shadow:0 22px 44px -24px rgba(0,30,70,.55)}
+.flow li:nth-child(1){--c:var(--blue)}.flow li:nth-child(2){--c:var(--green)}.flow li:nth-child(3){--c:var(--pink)}
+.stepn{display:block;font:700 44px/1 var(--sans);color:var(--c);letter-spacing:-.03em;margin-bottom:12px}
+.flow h3{font:700 20px/1.2 var(--sans);color:var(--ink);margin:0 0 6px;letter-spacing:-.01em}
+.flow p{margin:0;color:var(--muted);font-size:14.5px}
+.guar{margin-top:20px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;background:#fff;color:var(--text);border-radius:24px;padding:20px 22px;box-shadow:0 22px 44px -24px rgba(0,30,70,.55)}
+.guar h3{font:700 20px/1.2 var(--sans);color:var(--ink);margin:0 0 4px;letter-spacing:-.01em}
+.guar p{margin:0;font-size:14.5px;color:var(--muted)}
 .pays{display:flex;flex-wrap:wrap;gap:6px}
 .pays span{background:var(--soft);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
 
@@ -206,12 +205,10 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 .ptile figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;font-size:13px;color:#5a6b7d}
 .ptile figcaption img{height:24px;width:auto}
 .cgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.cgrid li{border:1px solid #e3eaf2;border-radius:14px;padding:16px}
-.cgrid svg{width:24px;height:24px;fill:none;stroke:var(--deep);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;margin-bottom:10px}
-.cgrid b{display:block;font-size:15px;color:var(--ink)}
-.cgrid span{display:block;font-size:13.5px;color:#5a6b7d;margin-top:2px}
+.cgrid li{background:#fff;border-radius:20px;padding:18px 20px;box-shadow:0 18px 36px -26px rgba(0,30,70,.45)}
+.cgrid b{display:block;font:700 19px/1.2 var(--sans);color:var(--c);letter-spacing:-.01em}
+.cgrid span{display:block;font-size:14px;color:var(--muted);margin-top:4px}
 .links2{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.links2 a{background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:14px;border-radius:999px;padding:10px 18px}
 
 /* ---------- dúvidas ---------- */
 .faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
@@ -242,7 +239,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 .sticky{display:none}
 .reveal{transform:translateY(18px);transition:transform .7s}
 .reveal.in{transform:none}
-@media (max-width:1000px){.grid{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto}}
+@media (max-width:1000px){.flow{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto}.guar{max-width:520px;margin-left:auto;margin-right:auto}.grid{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto}}
 @media (max-width:900px){
   .hero .wrap,.inside .wrap,.stats .wrap,.about .wrap{grid-template-columns:minmax(0,1fr)}
   .covers{justify-self:center;max-width:420px}
@@ -251,12 +248,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 }
 @media (max-width:640px){
   .cgrid{grid-template-columns:minmax(0,1fr)}
-  .flow{grid-template-columns:minmax(0,1fr);gap:18px}
-  .flow::before{top:22px;bottom:22px;left:22px;right:auto;border-top:0;border-left:2px dashed var(--line)}
-  .flow li{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:14px;text-align:left;padding:0}
-  .flow li .ico{grid-row:span 3}
-  .flow small{margin-top:0}
-  .flow p{margin:0;max-width:none}
+  .flow{grid-template-columns:minmax(0,1fr);gap:14px}
   .ptile{max-width:260px}
   body{font-size:15px}
   .final p{padding-right:0;padding-top:40px}
@@ -313,18 +305,17 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   </div>
 </section>
 
-<section class="s-soft" id="como-comprar">
+<section class="s-deep comprar" id="como-comprar">
   <div class="wrap">
     <p class="kick">Como comprar</p>
     <h2>Três passos e você já está estudando</h2>
     <p class="lede">O pagamento é feito pela Hotmart, a maior plataforma de produtos digitais do Brasil.</p>
     <ol class="flow">
-      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.4 11.2a1.5 1.5 0 0 0 1.5 1.2h8.3a1.5 1.5 0 0 0 1.5-1.1L21 7.5H6.4"/></svg></span><small>Passo 1</small><h3>Escolha</h3><p>Toque em comprar na apostila do seu vestibular.</p></li>
-      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg></span><small>Passo 2</small><h3>Pague</h3><p>Pix, cartão em parcelas ou boleto, no checkout seguro da Hotmart.</p></li>
-      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg></span><small>Passo 3</small><h3>Receba</h3><p>Com o pagamento aprovado, o acesso chega no seu e-mail.</p></li>
+      <li class="reveal"><b class="stepn">1</b><h3>Escolha</h3><p>Toque em comprar na apostila do seu vestibular.</p></li>
+      <li class="reveal"><b class="stepn">2</b><h3>Pague</h3><p>Pix, cartão em parcelas ou boleto, no checkout seguro da Hotmart.</p></li>
+      <li class="reveal"><b class="stepn">3</b><h3>Receba</h3><p>Com o pagamento aprovado, o acesso chega no seu e-mail.</p></li>
     </ol>
     <div class="guar reveal">
-      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.6-3.4 8.3-8 9-4.6-.7-8-4.4-8-9V6z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg></span>
       <div><h3>7 dias de garantia</h3><p>Se a apostila não for o que você esperava, peça o reembolso pela própria Hotmart.</p></div>
       <div class="pays"><span>Pix</span><span>Cartão</span><span>Boleto</span></div>
     </div>
@@ -377,7 +368,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 </section>
 
 
-<section class="about s-white" id="sobre">
+<section class="about s-soft" id="sobre">
   <div class="wrap">
     <figure class="ptile reveal">
       <div class="pbg"><img src="img/foto.webp" alt="Professor Pedro Araújo" width="1020" height="1316"></div>
@@ -388,12 +379,12 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
       <h2>Pedro Araújo</h2>
       <p class="lede">Professor de Matemática e criador da Sala dos Números. Montei cada apostila com o mesmo cuidado das minhas aulas: simples, sem perder o rigor, e focada no que a sua prova cobra.</p>
       <ul class="cgrid">
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/><path d="M22 9v6"/></svg><b>Licenciado pela UFC</b><span>Matemática, Universidade Federal do Ceará</span></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg><b>9 aprovações</b><span>em instituições públicas; efetivo em Caucaia</span></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><b>Nota máxima</b><span>na discursiva do concurso de Caucaia</span></li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5"/></svg><b>Escolas de destaque</b><span>Farias Brito, Adauto Bezerra e César Cals</span></li>
+        <li style="--c:var(--blue)"><b>Licenciado pela UFC</b><span>Matemática, Universidade Federal do Ceará</span></li>
+        <li style="--c:var(--green)"><b>9 aprovações</b><span>em instituições públicas; efetivo em Caucaia</span></li>
+        <li style="--c:var(--pink)"><b>Nota máxima</b><span>na discursiva do concurso de Caucaia</span></li>
+        <li style="--c:var(--ink)"><b>Escolas de destaque</b><span>Farias Brito, Adauto Bezerra e César Cals</span></li>
       </ul>
-      <div class="links2"><a href="https://www.instagram.com/matematizando/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@matematizandocompedroaraujo" target="_blank" rel="noopener">YouTube</a></div>
+      <div class="links2"><a class="btn b-pink" href="https://www.instagram.com/matematizando/" target="_blank" rel="noopener">Instagram</a><a class="btn b-ink" href="https://www.youtube.com/@matematizandocompedroaraujo" target="_blank" rel="noopener">YouTube</a></div>
     </div>
   </div>
 </section>
