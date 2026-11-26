@@ -113,9 +113,6 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 .price b{font:700 18px/1.3 var(--sans);color:var(--ink)}
 .buy{width:100%;min-height:48px;border-radius:999px;border:0;background:var(--pink);color:#fff;font:700 15px var(--sans);cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;transition:filter .15s,transform .15s}
 .buy:hover{filter:brightness(1.07);transform:translateY(-1px)}
-.combo{margin-top:20px;background:var(--ink);border-radius:24px;padding:clamp(18px,2.4vw,26px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:center}
-.combo h3{font:700 19px/1.2 var(--sans);margin:0 0 4px}
-.combo p{margin:0;color:#c8d6e6}
 
 /* ---------- livro ---------- */
 .inside .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px);align-items:center}
@@ -250,7 +247,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   .hero .wrap,.inside .wrap,.stats .wrap,.about .wrap{grid-template-columns:minmax(0,1fr)}
   .covers{justify-self:center;max-width:420px}
   .faq{grid-template-columns:minmax(0,1fr)}
-  .combo,.guar{grid-template-columns:minmax(0,1fr)}
+  .guar{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:640px){
   .cgrid{grid-template-columns:minmax(0,1fr)}
@@ -313,11 +310,6 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
     <h2>Escolha a sua prova</h2>
     <p class="lede">Questões reais das provas anteriores, separadas por assunto. Você estuda exatamente o que cai no seu vestibular.</p>
     <div class="grid" id="grid"></div>
-    <div class="combo reveal">
-      
-      <div><h3>Vai fazer mais de uma prova?</h3><p>Fale com o professor pelo WhatsApp e monte um combo com as apostilas que você precisa.</p></div>
-      <a class="btn b-pink" id="comboBtn" href="#" target="_blank" rel="noopener">Quero um combo</a>
-    </div>
   </div>
 </section>
 
@@ -538,7 +530,6 @@ document.addEventListener("click", e => {
   $("soonWa").href = wa(`Olá, professor! Quero ser avisado quando a apostila Matemática por Assunto ${b.dataset.soon} for lançada.`);
   dlg.showModal();
 });
-$("comboBtn").href = wa("Olá, professor! Vou fazer mais de um vestibular e quero um combo das apostilas Matemática por Assunto.");
 $("yr").textContent = new Date().getFullYear();
 if (CHECKOUT_NA_PAGINA && APOSTILAS.some(a => a.checkout)) {
   const s = document.createElement("script"); s.src = "https://static.hotmart.com/checkout/widget.min.js"; document.head.appendChild(s);
