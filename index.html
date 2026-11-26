@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
 <style>
 :root{color-scheme:light;--blue:#409BE4;--deep:#2289D4;--navy:#14365c;--ink:#304254;--muted:#5c6f82;--pink:#FD0C64;--yellow:#FCE906;--soft:#EAF4FD;--line:#CFE4F7;--white:#fff;
-  --c-uece:#2289D4;--c-unifor:#0f9d8a;--c-unichristus:#7a3fd1}
+  --c-uece:#2289D4;--c-unifor:#1f9e6e;--c-unichristus:#e8195f}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:70px}
 body{margin:0;background:#fff;color:var(--ink);font:16px/1.6 Montserrat,system-ui,sans-serif;overflow-x:clip}
@@ -33,7 +33,8 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px
 .menu a{font-weight:700;font-size:14px;text-decoration:none;color:var(--ink);padding:8px 0}
 .menu a:hover{color:var(--deep)}
 .menu .buy{background:var(--pink);color:#fff;padding:9px 18px;border-radius:999px}
-@media (max-width:720px){.menu a:not(.buy){display:none}}
+@media (max-width:720px){.menu a:not(.buy){display:none}.brand .pre{display:none}}
+.brand b{font-weight:900}
 
 /* hero */
 .hero{background:var(--blue);color:#fff;position:relative;overflow:hidden}
@@ -53,12 +54,13 @@ h1 em{font-style:normal;background:#fff;color:var(--deep);padding:0 .22em;border
 .proof b{display:block;font-size:24px;color:#fff;font-weight:900;line-height:1.1}
 
 .fan{position:relative;height:clamp(300px,38vw,470px)}
-.fan .cv{position:absolute;top:50%;left:50%;width:clamp(150px,19vw,240px);transform-origin:50% 100%;transition:transform .35s}
-.fan .cv:nth-child(1){transform:translate(-118%,-48%) rotate(-12deg)}
+.fan .cv{position:absolute;top:50%;left:50%;width:clamp(140px,15.5vw,205px);transform-origin:50% 100%;transition:transform .35s}
+.fan .cv:nth-child(1){transform:translate(-112%,-46%) rotate(-10deg)}
 .fan .cv:nth-child(2){transform:translate(-50%,-56%);z-index:2}
-.fan .cv:nth-child(3){transform:translate(18%,-48%) rotate(12deg)}
-.fan:hover .cv:nth-child(1){transform:translate(-128%,-50%) rotate(-15deg)}
-.fan:hover .cv:nth-child(3){transform:translate(28%,-50%) rotate(15deg)}
+.fan .cv:nth-child(3){transform:translate(12%,-46%) rotate(10deg)}
+.fan .cv{outline:4px solid rgba(255,255,255,.9)}
+.fan:hover .cv:nth-child(1){transform:translate(-120%,-48%) rotate(-13deg)}
+.fan:hover .cv:nth-child(3){transform:translate(20%,-48%) rotate(13deg)}
 
 /* capa (imagem ou capa gerada se a imagem faltar) */
 .cv{aspect-ratio:376/532;border-radius:10px;overflow:hidden;box-shadow:0 24px 44px -16px rgba(5,30,70,.55);background:var(--c,var(--deep));position:relative}
@@ -193,7 +195,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#">Matemática <span>por Assunto</span></a>
+    <a class="brand" href="#"><b class="pre">Sala dos Números · </b><span>Matemática por Assunto</span></a>
     <div class="menu">
       <a href="#apostilas">Apostilas</a>
       <a href="#por-dentro">Por dentro</a>
@@ -207,9 +209,9 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 <header class="hero">
   <div class="wrap">
     <div>
-      <span class="tag">Lançamento · Vestibulares do Ceará</span>
+      <span class="tag">Lançamento · Sala dos Números</span>
       <h1>A Matemática do seu vestibular, <em>assunto por assunto</em>.</h1>
-      <p class="lead">Apostilas feitas para a prova que você vai fazer: UECE, UNIFOR ou Unichristus. Questões organizadas por tema, do básico ao nível da prova, para você estudar com foco e sem perder tempo.</p>
+      <p class="lead">Apostilas feitas para a prova que você vai fazer: UECE (1ª e 2ª fases), UNIFOR Medicina ou Unichristus Medicina. Questões organizadas por tema, do básico ao nível da prova, para você estudar com foco e sem perder tempo.</p>
       <div class="ctas">
         <a class="btn btn-pink" href="#apostilas">Escolher minha apostila</a>
         <a class="btn btn-line" href="#por-dentro">Ver como é por dentro</a>
@@ -338,7 +340,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yr"></span> Matematizando · Sala dos Números · Prof. Pedro Araújo</span>
+    <span>© <span id="yr"></span> Sala dos Números · Prof. Pedro Araújo</span>
     <span>Pagamentos processados pela Hotmart</span>
   </div>
 </footer>
@@ -366,17 +368,17 @@ const WHATSAPP = "5585997336975";
 const CHECKOUT_NA_PAGINA = true; // true = abre o checkout Hotmart numa janela por cima do site
 
 const APOSTILAS = [
-  { id:"uece", uni:"UECE", nome:"Matemática por Assunto", para:"Para o vestibular da UECE",
-    capa:"img/uece.png", cor:"var(--c-uece)", destaque:"Mais procurada",
-    itens:["Questões no estilo da UECE, organizadas por assunto","Do básico ao nível da prova","Gabarito para conferir cada questão","PDF para estudar no celular ou imprimir"],
+  { id:"uece", uni:"UECE", nome:"Matemática por Assunto", para:"Vestibular UECE · 1ª e 2ª fases",
+    capa:"img/uece.jpg", cor:"var(--c-uece)", destaque:"2ª edição",
+    itens:["Cobre a 1ª e a 2ª fase da UECE","Questões no estilo da UECE, organizadas por assunto","Do básico ao nível da prova","Gabarito para conferir cada questão","PDF para estudar no celular ou imprimir"],
     price:"", installments:"", checkout:"" },
-  { id:"unifor", uni:"UNIFOR", nome:"Matemática por Assunto", para:"Para o vestibular da UNIFOR",
-    capa:"img/unifor.png", cor:"var(--c-unifor)", destaque:"",
-    itens:["Questões no estilo da UNIFOR, organizadas por assunto","Do básico ao nível da prova","Gabarito para conferir cada questão","PDF para estudar no celular ou imprimir"],
+  { id:"unifor", uni:"UNIFOR", nome:"Matemática por Assunto", para:"Vestibular UNIFOR · Medicina",
+    capa:"img/unifor.jpg", cor:"var(--c-unifor)", destaque:"1ª edição",
+    itens:["Focada no vestibular de Medicina da UNIFOR","Questões no estilo da UNIFOR, organizadas por assunto","Do básico ao nível da prova","Gabarito para conferir cada questão","PDF para estudar no celular ou imprimir"],
     price:"", installments:"", checkout:"" },
-  { id:"unichristus", uni:"Unichristus", nome:"Matemática por Assunto", para:"Para o vestibular da Unichristus",
-    capa:"img/unichristus.png", cor:"var(--c-unichristus)", destaque:"",
-    itens:["Questões no estilo da Unichristus, organizadas por assunto","Do básico ao nível da prova","Gabarito para conferir cada questão","PDF para estudar no celular ou imprimir"],
+  { id:"unichristus", uni:"Unichristus", nome:"Matemática por Assunto", para:"Vestibular Unichristus · Medicina",
+    capa:"img/unichristus.jpg", cor:"var(--c-unichristus)", destaque:"1ª edição",
+    itens:["Focada no vestibular de Medicina da Unichristus","Questões no estilo da Unichristus, organizadas por assunto","Do básico ao nível da prova","Gabarito para conferir cada questão","PDF para estudar no celular ou imprimir"],
     price:"", installments:"", checkout:"" }
 ];
 /* ============================================================ */
@@ -428,8 +430,11 @@ if (CHECKOUT_NA_PAGINA && APOSTILAS.some(a => a.checkout)) {
 
 /* Esconde a barra fixa do celular quando a seção das apostilas está na tela */
 const mbar = document.getElementById("mbar");
-new IntersectionObserver(([en]) => mbar.classList.toggle("hide", en.isIntersecting), {threshold:.15})
-  .observe(document.getElementById("apostilas"));
+const seen = new Set();
+const io = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target)); mbar.classList.toggle("hide", seen.size > 0); }, {threshold:.15});
+mbar.classList.add("hide");
+["apostilas"].forEach(id => io.observe(document.getElementById(id)));
+io.observe(document.querySelector(".hero"));
 </script>
 </body>
 </html>
