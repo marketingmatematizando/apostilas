@@ -47,7 +47,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px
 
 /* ---------- HERO que muda de cor ---------- */
 .hero{position:relative;overflow:hidden;background:var(--hc,var(--blue));transition:background-color .6s ease}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,56px);align-items:center;padding-top:clamp(28px,4vw,52px);padding-bottom:clamp(90px,10vw,124px)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,56px);align-items:center;padding-top:clamp(80px,10vw,132px);padding-bottom:clamp(90px,10vw,124px)}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .htit{height:clamp(130px,14vw,185px);margin:0 0 14px;display:flex;align-items:center}
 .htit img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:left center;transition:opacity .3s}
@@ -240,7 +240,8 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   .hero .covers{order:1;margin:0 auto 18px}
   .hero .hcta{order:2}
   .fx.tr{width:104px}
-  .hero .htit{margin-top:44px}
+  .hero .wrap{padding-top:28px}
+  .hero .htit{margin-top:62px}
   .faq{grid-template-columns:minmax(0,1fr)}
   .about .wrap{align-items:start}
   .atext{padding-bottom:0}
