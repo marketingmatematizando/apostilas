@@ -65,10 +65,6 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px
 .b-white{background:#fff;color:var(--ink)}
 .b-pink{background:var(--pink);color:#fff}
 .b-ink{background:var(--ink);color:#fff}
-.picker{display:flex;flex-wrap:wrap;gap:8px}
-.picker button{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px 0 10px;border-radius:999px;border:2px solid rgba(255,255,255,.7);background:transparent;color:#fff;font:600 14px var(--sans);cursor:pointer}
-.picker button i{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 0 2px #fff}
-.picker button[aria-pressed=true]{background:#fff;color:var(--ink);border-color:#fff}
 .covers{position:relative;aspect-ratio:1/1.02;max-width:400px;width:100%;justify-self:end}
 .covers img{position:absolute;width:56%;top:50%;left:50%;border-radius:10px;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);border:5px solid #fff;transition:transform .7s cubic-bezier(.3,1.2,.4,1),z-index 0s .25s;cursor:pointer}
 .covers img[data-pos="0"]{transform:translate(-50%,-50%) rotate(-2deg);z-index:3}
@@ -284,7 +280,6 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
       <h1 class="vh" id="hH1">Matemática por Assunto UECE, 1ª e 2ª fases</h1>
       <div class="htit"><img id="hTit" src="img/titulo-uece.png" alt="" width="900" height="596"></div>
       <p class="hlead">Questões das provas anteriores separadas por assunto, com levantamento estatístico e checklist de estudo.</p>
-      <div class="picker" id="picker" role="group" aria-label="Escolha o vestibular"></div>
       <div class="hfacts" id="hFacts"></div>
       <div class="hcta">
         <a class="btn b-white" id="hBuy" href="#apostilas">Quero a apostila</a>
@@ -469,7 +464,6 @@ const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ---------- topo ---------- */
 let hi = 0, hTimer = null;
-$("picker").innerHTML = APOSTILAS.map(a => `<button type="button" style="--c:${a.cor}" aria-pressed="false"><i></i>${a.uni}</button>`).join("");
 $("covers").innerHTML = APOSTILAS.map((a, i) => `<img src="${a.capa}" alt="Capa da apostila ${a.uni}" data-i="${i}" data-pos="${i}">`).join("");
 function hero(i){
   hi = i; const a = APOSTILAS[i];
@@ -480,11 +474,9 @@ function hero(i){
   $("hFacts").innerHTML = `<span><b>${a.questoes}</b>questões</span><span><b>${a.nAssuntos}</b>assuntos</span><span>${a.para.split(" · ")[1]} · ${a.edicao}</span>`;
   $("hBuy").textContent = `Quero a da ${a.uni}`;
   $("hBuy").href = `#card-${a.id}`;
-  [...$("picker").children].forEach((b, k) => b.setAttribute("aria-pressed", k === i));
   [...$("covers").children].forEach((img, k) => img.dataset.pos = (k - i + 3) % 3);
 }
 function autoHero(){ clearInterval(hTimer); if (!reduce) hTimer = setInterval(() => hero((hi + 1) % 3), 4200); }
-[...$("picker").children].forEach((b, i) => b.addEventListener("click", () => { hero(i); autoHero(); }));
 $("covers").addEventListener("click", e => { const im = e.target.closest("img"); if (im) { hero(+im.dataset.i); autoHero(); } });
 $("hero").addEventListener("mouseenter", () => clearInterval(hTimer));
 $("hero").addEventListener("mouseleave", autoHero);
