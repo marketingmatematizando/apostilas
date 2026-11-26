@@ -4,347 +4,462 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Matemática por Assunto · Sala dos Números</title>
-<meta name="description" content="Apostilas de Matemática organizadas por assunto para os vestibulares da UECE, UNIFOR Medicina e Unichristus Medicina. Do professor Pedro Araújo.">
+<meta name="description" content="Apostilas de Matemática por assunto para UECE (1ª e 2ª fases), UNIFOR Medicina e Unichristus Medicina. Questões de provas anteriores, levantamento estatístico e checklist. Prof. Pedro Araújo.">
 <meta name="theme-color" content="#409BE4">
 <meta property="og:title" content="Matemática por Assunto · Sala dos Números">
 <meta property="og:description" content="A Matemática do seu vestibular, assunto por assunto. UECE, UNIFOR e Unichristus.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="img/uece.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23409BE4'/%3E%3Ctext x='32' y='46' font-family='Arial' font-weight='900' font-size='40' text-anchor='middle' fill='%23fff'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23409BE4'/%3E%3Cpath d='M32 0h32v32A32 32 0 0 1 32 0z' fill='%23FD0C64'/%3E%3Ccircle cx='20' cy='44' r='10' fill='%23FCE906'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* Mesma linguagem do site de agendamento do Matematizando:
-   azul #409BE4 chapado, recortes brancos (.blob), cartões brancos de canto 28px,
-   azul escuro #2289D4 nas seções alternadas, rosa #FD0C64 nos botões, amarelo #FCE906 nos destaques. */
-:root{color-scheme:light;--blue:#409BE4;--deep:#2289D4;--ink:#304254;--muted:#5c6f82;--pink:#FD0C64;--yellow:#FCE906;--green:#2DAF7E;--soft:#EAF4FD;--line:#CFE4F7;--white:#fff}
+/* SALA DOS NÚMEROS
+   Cores das capas: azul #409BE4 (UECE), verde #2DAF7E (UNIFOR), rosa #FD0C64 (Unichristus), amarelo #FCE906, branco e preto.
+   Formas das capas: quartos de círculo, círculos e quadrados em mosaico.
+   Tipo: Lexend (geométrica, como "matemática por assunto" nas capas) + Bebas Neue (condensada, como "UECE"). */
+:root{color-scheme:light;
+  --blue:#409BE4;--deep:#2289D4;--green:#2DAF7E;--pink:#FD0C64;--yellow:#FCE906;--ink:#16222f;--text:#304254;--muted:#5c6f82;--soft:#EEF5FC;--line:#D6E6F5;--white:#fff;
+  --brand:var(--blue);
+  --display:"Bebas Neue",Impact,"Arial Narrow",sans-serif;
+  --sans:Lexend,"Segoe UI",system-ui,sans-serif}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{margin:0;background:var(--blue);color:#fff;font:16px/1.55 Montserrat,system-ui,sans-serif;overflow-x:clip}
-img{max-width:100%}
-.wrap{max-width:1180px;margin:0 auto;padding:0 max(5vw,18px)}
+body{margin:0;background:var(--blue);color:#fff;font:17px/1.6 var(--sans);overflow-x:clip}
+img{max-width:100%;display:block}
 a{color:inherit}
-button:focus-visible,a:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 max(5vw,18px)}
+button{font-family:inherit}
+button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
 
-nav{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 2px 14px rgba(16,40,70,.12)}
-nav .wrap{display:flex;justify-content:flex-end;align-items:center;gap:clamp(14px,3vw,34px);overflow-x:auto;white-space:nowrap}
-nav a{color:var(--ink);font-weight:700;font-size:15px;text-decoration:none;padding:16px 0;flex:none}
-nav a:hover{color:var(--deep)}
-nav .navcta{background:var(--pink);color:#fff;padding:9px 18px;border-radius:999px;margin:7px 0}
-nav .navcta:hover{color:#fff}
+/* ---------- formas da Sala ---------- */
+.mosaic{display:grid;grid-template-columns:repeat(var(--cols,2),var(--t,56px));grid-auto-rows:var(--t,56px);gap:0;pointer-events:auto}
+.mosaic i{display:block;transition:transform .5s cubic-bezier(.3,1.4,.5,1),border-radius .5s}
+.mosaic i:hover{transform:rotate(90deg)}
+.qtl{border-radius:100% 0 0 0}.qtr{border-radius:0 100% 0 0}.qbl{border-radius:0 0 0 100%}.qbr{border-radius:0 0 100% 0}
+.ci{border-radius:50%;transform:scale(.72)}.ci:hover{transform:scale(.72) rotate(90deg)}
+.e{visibility:hidden}
+.pk{background:var(--pink)}.yl{background:var(--yellow)}.wh{background:#fff}.bk{background:var(--ink)}.bl{background:var(--blue)}.gr{background:var(--green)}
+.deco{position:absolute;z-index:0}
 
-.blob{display:inline-block;background:#fff;color:var(--deep);font-weight:700;padding:.08em .55em .14em;border-radius:999px;line-height:1.15}
-h1{font:800 clamp(28px,3.6vw,44px)/1.12 Montserrat,sans-serif;margin:26px 0 14px;text-wrap:balance}
-h1 .blob{font-size:.62em;vertical-align:.3em}
-h2{font:800 clamp(30px,4.2vw,48px)/1.08 Montserrat,sans-serif;margin:0 0 10px;text-wrap:balance}
-h2 .blob{font-size:.72em;vertical-align:.18em}
-.intro{margin:0 0 32px;color:#f2f8ff;max-width:58ch;font-size:clamp(16px,1.5vw,18px)}
-.kicker{margin:0 0 6px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--yellow)}
-section{padding:clamp(56px,8vw,104px) 0}
-.alt{background:var(--deep)}
+/* ---------- topo ---------- */
+nav{position:sticky;top:0;z-index:30;background:#fff;box-shadow:0 2px 14px rgba(16,40,70,.1)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:60px}
+.nlogo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:700;font-size:15px;white-space:nowrap}
+.nlogo .dot{width:26px;height:26px;display:grid;grid-template-columns:1fr 1fr}
+.nlogo .dot i{display:block}
+.links{display:flex;gap:clamp(12px,2.4vw,28px);overflow-x:auto;white-space:nowrap;align-items:center}
+.links a{color:var(--text);font-weight:600;font-size:15px;text-decoration:none;padding:8px 0}
+.links a:hover{color:var(--deep)}
+.links .navcta{background:var(--pink);color:#fff;padding:9px 20px;border-radius:999px}
+.links .navcta:hover{color:#fff}
 
-.cta{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border-radius:999px;background:#fff;color:var(--deep);font-weight:800;font-size:18px;text-decoration:none;box-shadow:0 8px 20px rgba(10,60,120,.18);border:0;cursor:pointer;font-family:inherit}
-.cta.pink{background:var(--pink);color:#fff;box-shadow:0 10px 24px -8px rgba(160,0,60,.55)}
-.cta:hover{transform:translateY(-1px)}
+/* ---------- HERO que muda de cor ---------- */
+.hero{position:relative;overflow:hidden;background:var(--brand);transition:background-color .7s ease}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,56px);align-items:center;padding-top:clamp(36px,5vw,70px);padding-bottom:clamp(56px,7vw,96px)}
+.hero .logo{width:min(230px,58vw);height:auto}
+.mpa{font:600 clamp(30px,4.2vw,56px)/1 var(--sans);letter-spacing:-.02em;margin:clamp(22px,3vw,36px) 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:.25em .4em}
+.mpa .pill{font-size:.38em;font-weight:700;background:#fff;color:var(--brand);padding:.45em 1em;border-radius:999px;letter-spacing:0;transition:color .7s}
+.uni{font:400 clamp(96px,16vw,210px)/.86 var(--display);letter-spacing:.01em;margin:6px 0 0;height:.9em;overflow:hidden;position:relative}
+.uni span{display:block;animation:up .55s cubic-bezier(.2,.9,.3,1)}
+@keyframes up{from{transform:translateY(60%);opacity:0}}
+.hfacts{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.hfacts b{font-weight:700;border:2px solid rgba(255,255,255,.75);border-radius:999px;padding:6px 16px;font-size:15px}
+.hcta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 30px;border-radius:999px;font:700 17px var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.b-white{background:#fff;color:var(--ink)}
+.b-pink{background:var(--pink);color:#fff}
+.b-ink{background:var(--ink);color:#fff}
+.picker{display:flex;gap:10px;margin-top:22px;padding-bottom:22px}
+.picker button{width:48px;height:48px;border-radius:50%;border:3px solid #fff;cursor:pointer;position:relative;transition:transform .2s}
+.picker button[aria-pressed=true]{transform:scale(1.18);box-shadow:0 0 0 4px rgba(255,255,255,.35)}
+.picker button span{position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:6px;font-size:11px;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .2s;color:#fff}
+.picker button:hover span,.picker button[aria-pressed=true] span{opacity:1}
+.covers{position:relative;aspect-ratio:1/1.02;max-width:520px;width:100%;justify-self:end}
+.covers img{position:absolute;width:56%;top:50%;left:50%;border-radius:10px;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);border:5px solid #fff;transition:transform .7s cubic-bezier(.3,1.2,.4,1),z-index 0s .25s;cursor:pointer}
+.covers img[data-pos="0"]{transform:translate(-50%,-50%) rotate(-2deg);z-index:3}
+.covers img[data-pos="1"]{transform:translate(-8%,-56%) rotate(9deg) scale(.86);z-index:2}
+.covers img[data-pos="2"]{transform:translate(-92%,-44%) rotate(-11deg) scale(.86);z-index:1}
+.hero .d1{top:0;right:0;--t:clamp(44px,6vw,84px);--cols:3}
+.hero .d2{bottom:0;left:44%;--t:clamp(40px,5vw,72px);--cols:3}
 
-/* HERO */
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:end;gap:24px;padding-top:clamp(28px,5vw,60px)}
-.hero .txt{padding-bottom:clamp(36px,6vw,80px)}
-.logo{width:min(300px,70vw);height:auto;display:block}
-.lead{font-size:clamp(16px,1.6vw,19px);max-width:46ch;margin:0 0 26px;color:#f2f8ff}
-.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:0}
-.chips li{border:1.5px solid rgba(255,255,255,.7);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:600}
-.stage{position:relative;justify-self:end;width:100%;max-width:470px;aspect-ratio:470/520;align-self:end}
-.stage .foto{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:76%;height:auto;z-index:2;display:block}
-.stage .cv{position:absolute;width:38%;border-radius:8px;box-shadow:0 20px 40px -14px rgba(0,30,80,.55);border:4px solid #fff}
-.stage .c1{left:0;top:18%;transform:rotate(-12deg);z-index:1}
-.stage .c2{right:0;top:12%;transform:rotate(10deg);z-index:1}
-.stage .c3{right:4%;bottom:6%;width:30%;transform:rotate(-6deg);z-index:3}
+/* ---------- seções ---------- */
+section{position:relative;padding:clamp(64px,9vw,120px) 0;overflow:hidden}
+section > .wrap{position:relative;z-index:1}
+.s-deep{background:var(--deep)}
+.s-white{background:#fff;color:var(--text)}
+.kick{display:inline-flex;align-items:center;gap:10px;font:700 14px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin:0 0 14px}
+.kick::before{content:"";width:22px;height:22px;border-radius:0 100% 0 0;background:currentColor}
+.s-white .kick{color:var(--pink)}
+h2{font:700 clamp(38px,5.6vw,72px)/1.02 var(--sans);letter-spacing:-.03em;margin:0 0 16px;text-wrap:balance}
+h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em .06em;border-radius:999px;line-height:1.12}
+.s-white h2{color:var(--ink)}
+.s-white h2 .blob{background:var(--pink);color:#fff}
+.lede{font-size:clamp(17px,1.6vw,20px);max-width:56ch;margin:0 0 clamp(28px,4vw,44px);color:#eef6ff}
+.s-white .lede{color:var(--muted)}
 
-/* APOSTILAS */
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-.card{background:#fff;color:var(--ink);border-radius:28px;padding:clamp(18px,2.4vw,26px);box-shadow:0 18px 40px -20px rgba(10,50,100,.45);display:flex;flex-direction:column}
-.card .cover{position:relative;border-radius:18px;padding:22px 22px 0;background:var(--c);overflow:hidden;display:flex;justify-content:center}
-.card .cover img{width:68%;display:block;border-radius:6px 6px 0 0;box-shadow:0 -6px 30px rgba(0,0,0,.18);transition:transform .25s}
-.card:hover .cover img{transform:translateY(-6px)}
-.ed{position:absolute;top:12px;left:12px;background:#fff;color:var(--ink);font-weight:800;font-size:12px;padding:4px 12px;border-radius:999px}
-.card h3{font:800 22px/1.2 Montserrat,sans-serif;color:var(--deep);margin:18px 0 2px}
-.card .for{font-weight:600;font-size:14px;color:var(--muted);margin:0}
-.card ul{list-style:none;padding:0;margin:16px 0;display:grid;gap:9px;font-size:15px;flex:1}
-.card li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px}
-.card li::before{content:"";width:20px;height:20px;border-radius:50%;margin-top:2px;background:var(--c) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
-.price{background:var(--soft);border-radius:18px;padding:12px 16px;margin-bottom:12px}
-.price .note{font-size:13px;color:var(--muted)}
-.price .val{font:800 22px/1.25 Montserrat,sans-serif;color:var(--deep)}
-.buy{min-height:54px;border:0;border-radius:999px;background:var(--pink);color:#fff;font:800 17px Montserrat,sans-serif;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;width:100%}
-.buy:hover{filter:brightness(1.05)}
-.combo{margin-top:22px;background:var(--deep);border-radius:28px;padding:clamp(20px,3vw,30px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;box-shadow:0 18px 40px -20px rgba(10,50,100,.45)}
-.combo h3{font:800 22px/1.2 Montserrat,sans-serif;margin:0 0 4px}
-.combo p{margin:0;color:#eaf4ff}
+/* ---------- apostilas ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.card{background:#fff;color:var(--text);border-radius:30px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 22px 44px -24px rgba(0,30,70,.55);transition:transform .3s}
+.card:hover{transform:translateY(-6px)}
+.card .top{position:relative;background:var(--c);padding:26px 26px 0;display:flex;justify-content:center;overflow:hidden;min-height:250px}
+.card .top img{width:62%;border-radius:6px 6px 0 0;box-shadow:0 -10px 30px rgba(0,0,0,.2);transition:transform .35s;position:relative;z-index:1;align-self:flex-end}
+.card:hover .top img{transform:translateY(-10px) rotate(-2deg)}
+.card .top .mosaic{position:absolute;--t:38px}
+.card .top .m1{top:0;right:0}.card .top .m2{bottom:0;left:0}
+.ed{position:absolute;top:14px;left:14px;z-index:2;background:#fff;color:var(--ink);font-weight:700;font-size:12px;padding:5px 12px;border-radius:999px}
+.card .body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.card .nm{font:400 46px/.9 var(--display);color:var(--c);margin:0;letter-spacing:.01em}
+.card .for{font-weight:600;font-size:14px;color:var(--muted);margin:4px 0 0}
+.big{display:flex;gap:22px;margin:18px 0 6px;padding:14px 0;border-top:2px solid var(--soft);border-bottom:2px solid var(--soft)}
+.big div{display:grid}
+.big b{font:400 42px/.9 var(--display);color:var(--ink)}
+.big span{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.card ul{list-style:none;padding:0;margin:14px 0 18px;display:grid;gap:9px;font-size:15px;flex:1}
+.card li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:10px;align-items:start}
+.card li::before{content:"";width:16px;height:16px;margin-top:4px;border-radius:0 100% 0 0;background:var(--c)}
+.price{margin-bottom:12px}
+.price small{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.price b{font:700 22px/1.3 var(--sans);color:var(--ink)}
+.buy{width:100%;min-height:56px;border-radius:999px;border:0;background:var(--pink);color:#fff;font:700 17px var(--sans);cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;transition:filter .15s,transform .15s}
+.buy:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.combo{margin-top:24px;background:var(--ink);border-radius:30px;padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center}
+.combo h3{font:700 24px/1.2 var(--sans);margin:0 0 4px}
+.combo p{margin:0;color:#c8d6e6}
+.combo .mosaic{--t:30px}
 
-/* POR DENTRO: apostila sendo folheada */
-.inside .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:center}
-.feats{list-style:none;margin:0;padding:0;display:grid;gap:16px}
-.feats li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start}
-.feats .num{width:40px;height:40px;border-radius:50%;background:var(--pink);color:#fff;font:800 19px/40px Montserrat,sans-serif;text-align:center}
-.feats b{display:block;font-size:17px;font-weight:800;margin:2px 0 2px}
+/* ---------- livro ---------- */
+.inside .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px);align-items:center}
+.feats{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.feats li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;align-items:start}
+.feats .ic{width:52px;height:52px;display:grid;grid-template-columns:1fr 1fr}
+.feats .ic i{display:block}
+.feats b{display:block;font-size:18px;font-weight:700;margin:2px 0}
 .feats p{margin:0;color:#eaf4ff;font-size:15px}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:22px}
-.tabs button{min-height:42px;padding:0 18px;border-radius:999px;border:2px solid rgba(255,255,255,.6);background:transparent;color:#fff;font:700 15px Montserrat,sans-serif;cursor:pointer}
-.tabs button[aria-pressed=true]{background:#fff;color:var(--deep);border-color:#fff}
-.bookwrap{display:flex;justify-content:center;padding:10px 0 20px}
-.book{--pw:min(285px,40vw);position:relative;width:calc(var(--pw)*2);aspect-ratio:752/532;perspective:2200px;transition:transform .8s cubic-bezier(.4,.1,.2,1)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+.tab{min-height:44px;padding:0 20px;border-radius:999px;border:2px solid rgba(255,255,255,.65);background:transparent;color:#fff;font:600 15px var(--sans);cursor:pointer}
+.tab[aria-pressed=true]{background:#fff;color:var(--ink);border-color:#fff}
+.bookwrap{display:flex;justify-content:center;padding:6px 0 10px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.book{--pw:min(300px,40vw);position:relative;width:calc(var(--pw)*2);aspect-ratio:752/532;perspective:2400px;transition:transform .8s cubic-bezier(.4,.1,.2,1);cursor:pointer}
 .book.closed{transform:translateX(-25%)}
-.book .base{position:absolute;top:0;bottom:0;width:50%;background:#fff;box-shadow:0 30px 50px -20px rgba(0,20,60,.6)}
-.book .base.l{left:0;border-radius:6px 0 0 6px;opacity:0;transition:opacity .3s .3s}
+.base{position:absolute;top:0;bottom:0;width:50%;box-shadow:0 34px 60px -24px rgba(0,20,60,.65)}
+.base.l{left:0;background:#fff;border-radius:6px 0 0 6px;opacity:0;transition:opacity .3s .3s}
 .book:not(.closed) .base.l{opacity:1}
-.book .base.r{right:0;border-radius:0 6px 6px 0;background:var(--acc);overflow:hidden}
-.more{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;padding:12%;color:#fff}
-.more b{font:800 calc(var(--pw)*.11)/1.05 Montserrat,sans-serif}
-.more span{font-weight:600;font-size:calc(var(--pw)*.055);line-height:1.35}
-.more a{margin-top:6px;background:#fff;color:var(--ink);font-weight:800;text-decoration:none;border-radius:999px;padding:8px 16px;font-size:calc(var(--pw)*.05)}
-.leaf{position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.45,.05,.25,1)}
+.base.r{right:0;border-radius:0 6px 6px 0;background:var(--ink);overflow:hidden}
+.leaf{position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.45,.05,.25,1)}
 .leaf.flipped{transform:rotateY(-180deg)}
-.leaf .f,.leaf .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#fff;color:var(--ink)}
+.leaf.peek{transform:rotateY(-14deg)}
+.leaf .f,.leaf .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#fff}
 .leaf .f{border-radius:0 6px 6px 0}
 .leaf .b{transform:rotateY(180deg);border-radius:6px 0 0 6px}
-.leaf .f::after{content:"";position:absolute;inset:0 auto 0 0;width:18px;background:linear-gradient(90deg,rgba(0,0,0,.12),transparent)}
-.leaf .b::after{content:"";position:absolute;inset:0 0 0 auto;width:18px;background:linear-gradient(270deg,rgba(0,0,0,.12),transparent)}
-.leaf img{width:100%;height:100%;object-fit:cover;display:block}
-.pg{padding:9% 9% 7%;height:100%;display:flex;flex-direction:column;font-size:calc(var(--pw)*.042)}
-.pg .hd{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--acc);padding-bottom:5%;margin-bottom:6%}
-.pg .hd b{color:var(--acc);font-weight:800;font-size:1.05em}
-.pg .hd span{background:var(--acc);color:#fff;font-weight:800;font-size:.8em;padding:.2em .7em;border-radius:999px}
-.pg h4{margin:0 0 6%;font-size:1.5em;line-height:1.1;color:var(--ink);font-weight:800}
-.pg .toc{list-style:none;padding:0;margin:0;display:grid;gap:.55em;counter-reset:t}
-.pg .toc li{display:flex;gap:.6em;align-items:baseline;font-weight:600}
-.pg .toc li::before{counter-increment:t;content:counter(t,decimal-leading-zero);color:var(--acc);font-weight:800}
-.pg .toc li i{flex:1;border-bottom:1.5px dotted var(--line);font-style:normal}
-.pg .q{margin-bottom:7%}
-.pg .src{font-weight:800;color:var(--pink);font-size:.85em}
-.pg .bar{height:.55em;border-radius:3px;background:var(--soft);margin:.45em 0}
-.pg .bar.s{width:72%}.pg .bar.m{width:88%}
-.pg .alts{display:grid;grid-template-columns:repeat(5,1fr);gap:4%;margin-top:.7em}
-.pg .alts i{font-style:normal;text-align:center;font-weight:800;font-size:.85em;border:1.5px solid var(--line);border-radius:5px;padding:.2em 0;color:var(--muted)}
-.pg .alts i.ok{border-color:var(--green);background:#e6f7ef;color:#16865b}
-.pg .box{background:var(--soft);border-left:4px solid var(--acc);border-radius:8px;padding:6%;margin-bottom:7%;font-weight:600}
-.pg .box b{display:block;color:var(--acc);margin-bottom:.3em}
-.pg .fn{font-weight:800;font-size:1.3em;text-align:center;margin:.4em 0;color:var(--ink)}
-.pg .foot{margin-top:auto;display:flex;justify-content:space-between;font-size:.8em;color:var(--muted);font-weight:600}
-.booknote{text-align:center;font-size:13px;color:#dcecff;margin:6px 0 0}
+.leaf .f::after{content:"";position:absolute;inset:0 auto 0 0;width:22px;background:linear-gradient(90deg,rgba(0,0,0,.14),transparent)}
+.leaf .b::after{content:"";position:absolute;inset:0 0 0 auto;width:22px;background:linear-gradient(270deg,rgba(0,0,0,.14),transparent)}
+.leaf img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.more{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:12px;padding:12%;color:#fff}
+.more b{font:400 calc(var(--pw)*.2)/.88 var(--display)}
+.more span{font-weight:500;font-size:calc(var(--pw)*.052);line-height:1.4;color:#d6e2ee}
+.more a{margin-top:4px;background:var(--pink);color:#fff;font-weight:700;text-decoration:none;border-radius:999px;padding:.7em 1.3em;font-size:calc(var(--pw)*.052)}
+.more .mosaic{position:absolute;top:0;right:0;--t:calc(var(--pw)*.13)}
+.bctl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:8px}
+.bctl button{width:52px;height:52px;border-radius:50%;border:0;background:#fff;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:transform .15s,opacity .2s}
+.bctl button:hover{transform:scale(1.08)}
+.bctl button:disabled{opacity:.35;cursor:default;transform:none}
+.bctl svg{width:22px;height:22px}
+.count{min-width:120px;text-align:center;font-weight:600;font-size:15px}
+.count b{font:400 26px/1 var(--display);margin-right:4px}
+.hint{text-align:center;font-size:13px;color:#dcecff;margin:10px 0 0}
 
-/* COMO COMPRAR */
-.buygrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:22px;align-items:stretch}
-.howcard{background:var(--deep);border-radius:28px;padding:clamp(18px,2.6vw,30px);box-shadow:0 18px 40px -20px rgba(10,50,100,.45)}
-.howcard h3,.card.g h3{font:800 22px/1.2 Montserrat,sans-serif;margin:0 0 16px}
-.steps{list-style:none;margin:0;padding:0;display:grid;gap:16px}
-.steps li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start}
-.steps .num{width:40px;height:40px;border-radius:50%;background:var(--pink);color:#fff;font:800 19px/40px Montserrat,sans-serif;text-align:center}
-.steps b{display:block;font-size:17px;font-weight:800;margin:2px 0 2px}
-.steps p{margin:0;color:#eaf4ff;font-size:15px}
-.pays{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.pays span{border:1.5px solid rgba(255,255,255,.7);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:600}
-.card.g{justify-content:center;align-items:flex-start}
-.card.g h3{color:var(--deep);margin:0}
-.seal{width:92px;height:92px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;text-align:center;font-weight:800;line-height:1;margin-bottom:16px;box-shadow:0 0 0 6px #fff,0 0 0 9px var(--yellow)}
-.seal b{display:block;font-size:36px}.seal small{font-size:10px;letter-spacing:.06em}
-.card.g p{margin:8px 0 0;color:var(--muted)}
+/* ---------- o que mais cai ---------- */
+.stats .wrap{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(28px,5vw,64px);align-items:start}
+.ctrl{display:grid;gap:14px;align-content:start}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg[hidden]{display:none}
+.seg button{min-height:46px;padding:0 20px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--text);font:600 15px var(--sans);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.seg.fase button[aria-pressed=true]{background:var(--blue);border-color:var(--blue)}
+.insight{background:var(--soft);border-radius:26px;padding:22px 24px;position:relative;overflow:hidden}
+.insight .n{font:400 clamp(64px,8vw,96px)/.85 var(--display);color:var(--pink)}
+.insight p{margin:6px 0 0;font-weight:500;color:var(--text);max-width:30ch;position:relative;z-index:1}
+.insight .mosaic{position:absolute;right:0;bottom:0;--t:34px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:13px;font-weight:600;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:14px;border-radius:0 100% 0 0;display:block}
+.bars{display:grid;gap:8px}
+.row{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr) 44px;gap:12px;align-items:center;font-size:15px}
+.row .nm{font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{height:26px;border-radius:0 999px 999px 0;background:var(--soft);overflow:hidden}
+.fill{display:block;height:100%;width:0;border-radius:0 999px 999px 0;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.row .v{font:400 26px/1 var(--display);color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.inc-A{background:var(--pink)}.inc-B{background:var(--yellow)}.inc-C{background:var(--blue)}.inc-D{background:#b9c7d6}
+.toggle{margin-top:14px;background:none;border:0;color:var(--pink);font:700 15px var(--sans);cursor:pointer;padding:6px 0}
+.src{font-size:13px;color:var(--muted);margin:12px 0 0}
 
-/* SOBRE (igual ao site de agendamento) */
-.about .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,6vw,80px);align-items:center}
-.me{display:grid;justify-items:center;text-align:center;gap:18px}
-.ring{width:min(300px,64vw);aspect-ratio:1;border-radius:50%;padding:8px;background:conic-gradient(var(--yellow) 0 33%,var(--pink) 0 66%,#fff 0 100%);box-shadow:0 24px 50px -24px rgba(0,20,60,.6)}
-.ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:#1f7fc4;display:block}
-.name{font:800 clamp(30px,3.6vw,44px)/1.05 Montserrat,sans-serif;margin:6px 0 10px}
-.role{display:inline-block;line-height:1.3;background:#fff;color:var(--deep);font-weight:800;font-size:15px;padding:6px 16px;border-radius:999px}
-.bio{font-size:clamp(16px,1.5vw,18px);line-height:1.6;margin:0 0 22px;max-width:52ch}
-.creds{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.creds li{background:#fff;color:var(--ink);border-radius:20px;padding:16px 18px;border-left:6px solid var(--yellow)}
-.creds li:nth-child(2),.creds li:nth-child(4){border-left-color:var(--pink)}
-.creds li:nth-child(3){border-left-color:var(--blue)}
-.creds b{display:block;font-size:16px;font-weight:800;color:var(--deep);line-height:1.25}
-.creds span{display:block;font-size:14px;line-height:1.4;margin-top:4px;color:#4f6274}
-.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.links a{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:999px;background:#fff;color:var(--deep);font-weight:800;text-decoration:none}
-.links a.go{background:var(--pink);color:#fff}
+/* ---------- comprar ---------- */
+.buygrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.step{background:#fff;color:var(--text);border-radius:30px;padding:28px;position:relative;overflow:hidden}
+.step .no{font:400 84px/.8 var(--display);color:var(--c)}
+.step h3{font:700 22px/1.2 var(--sans);color:var(--ink);margin:14px 0 6px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.step .mosaic{position:absolute;top:0;right:0;--t:34px}
+.guar{margin-top:22px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;align-items:center;background:var(--yellow);color:var(--ink);border-radius:30px;padding:clamp(22px,3vw,34px)}
+.guar .seven{font:400 clamp(90px,10vw,130px)/.8 var(--display)}
+.guar h3{font:700 clamp(22px,2.4vw,30px)/1.15 var(--sans);margin:0 0 6px}
+.guar p{margin:0;font-weight:500}
+.pays{display:flex;flex-wrap:wrap;gap:8px}
+.pays span{background:var(--ink);color:#fff;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
 
-/* DÚVIDAS */
-.faqcard{background:#fff;color:var(--ink);border-radius:28px;padding:clamp(8px,2vw,18px) clamp(18px,3vw,34px);box-shadow:0 18px 40px -20px rgba(10,50,100,.45);max-width:860px}
-details{border-bottom:2px solid var(--soft)}
-details:last-child{border-bottom:0}
-summary{cursor:pointer;list-style:none;font-weight:800;font-size:17px;color:var(--deep);padding:18px 40px 18px 0;position:relative}
+/* ---------- sobre: mosaico ---------- */
+.mos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(170px,auto);gap:14px}
+.mt{border-radius:28px;padding:22px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .3s}
+.mt:hover{transform:translateY(-4px) rotate(-.6deg)}
+.mt b{font:400 clamp(44px,5vw,68px)/.88 var(--display);display:block}
+.mt span{font-weight:600;font-size:15px;line-height:1.35;display:block;margin-top:6px}
+.mt.photo{grid-column:span 2;grid-row:span 2;padding:0;background:var(--pink);min-height:360px}
+.mt.photo img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:94%;width:auto;max-width:none}
+.mt.photo .tag{position:relative;z-index:2;margin:18px;align-self:flex-start;background:#fff;color:var(--ink);border-radius:999px;padding:8px 16px;font-weight:700;font-size:15px}
+.mt.photo .mosaic{position:absolute;top:0;left:0;--t:56px}
+.mt.name{grid-column:span 2;background:#fff;color:var(--ink)}
+.mt.name b{font-size:clamp(64px,8vw,112px);color:var(--ink)}
+.mt.name span{font-size:17px;color:var(--muted);font-weight:500;max-width:46ch}
+.mt.y{background:var(--yellow);color:var(--ink)}
+.mt.k{background:var(--ink);color:#fff}
+.mt.w{background:#fff;color:var(--ink)}
+.mt.g{background:var(--green);color:#fff}
+.mt.shape{padding:0;background:transparent;display:grid}
+.mt.shape .mosaic{position:absolute;inset:0;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);border-radius:28px;overflow:hidden}
+.mt.shape .mosaic i:hover{transform:rotate(180deg)}
+.mt.shape .mosaic .ci{transform:none;width:72%;height:auto;aspect-ratio:1;place-self:center}
+.mt.shape .mosaic .ci:hover{transform:rotate(180deg)}
+.mt.cta{grid-column:span 2;background:var(--pink);color:#fff;text-decoration:none}
+.mt.cta b{font-size:clamp(52px,6vw,84px)}
+.mt.cta .mosaic{position:absolute;top:0;right:0;--t:48px}
+.quote{grid-column:span 2;background:var(--deep);color:#fff}
+.quote p{font:600 clamp(20px,2.2vw,28px)/1.25 var(--sans);margin:0}
+.links2{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.links2 a{background:#fff;color:var(--ink);text-decoration:none;font-weight:700;font-size:15px;border-radius:999px;padding:10px 18px}
+
+/* ---------- dúvidas ---------- */
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+details{background:#fff;color:var(--text);border-radius:24px;padding:0 22px}
+summary{cursor:pointer;list-style:none;font-weight:700;font-size:17px;color:var(--ink);padding:20px 40px 20px 0;position:relative}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:28px;color:var(--pink);font-weight:700;transition:transform .2s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{margin:0 0 18px;color:#4f6274}
-.final{margin-top:36px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
-.final p{margin:0;font:800 clamp(20px,2.4vw,26px)/1.2 Montserrat,sans-serif}
+summary::after{content:"";position:absolute;right:0;top:20px;width:24px;height:24px;border-radius:0 100% 0 0;background:var(--pink);transition:transform .3s}
+details[open] summary::after{transform:rotate(90deg);background:var(--yellow)}
+details p{margin:0 0 20px;color:var(--muted);font-size:16px}
+.final{margin-top:clamp(40px,6vw,72px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;background:var(--pink);border-radius:30px;padding:clamp(24px,4vw,44px);position:relative;overflow:hidden}
+.final p{margin:0;font:700 clamp(26px,3.4vw,44px)/1.05 var(--sans);letter-spacing:-.02em;position:relative;z-index:1;padding-right:40px}
+.final .btn{position:relative;z-index:1}
+.final .mosaic{position:absolute;right:0;top:0;--t:48px}
 
-footer{background:#fff;color:var(--ink);font-size:14px;padding:22px 0}
-footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+footer{background:#fff;color:var(--text);font-size:14px;padding:24px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;align-items:center}
 footer a{color:var(--deep);font-weight:700}
+footer img{height:34px;width:auto;background:var(--blue);border-radius:8px;padding:4px 8px}
 
-dialog{border:0;border-radius:28px;padding:0;max-width:min(440px,calc(100vw - 32px));box-shadow:0 30px 80px rgba(0,20,50,.4);color:var(--ink)}
-dialog::backdrop{background:rgba(10,40,80,.55)}
-.dlg{padding:28px;display:grid;gap:10px}
-.dlg h3{margin:0;color:var(--deep);font:800 22px/1.2 Montserrat,sans-serif}
+dialog{border:0;border-radius:30px;padding:0;max-width:min(440px,calc(100vw - 32px));box-shadow:0 30px 80px rgba(0,20,50,.4);color:var(--text);overflow:hidden}
+dialog::backdrop{background:rgba(10,30,60,.6)}
+.dlg{padding:30px;display:grid;gap:10px;position:relative}
+.dlg h3{margin:0;color:var(--ink);font:700 24px/1.2 var(--sans);padding-right:50px}
 .dlg p{margin:0 0 8px;color:var(--muted)}
-.btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:999px;font:800 16px Montserrat,sans-serif;text-decoration:none;cursor:pointer;border:0;width:100%}
+.dlg .mosaic{position:absolute;top:0;right:0;--t:28px}
+.wbtn{display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:999px;font:700 16px var(--sans);text-decoration:none;cursor:pointer;border:0;width:100%}
 .wa{background:#1fa855;color:#fff}
-.ghost{background:#fff;border:2px solid var(--line);color:var(--ink)}
+.gh{background:var(--soft);color:var(--ink)}
 
 .sticky{display:none}
-@media(max-width:960px){.grid{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto}}
-@media(max-width:860px){
-  .inside .wrap,.buygrid,.about .wrap{grid-template-columns:minmax(0,1fr)}
-  .combo{grid-template-columns:minmax(0,1fr)}
+.reveal{transform:translateY(18px);transition:transform .7s}
+.reveal.in{transform:none}
+@media (max-width:1000px){.grid{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto}.buygrid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){
+  .hero .wrap,.inside .wrap,.stats .wrap{grid-template-columns:minmax(0,1fr)}
+  .covers{justify-self:center;max-width:420px}
+  .mos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .faq{grid-template-columns:minmax(0,1fr)}
+  .combo,.guar{grid-template-columns:minmax(0,1fr)}
+  .combo .mosaic{display:none}
 }
-@media(max-width:640px){
-  nav a:not(.navcta):not(:first-child){display:none}
-  nav .wrap{justify-content:space-between}
-  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:0;padding-top:22px}
-  .hero .txt{padding-bottom:8px}
-  .stage{justify-self:center;max-width:340px;margin-top:10px}
-  section{padding:44px 0}
-  .creds{grid-template-columns:minmax(0,1fr)}
-  .book{--pw:min(44vw,200px)}
-  .sticky{display:flex;position:fixed;left:16px;right:16px;bottom:14px;z-index:15;min-height:54px;align-items:center;justify-content:center;border-radius:999px;background:var(--pink);color:#fff;font:800 17px Montserrat,sans-serif;text-decoration:none;box-shadow:0 10px 24px rgba(120,0,40,.35);transition:opacity .2s,transform .2s}
+@media (max-width:640px){
+  body{font-size:16px}
+  .links a:not(.navcta){display:none}
+  .nlogo span:last-child{display:none}
+  .book{--pw:min(45vw,210px)}
+  .row{grid-template-columns:minmax(0,118px) minmax(0,1fr) 36px;font-size:13px;gap:8px}
+  .row .v{font-size:22px}
+  .row .nm{white-space:normal;line-height:1.2}
+  .mt.name b{font-size:60px}
+  .mt.photo,.mt.name,.quote{grid-column:span 2}
+  .final{grid-template-columns:minmax(0,1fr)}
+  .sticky{display:flex;position:fixed;left:16px;right:16px;bottom:14px;z-index:25;min-height:56px;align-items:center;justify-content:center;border-radius:999px;background:var(--pink);color:#fff;font:700 17px var(--sans);text-decoration:none;box-shadow:0 10px 24px rgba(120,0,40,.35);transition:opacity .2s,transform .2s}
   .sticky.off{opacity:0;transform:translateY(20px);pointer-events:none}
-  footer{padding-bottom:84px}
+  footer{padding-bottom:88px}
 }
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.reveal{transform:none}}
 </style>
 </head>
 <body>
 
 <nav><div class="wrap">
-  <a href="#apostilas">Apostilas</a><a href="#por-dentro">Por dentro</a><a href="#como-comprar">Como comprar</a><a href="#sobre">Sobre mim</a><a href="#duvidas">Dúvidas</a>
-  <a class="navcta" href="#apostilas">Comprar</a>
+  <a class="nlogo" href="#"><span class="dot" aria-hidden="true"><i class="qbr pk"></i><i class="ci yl"></i><i class="ci bl"></i><i class="qtl pk"></i></span><span>Sala dos Números</span></a>
+  <div class="links">
+    <a href="#apostilas">Apostilas</a><a href="#por-dentro">Por dentro</a><a href="#o-que-mais-cai">O que mais cai</a><a href="#sobre">Quem escreveu</a><a href="#duvidas">Dúvidas</a>
+    <a class="navcta" href="#apostilas">Comprar</a>
+  </div>
 </div></nav>
 
-<header class="hero">
+<header class="hero" id="hero">
+  <div class="deco mosaic d1" aria-hidden="true"><i class="e"></i><i class="qbl pk"></i><i class="qbr yl"></i><i class="e"></i><i class="ci wh"></i><i class="qtl pk"></i></div>
+  <div class="deco mosaic d2" aria-hidden="true"><i class="qtr wh"></i><i class="ci yl"></i><i class="e"></i><i class="qbr pk"></i><i class="qbl wh"></i><i class="qtl yl"></i></div>
   <div class="wrap">
-    <div class="txt">
+    <div>
       <img class="logo" src="img/sala-logo.png" alt="Sala dos Números" width="315" height="85">
-      <h1>A Matemática do seu vestibular, <span class="blob">assunto por assunto</span></h1>
-      <p class="lead">Questões das provas anteriores do seu vestibular, separadas por assunto, com levantamento estatístico e checklist. Estude com foco no que mais cai.</p>
-      <a class="cta" href="#apostilas">Escolher minha apostila</a>
-      <ul class="chips"><li>UECE · 970 questões</li><li>UNIFOR Medicina · 180</li><li>Unichristus Medicina · 240</li></ul>
+      <p class="mpa">matemática por assunto <span class="pill" id="hPill">1ª e 2ª fases</span></p>
+      <h1 class="uni" id="hUni"><span>UECE</span></h1>
+      <div class="hfacts" id="hFacts"></div>
+      <div class="hcta">
+        <a class="btn b-white" id="hBuy" href="#apostilas">Quero a apostila</a>
+        <a class="btn b-ink" href="#por-dentro">Folhear</a>
+      </div>
+      <div class="picker" id="picker" role="group" aria-label="Escolha o vestibular"></div>
     </div>
-    <div class="stage" aria-hidden="true">
-      <img class="cv c1" src="img/uece.jpg" alt="">
-      <img class="cv c2" src="img/unichristus.jpg" alt="">
-      <img class="foto" src="img/foto.webp" alt="" width="1020" height="1316">
-      <img class="cv c3" src="img/unifor.jpg" alt="">
-    </div>
+    <div class="covers" id="covers"></div>
   </div>
 </header>
 
-<section class="alt" id="apostilas">
+<section class="s-deep" id="apostilas">
+  <div class="deco mosaic" style="top:0;right:0;--t:64px;--cols:2" aria-hidden="true"><i class="qbl yl"></i><i class="ci pk"></i><i class="e"></i><i class="qtr wh"></i></div>
   <div class="wrap">
+    <p class="kick">As apostilas</p>
     <h2>Escolha a sua <span class="blob">prova</span></h2>
-    <p class="intro">Questões reais de provas anteriores, separadas por assunto. Você estuda exatamente o que cai no seu vestibular.</p>
+    <p class="lede">Questões reais das provas anteriores, separadas por assunto. Você estuda exatamente o que cai no seu vestibular.</p>
     <div class="grid" id="grid"></div>
-    <div class="combo">
+    <div class="combo reveal">
+      <div class="mosaic" aria-hidden="true"><i class="qtl pk"></i><i class="ci yl"></i><i class="ci bl"></i><i class="qbr gr"></i></div>
       <div><h3>Vai fazer mais de uma prova?</h3><p>Fale com o professor pelo WhatsApp e monte um combo com as apostilas que você precisa.</p></div>
-      <a class="cta pink" id="comboBtn" href="#" target="_blank" rel="noopener">Quero um combo</a>
+      <a class="btn b-pink" id="comboBtn" href="#" target="_blank" rel="noopener">Quero um combo</a>
     </div>
   </div>
 </section>
 
 <section class="inside" id="por-dentro">
+  <div class="deco mosaic" style="bottom:0;left:0;--t:60px;--cols:2" aria-hidden="true"><i class="qtr pk"></i><i class="e"></i><i class="ci yl"></i><i class="qtl wh"></i></div>
   <div class="wrap">
     <div>
-      <p class="kicker">Por dentro</p>
+      <p class="kick">Por dentro</p>
       <h2>Folheie a <span class="blob">apostila</span></h2>
-      <p class="intro">Nada de lista solta de exercícios. Cada capítulo é um assunto, com as questões das provas anteriores da sua banca.</p>
-      <ol class="feats">
-        <li><span class="num">1</span><div><b>Separada por assunto</b><p>Você sabe o que está estudando e foca nos temas em que mais erra.</p></div></li>
-        <li><span class="num">2</span><div><b>Levantamento estatístico</b><p>Mostra quantas questões caíram de cada assunto, para você saber o que tem incidência altíssima e o que cai pouco.</p></div></li>
-        <li><span class="num">3</span><div><b>Checklist de estudo</b><p>Para cada assunto, marque quando resolveu, corrigiu e revisou. Gabarito no final.</p></div></li>
-      </ol>
+      <p class="lede">Toque nas páginas, arraste para os lados ou use as setas. São páginas reais de cada material.</p>
+      <ul class="feats">
+        <li><span class="ic" aria-hidden="true"><i class="qbr pk"></i><i class="qbl pk"></i><i class="qtr pk"></i><i class="qtl pk"></i></span><div><b>Separada por assunto</b><p>Cada capítulo é um tema, com as questões das provas anteriores da sua banca.</p></div></li>
+        <li><span class="ic" aria-hidden="true"><i class="ci yl"></i><i class="qtl yl"></i><i class="qbr yl"></i><i class="ci yl"></i></span><div><b>Levantamento estatístico</b><p>Quantas questões caíram de cada assunto, para você priorizar o que mais cai.</p></div></li>
+        <li><span class="ic" aria-hidden="true"><i class="qbr wh"></i><i class="e"></i><i class="ci wh"></i><i class="qtl wh"></i></span><div><b>Checklist de estudo</b><p>Para cada assunto: resolvi, corrigi e revisei. Gabarito no final.</p></div></li>
+      </ul>
     </div>
     <div>
-      <div class="tabs" id="tabs" role="group" aria-label="Escolha a apostila"></div>
-      <div class="bookwrap"><div class="book closed" id="book" aria-label="Apostila sendo folheada"></div></div>
-      <p class="booknote" id="booknote">Páginas ilustrativas</p>
+      <div class="tabs" id="tabs" role="group" aria-label="Escolha a apostila para folhear"></div>
+      <div class="bookwrap"><div class="book closed" id="book" tabindex="0" role="region" aria-label="Apostila. Use as setas do teclado para virar as páginas."></div></div>
+      <div class="bctl">
+        <button type="button" id="prev" aria-label="Página anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <div class="count" id="count" aria-live="polite"></div>
+        <button type="button" id="next" aria-label="Próxima página"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+      <p class="hint">Toque na página da direita para avançar e na da esquerda para voltar.</p>
     </div>
   </div>
 </section>
 
-<section class="alt" id="como-comprar">
+<section class="s-white stats" id="o-que-mais-cai">
+  <div class="deco mosaic" style="top:0;right:0;--t:58px;--cols:3" aria-hidden="true"><i class="e"></i><i class="qbl yl"></i><i class="qbr pk"></i><i class="e"></i><i class="e"></i><i class="ci bl"></i></div>
   <div class="wrap">
-    <h2>Como <span class="blob">comprar</span></h2>
-    <p class="intro">O pagamento é feito pela Hotmart, a maior plataforma de produtos digitais do Brasil.</p>
+    <div class="ctrl">
+      <p class="kick">Levantamento estatístico</p>
+      <h2>O que mais <span class="blob">cai</span></h2>
+      <p class="lede">Os números da própria apostila: quantas questões de cada assunto caíram nas provas anteriores.</p>
+      <div class="seg" id="sUni" role="group" aria-label="Vestibular"></div>
+      <div class="seg fase" id="sFase" role="group" aria-label="Fase da UECE"></div>
+      <div class="insight"><div class="n" id="sPct">0%</div><p id="sTxt"></p>
+        <div class="mosaic" aria-hidden="true"><i class="e"></i><i class="qbr pk"></i><i class="ci yl"></i><i class="qtl pk"></i></div></div>
+      <div class="legend"><span><i class="inc-A"></i>Altíssima</span><span><i class="inc-B"></i>Alta</span><span><i class="inc-C"></i>Média</span><span><i class="inc-D"></i>Baixa</span></div>
+    </div>
+    <div>
+      <div class="bars" id="bars"></div>
+      <button class="toggle" id="sMore" type="button">Ver todos os assuntos</button>
+      <p class="src" id="sSrc"></p>
+    </div>
+  </div>
+</section>
+
+<section class="s-deep" id="como-comprar">
+  <div class="wrap">
+    <p class="kick">Como comprar</p>
+    <h2>Três passos e você já está <span class="blob">estudando</span></h2>
+    <p class="lede">O pagamento é feito pela Hotmart, a maior plataforma de produtos digitais do Brasil.</p>
     <div class="buygrid">
-      <div class="howcard" style="background:var(--blue)">
-        <h3>Em três passos</h3>
-        <ol class="steps">
-          <li><span class="num">1</span><div><b>Escolha</b><p>Toque em comprar na apostila do seu vestibular.</p></div></li>
-          <li><span class="num">2</span><div><b>Pague</b><p>Pix, cartão de crédito em parcelas ou boleto, no checkout seguro da Hotmart.</p></div></li>
-          <li><span class="num">3</span><div><b>Receba</b><p>Assim que o pagamento é aprovado, o acesso chega no seu e-mail.</p></div></li>
-        </ol>
-        <div class="pays"><span>Pix</span><span>Cartão de crédito</span><span>Boleto</span></div>
-      </div>
-      <div class="card g">
-        <div class="seal"><div><b>7</b><small>DIAS DE<br>GARANTIA</small></div></div>
-        <h3>Risco zero para você</h3>
-        <p>Se a apostila não for o que você esperava, peça o reembolso em até 7 dias pela própria Hotmart.</p>
-      </div>
+      <div class="step reveal" style="--c:var(--blue)"><div class="mosaic" aria-hidden="true"><i class="qbl pk"></i><i class="ci yl"></i></div><div class="no">1</div><h3>Escolha</h3><p>Toque em comprar na apostila do seu vestibular.</p></div>
+      <div class="step reveal" style="--c:var(--green)"><div class="mosaic" aria-hidden="true"><i class="ci pk"></i><i class="qbr yl"></i></div><div class="no">2</div><h3>Pague</h3><p>Pix, cartão de crédito em parcelas ou boleto, no checkout seguro da Hotmart.</p></div>
+      <div class="step reveal" style="--c:var(--pink)"><div class="mosaic" aria-hidden="true"><i class="qbl yl"></i><i class="qtr bl"></i></div><div class="no">3</div><h3>Receba</h3><p>Assim que o pagamento é aprovado, o acesso chega no seu e-mail.</p></div>
+    </div>
+    <div class="guar reveal">
+      <div class="seven">7</div>
+      <div><h3>Dias de garantia</h3><p>Se a apostila não for o que você esperava, peça o reembolso em até 7 dias pela própria Hotmart.</p></div>
+      <div class="pays"><span>Pix</span><span>Cartão</span><span>Boleto</span></div>
     </div>
   </div>
 </section>
 
 <section class="about" id="sobre">
   <div class="wrap">
-    <div class="me">
-      <div class="ring"><img src="img/mefoto.webp" alt="Professor Pedro Araújo" width="640" height="640" loading="lazy"></div>
-      <div>
-        <p class="kicker">Quem escreveu</p>
-        <h2 class="name">Pedro Araújo</h2>
-        <span class="role">Professor de Matemática</span>
-      </div>
-    </div>
-    <div>
-      <p class="bio">Sou licenciado em Matemática pela UFC e criador do Matematizando e da Sala dos Números. Escrevi estas apostilas com o mesmo jeito das minhas aulas: simples, sem perder o rigor, e focado no que a sua prova cobra.</p>
-      <ul class="creds">
-        <li><b>Licenciado em Matemática</b><span>Universidade Federal do Ceará (UFC)</span></li>
-        <li><b>Professor efetivo</b><span>Prefeitura Municipal de Caucaia, com nota máxima na discursiva do concurso</span></li>
-        <li><b>9 aprovações</b><span>em instituições públicas</span></li>
-        <li><b>Escolas de destaque</b><span>Farias Brito, Adauto Bezerra e César Cals</span></li>
-      </ul>
-      <div class="links"><a class="go" href="#apostilas">Ver as apostilas</a><a href="https://www.instagram.com/matematizando/" target="_blank" rel="noopener">@matematizando</a><a href="https://www.youtube.com/@matematizandocompedroaraujo" target="_blank" rel="noopener">YouTube</a></div>
+    <p class="kick">Quem escreveu</p>
+    <h2>Feita por quem dá <span class="blob">aula</span></h2>
+    <div class="mos">
+      <div class="mt photo reveal"><div class="mosaic" aria-hidden="true"><i class="qbr yl"></i><i class="ci wh"></i></div><img src="img/foto.webp" alt="Professor Pedro Araújo" width="1020" height="1316"><span class="tag">Prof. Pedro Araújo</span></div>
+      <div class="mt name reveal"><b>Pedro Araújo</b><span>Professor de Matemática, criador do Matematizando e da Sala dos Números.</span></div>
+      <div class="mt y reveal"><b>UFC</b><span>Licenciado em Matemática pela Universidade Federal do Ceará</span></div>
+      <div class="mt shape reveal" aria-hidden="true"><div class="mosaic"><i class="qbr pk"></i><i class="qbl bk"></i><i class="ci yl"></i><i class="qtl pk"></i></div></div>
+      <div class="mt k reveal"><b>9</b><span>aprovações em instituições públicas</span></div>
+      <div class="mt w reveal"><b>Nota máxima</b><span>na discursiva do concurso para efetivos da Prefeitura de Caucaia</span></div>
+      <div class="mt g reveal"><b>3 escolas</b><span>de destaque: Farias Brito, Adauto Bezerra e César Cals</span></div>
+      <div class="mt shape reveal" aria-hidden="true"><div class="mosaic"><i class="ci wh"></i><i class="qbl yl"></i><i class="qtr pk"></i><i class="qtl wh"></i></div></div>
+      <div class="mt quote reveal"><p>“Ensinar de um jeito simples, sem perder o rigor. Foi assim que montei cada uma destas apostilas.”</p>
+        <div class="links2"><a href="https://www.instagram.com/matematizando/" target="_blank" rel="noopener">@matematizando</a><a href="https://www.youtube.com/@matematizandocompedroaraujo" target="_blank" rel="noopener">YouTube</a></div></div>
+      <a class="mt cta reveal" href="#apostilas"><div class="mosaic" aria-hidden="true"><i class="qbl yl"></i><i class="ci wh"></i></div><b>Ver as apostilas</b><span>UECE · UNIFOR · Unichristus</span></a>
     </div>
   </div>
 </section>
 
-<section class="alt" id="duvidas">
+<section class="s-deep" id="duvidas">
   <div class="wrap">
-    <h2>Dúvidas <span class="blob">frequentes</span></h2>
-    <p class="intro">Se a sua não estiver aqui, chame no WhatsApp.</p>
-    <div class="faqcard">
+    <p class="kick">Dúvidas</p>
+    <h2>Perguntas <span class="blob">frequentes</span></h2>
+    <p class="lede">Se a sua não estiver aqui, chame no WhatsApp.</p>
+    <div class="faq">
       <details><summary>A apostila é física ou digital?</summary><p>É digital, em PDF. Você pode estudar no celular, no tablet ou no computador, e também pode imprimir.</p></details>
       <details><summary>Como recebo depois de pagar?</summary><p>A Hotmart envia o acesso para o e-mail cadastrado na compra assim que o pagamento é aprovado. No Pix e no cartão costuma ser na hora. No boleto, leva até 3 dias úteis.</p></details>
-      <details><summary>Quais formas de pagamento posso usar?</summary><p>Pix, cartão de crédito com parcelamento e boleto, todos pelo checkout seguro da Hotmart.</p></details>
-      <details><summary>A apostila da UECE serve para as duas fases?</summary><p>Sim. A 2ª edição tem 970 questões da 1ª e da 2ª fase da UECE, com um levantamento estatístico para cada fase.</p></details>
       <details><summary>As questões são de provas anteriores?</summary><p>Sim. São questões dos processos seletivos de cada instituição, separadas por assunto, com gabarito no final.</p></details>
+      <details><summary>A apostila da UECE serve para as duas fases?</summary><p>Sim. A 2ª edição tem 970 questões da 1ª e da 2ª fase da UECE, com um levantamento estatístico para cada fase.</p></details>
+      <details><summary>Quais formas de pagamento posso usar?</summary><p>Pix, cartão de crédito com parcelamento e boleto, todos pelo checkout seguro da Hotmart.</p></details>
       <details><summary>Vou fazer mais de um vestibular. O que eu compro?</summary><p>Cada apostila é focada em uma banca. Fale com o professor pelo WhatsApp para montar um combo.</p></details>
       <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Basta pedir o reembolso pela Hotmart dentro desse prazo.</p></details>
+      <details><summary>Não recebi o e-mail. O que faço?</summary><p>Confira o spam e a aba Promoções. Se não encontrar, chame no WhatsApp com o e-mail usado na compra.</p></details>
     </div>
-    <div class="final"><p>Sua aprovação começa pela Matemática.</p><a class="cta" href="#apostilas">Escolher minha apostila</a></div>
+    <div class="final reveal">
+      <div class="mosaic" aria-hidden="true"><i class="e"></i><i class="qbl yl"></i><i class="ci wh"></i><i class="qtr yl"></i></div>
+      <p>Sua aprovação começa pela Matemática.</p>
+      <a class="btn b-white" href="#apostilas">Escolher minha apostila</a>
+    </div>
   </div>
 </section>
 
 <a class="sticky off" id="sticky" href="#apostilas">Escolher minha apostila</a>
-<footer><div class="wrap"><span>© <span id="yr">2026</span> Sala dos Números · Matemática com Pedro Araújo</span><span>WhatsApp <a href="https://wa.me/5585997336975" target="_blank" rel="noopener">(85) 99733-6975</a></span><span>Pagamentos processados pela Hotmart</span></div></footer>
+<footer><div class="wrap"><img src="img/sala-logo.png" alt="Sala dos Números" width="315" height="85"><span>© <span id="yr">2026</span> Pedro Araújo · Todos os direitos reservados</span><span>WhatsApp <a href="https://wa.me/5585997336975" target="_blank" rel="noopener">(85) 99733-6975</a></span><span>Pagamentos processados pela Hotmart</span></div></footer>
 
 <dialog id="soon">
   <div class="dlg">
+    <div class="mosaic" aria-hidden="true"><i class="qbl pk"></i><i class="ci yl"></i></div>
     <h3 id="soonTitle">Vendas abrem em breve</h3>
     <p>Esta apostila está nos últimos ajustes. Chame no WhatsApp para ser avisado assim que as vendas abrirem.</p>
-    <a class="btn wa" id="soonWa" href="#" target="_blank" rel="noopener">Quero ser avisado</a>
-    <button class="btn ghost" type="button" onclick="this.closest('dialog').close()">Fechar</button>
+    <a class="wbtn wa" id="soonWa" href="#" target="_blank" rel="noopener">Quero ser avisado</a>
+    <button class="wbtn gh" type="button" onclick="this.closest('dialog').close()">Fechar</button>
   </div>
 </dialog>
 
@@ -354,128 +469,204 @@ dialog::backdrop{background:rgba(10,40,80,.55)}
    - checkout: link de checkout da Hotmart (ex.: https://pay.hotmart.com/XXXXXXXX).
      Enquanto estiver vazio, o botão abre o aviso "Vendas abrem em breve".
    - preco / parcelas: aparecem no cartão da apostila.
-   - paginas: imagens de páginas reais da apostila (ex.: ["img/uece-p1.jpg","img/uece-p2.jpg",...]).
-     Enquanto estiver vazio, o livro mostra páginas ilustrativas.
+   - paginas: imagens de páginas reais (pasta img/paginas).
+   - assuntos: [nome, questões] do levantamento estatístico (UECE: [nome, 1ª fase, 2ª fase]).
    ============================================================ */
 const WHATSAPP = "5585997336975";
 const CHECKOUT_NA_PAGINA = true; // true = o checkout da Hotmart abre numa janela por cima do site
 
 const APOSTILAS = [
-  { id:"uece", uni:"UECE", para:"Vestibular UECE · 1ª e 2ª fases", edicao:"2ª edição",
-    capa:"img/uece.jpg", cor:"#409BE4",
-    itens:["970 questões da 1ª e da 2ª fase da UECE","29 assuntos, cada um no seu capítulo","Dois levantamentos estatísticos, um por fase","Checklist de estudo e gabarito"],
-    preco:"", parcelas:"", checkout:"", paginas:["img/paginas/ue-02.jpg","img/paginas/ue-03.jpg","img/paginas/ue-04.jpg","img/paginas/ue-05.jpg","img/paginas/ue-06.jpg","img/paginas/ue-07.jpg","img/paginas/ue-08.jpg"],
-    sumario:["Análise Combinatória","Binômio de Newton","Conjuntos","Divisibilidade","Equação do 1º grau","Equação do 2º grau","Funções","Geometria Analítica","Geometria Espacial","Geometria Plana","Logaritmo","Probabilidade"] },
-  { id:"unifor", uni:"UNIFOR", para:"Vestibular UNIFOR · Medicina", edicao:"1ª edição",
-    capa:"img/unifor.jpg", cor:"#2DAF7E",
-    itens:["180 questões do vestibular de Medicina da UNIFOR","22 assuntos, cada um no seu capítulo","Levantamento estatístico da incidência de cada assunto","Checklist de estudo e gabarito"],
-    preco:"", parcelas:"", checkout:"", paginas:["img/paginas/uf-02.jpg","img/paginas/uf-03.jpg","img/paginas/uf-04.jpg","img/paginas/uf-05.jpg","img/paginas/uf-06.jpg","img/paginas/uf-07.jpg","img/paginas/uf-08.jpg"] },
-  { id:"unichristus", uni:"Unichristus", para:"Vestibular Unichristus · Medicina", edicao:"1ª edição",
-    capa:"img/unichristus.jpg", cor:"#FD0C64",
-    itens:["240 questões do vestibular de Medicina da Unichristus","21 assuntos, cada um no seu capítulo","Levantamento estatístico da incidência de cada assunto","Checklist de estudo e gabarito"],
-    preco:"", parcelas:"", checkout:"", paginas:["img/paginas/uc-02.jpg","img/paginas/uc-03.jpg","img/paginas/uc-04.jpg","img/paginas/uc-05.jpg","img/paginas/uc-06.jpg","img/paginas/uc-07.jpg","img/paginas/uc-08.jpg"] }
+  { id:"uece", uni:"UECE", nome:"UECE", para:"Vestibular UECE · 1ª e 2ª fases", edicao:"2ª edição", pill:"1ª e 2ª fases",
+    capa:"img/uece.jpg", cor:"#409BE4", questoes:970, nAssuntos:29,
+    itens:["Questões da 1ª e da 2ª fase da UECE","Dois levantamentos estatísticos, um por fase","Checklist de estudo","Gabarito no final"],
+    preco:"", parcelas:"", checkout:"",
+    paginas:["img/paginas/ue-02.jpg","img/paginas/ue-03.jpg","img/paginas/ue-04.jpg","img/paginas/ue-05.jpg","img/paginas/ue-06.jpg","img/paginas/ue-07.jpg","img/paginas/ue-08.jpg"],
+    corte:[53,28,14],
+    assuntos:[["Análise Combinatória",18,47],["Binômio de Newton",2,12],["Conjuntos",7,9],["Divisibilidade",13,21],["Equação do 1º grau",4,0],["Equação do 2º grau",12,11],["Equação do 3º grau",1,2],["Equação Exponencial",1,2],["Função do 1º grau",4,4],["Função do 2º grau",10,19],["Função Exponencial",2,12],["Função Modular",2,2],["Função Trigonométrica",6,9],["Funções",12,17],["Geometria Analítica",32,50],["Geometria Espacial",24,61],["Geometria Plana",64,71],["Logaritmo",19,26],["Matemática Básica",26,53],["Matemática Financeira",3,8],["Matrizes e Determinantes",15,28],["Números Complexos",9,27],["Polinômios",11,33],["Probabilidade",1,2],["Progressão Aritmética",9,16],["Progressão Geométrica",10,21],["Sequências",7,14],["Sistemas Lineares",7,6],["Trigonometria",19,37]] },
+  { id:"unifor", uni:"UNIFOR", nome:"UNIFOR", para:"Vestibular UNIFOR · Medicina", edicao:"1ª edição", pill:"medicina",
+    capa:"img/unifor.jpg", cor:"#2DAF7E", questoes:180, nAssuntos:22,
+    itens:["Questões do vestibular de Medicina da UNIFOR","Levantamento estatístico por assunto","Checklist de estudo","Gabarito no final"],
+    preco:"", parcelas:"", checkout:"",
+    paginas:["img/paginas/uf-02.jpg","img/paginas/uf-03.jpg","img/paginas/uf-04.jpg","img/paginas/uf-05.jpg","img/paginas/uf-06.jpg","img/paginas/uf-07.jpg","img/paginas/uf-08.jpg"],
+    corte:[19,10,5],
+    assuntos:[["Análise Combinatória",8],["Conjuntos",13],["Equações e Sistemas",18],["Estatística",5],["Função Afim",3],["Função Exponencial",6],["Função Quadrática",8],["Funções",1],["Geometria Analítica",1],["Geometria Espacial",15],["Geometria Plana",19],["Logaritmo",6],["Matemática Básica",2],["Múltiplos e Divisores",3],["Polinômios",1],["Porcentagem",22],["Probabilidade",12],["Progressão Aritmética",2],["Progressão Geométrica",2],["Raciocínio Lógico",3],["Razão e Proporção",24],["Trigonometria",6]] },
+  { id:"unichristus", uni:"Unichristus", nome:"UNICHRISTUS", para:"Vestibular Unichristus · Medicina", edicao:"1ª edição", pill:"medicina",
+    capa:"img/unichristus.jpg", cor:"#FD0C64", questoes:240, nAssuntos:21,
+    itens:["Questões do vestibular de Medicina da Unichristus","Levantamento estatístico por assunto","Checklist de estudo","Gabarito no final"],
+    preco:"", parcelas:"", checkout:"",
+    paginas:["img/paginas/uc-02.jpg","img/paginas/uc-03.jpg","img/paginas/uc-04.jpg","img/paginas/uc-05.jpg","img/paginas/uc-06.jpg","img/paginas/uc-07.jpg","img/paginas/uc-08.jpg"],
+    corte:[19,10,5],
+    assuntos:[["Análise Combinatória",20],["Conjuntos",8],["Equações e Sistemas",7],["Estatística",19],["Função Afim",20],["Função Exponencial",4],["Função Quadrática",16],["Geometria Analítica",6],["Geometria Espacial",23],["Geometria Plana",18],["Logaritmo",4],["Matemática Financeira",7],["Múltiplos e Divisores",2],["Porcentagem",22],["Princípio da Casa dos Pombos",3],["Probabilidade",23],["Progressão Aritmética",7],["Progressão Geométrica",2],["Raciocínio Lógico",4],["Razão e Proporção",19],["Trigonometria",6]] }
 ];
 /* ============================================================ */
 
 const $ = id => document.getElementById(id);
 const wa = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const MOS = ['<i class="qbl wh"></i><i class="ci yl"></i>','<i class="ci wh"></i><i class="qbr yl"></i>','<i class="qbl yl"></i><i class="ci wh"></i>'];
 
-/* Cartões */
-$("grid").innerHTML = APOSTILAS.map(a => `
-  <article class="card" style="--c:${a.cor}">
-    <div class="cover"><span class="ed">${a.edicao}</span><img src="${a.capa}" alt="Capa da apostila Matemática por Assunto ${a.uni}" loading="lazy"></div>
-    <h3>Matemática por Assunto ${a.uni}</h3>
-    <p class="for">${a.para}</p>
-    <ul>${a.itens.map(i => `<li>${i}</li>`).join("")}</ul>
-    <div class="price">${a.preco
-      ? `<div class="note">Investimento</div><div class="val">${a.preco}</div><div class="note">${a.parcelas}</div>`
-      : `<div class="note">Investimento</div><div class="val">Preço no lançamento</div>`}</div>
-    ${a.checkout
-      ? `<a class="buy ${CHECKOUT_NA_PAGINA ? "hotmart-fb hotmart__button-checkout" : ""}" href="${a.checkout}" ${CHECKOUT_NA_PAGINA ? "" : 'target="_blank" rel="noopener"'}>Comprar apostila ${a.uni}</a>`
-      : `<button class="buy" type="button" data-soon="${a.uni}">Comprar apostila ${a.uni}</button>`}
+/* ---------- topo que troca de cor ---------- */
+let hi = 0, hTimer = null;
+$("picker").innerHTML = APOSTILAS.map(a => `<button type="button" style="background:${a.cor}" aria-pressed="false" aria-label="${a.uni}"><span>${a.uni}</span></button>`).join("");
+$("covers").innerHTML = APOSTILAS.map((a, i) => `<img src="${a.capa}" alt="Capa da apostila ${a.uni}" data-i="${i}" data-pos="${i}">`).join("");
+function hero(i){
+  hi = i; const a = APOSTILAS[i];
+  document.documentElement.style.setProperty("--brand", a.cor);
+  $("hUni").innerHTML = `<span>${a.nome}</span>`;
+  $("hPill").textContent = a.pill;
+  $("hFacts").innerHTML = `<b>${a.questoes} questões</b><b>${a.nAssuntos} assuntos</b><b>${a.edicao}</b>`;
+  $("hBuy").textContent = `Quero a da ${a.uni}`;
+  $("hBuy").href = `#card-${a.id}`;
+  [...$("picker").children].forEach((b, k) => b.setAttribute("aria-pressed", k === i));
+  [...$("covers").children].forEach((img, k) => img.dataset.pos = (k - i + 3) % 3);
+}
+function autoHero(){ clearInterval(hTimer); if (!reduce) hTimer = setInterval(() => hero((hi + 1) % 3), 4200); }
+[...$("picker").children].forEach((b, i) => b.addEventListener("click", () => { hero(i); autoHero(); }));
+$("covers").addEventListener("click", e => { const im = e.target.closest("img"); if (im) { hero(+im.dataset.i); autoHero(); } });
+$("hero").addEventListener("mouseenter", () => clearInterval(hTimer));
+$("hero").addEventListener("mouseleave", autoHero);
+hero(0); autoHero();
+if (!reduce) $("hero").addEventListener("pointermove", e => {
+  const r = e.currentTarget.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+  document.querySelectorAll(".hero .deco").forEach((d, k) => d.style.transform = `translate(${x * (k ? -18 : 18)}px,${y * (k ? -14 : 14)}px)`);
+});
+
+/* ---------- cartões ---------- */
+$("grid").innerHTML = APOSTILAS.map((a, i) => `
+  <article class="card reveal" id="card-${a.id}" style="--c:${a.cor}">
+    <div class="top"><span class="ed">${a.edicao}</span>
+      <div class="mosaic m1" aria-hidden="true">${MOS[i]}</div>
+      <div class="mosaic m2" aria-hidden="true"><i class="qtr wh"></i><i class="e"></i></div>
+      <img src="${a.capa}" alt="Capa da apostila Matemática por Assunto ${a.uni}" loading="lazy"></div>
+    <div class="body">
+      <h3 class="nm">${a.nome}</h3>
+      <p class="for">${a.para}</p>
+      <div class="big"><div><b>${a.questoes}</b><span>questões</span></div><div><b>${a.nAssuntos}</b><span>assuntos</span></div></div>
+      <ul>${a.itens.map(t => `<li>${t}</li>`).join("")}</ul>
+      <div class="price"><small>Investimento</small><b>${a.preco || "Preço no lançamento"}</b>${a.parcelas ? `<small>${a.parcelas}</small>` : ""}</div>
+      ${a.checkout
+        ? `<a class="buy ${CHECKOUT_NA_PAGINA ? "hotmart-fb hotmart__button-checkout" : ""}" href="${a.checkout}" ${CHECKOUT_NA_PAGINA ? "" : 'target="_blank" rel="noopener"'}>Comprar apostila ${a.uni}</a>`
+        : `<button class="buy" type="button" data-soon="${a.uni}">Comprar apostila ${a.uni}</button>`}
+    </div>
   </article>`).join("");
 
 const dlg = $("soon");
 document.addEventListener("click", e => {
-  const b = e.target.closest("[data-soon]");
-  if (!b) return;
+  const b = e.target.closest("[data-soon]"); if (!b) return;
   $("soonTitle").textContent = `Apostila ${b.dataset.soon}: vendas em breve`;
   $("soonWa").href = wa(`Olá, professor! Quero ser avisado quando a apostila Matemática por Assunto ${b.dataset.soon} for lançada.`);
   dlg.showModal();
 });
 $("comboBtn").href = wa("Olá, professor! Vou fazer mais de um vestibular e quero um combo das apostilas Matemática por Assunto.");
 $("yr").textContent = new Date().getFullYear();
-
 if (CHECKOUT_NA_PAGINA && APOSTILAS.some(a => a.checkout)) {
   const s = document.createElement("script"); s.src = "https://static.hotmart.com/checkout/widget.min.js"; document.head.appendChild(s);
   const l = document.createElement("link"); l.rel = "stylesheet"; l.href = "https://static.hotmart.com/css/hotmart-fb.min.css"; document.head.appendChild(l);
 }
 
-/* Livro folheando */
-const qs = (n, ok, src) => `<div class="q"><span class="src">QUESTÃO ${n} · ${src}</span><div class="bar m"></div><div class="bar"></div><div class="bar s"></div>
-  <div class="alts">${"ABCDE".split("").map(l => `<i class="${l===ok?"ok":""}">${l}</i>`).join("")}</div></div>`;
-function paginasIlustrativas(a){
-  const hd = (cap, n) => `<div class="hd"><b>${cap}</b><span>${a.uni}</span></div>`;
-  const ft = n => `<div class="foot"><span>Matemática por Assunto</span><span>${n}</span></div>`;
-  return [
-    `<div class="pg">${hd("Sumário")}<h4>Assuntos</h4><ol class="toc">${(a.sumario||[]).map(t=>`<li>${t}<i></i></li>`).join("")}</ol>${ft(3)}</div>`,
-    `<div class="pg">${hd("Capítulo 2")}<h4>Porcentagem</h4><div class="box"><b>Resumo</b>Aumentos e descontos sucessivos se multiplicam.</div><div class="fn">V = V₀ · (1 + i)ⁿ</div>${ft(17)}</div>`,
-    `<div class="pg">${hd("Porcentagem")}${qs("01","C",a.uni)}${qs("02","A",a.uni)}${ft(18)}</div>`,
-    `<div class="pg">${hd("Porcentagem")}${qs("03","D",a.uni)}${qs("04","B",a.uni)}${ft(19)}</div>`,
-    `<div class="pg">${hd("Capítulo 3")}<h4>Funções</h4><div class="box"><b>Resumo</b>O gráfico de f(x) = ax² + bx + c é uma parábola.</div><div class="fn">xᵥ = −b / 2a</div>${ft(29)}</div>`,
-    `<div class="pg">${hd("Funções")}${qs("01","E",a.uni)}${qs("02","C",a.uni)}${ft(30)}</div>`
-  ];
-}
+/* ---------- livro interativo ---------- */
 const book = $("book");
-let cur = 0, timer = null, step = 0, leaves = [];
+let leaves = [], step = 0, bTimer = null, touched = false, inView = false;
+function zfix(){ const n = leaves.length; leaves.forEach((l, i) => l.style.zIndex = l.classList.contains("flipped") ? 100 + i : 100 + n - i); }
 function montar(a){
-  const reais = a.paginas && a.paginas.length;
-  const pags = reais ? a.paginas.map(src => `<img src="${src}" alt="">`) : paginasIlustrativas(a);
-  $("booknote").textContent = reais ? "" : "Páginas ilustrativas";
-  const faces = [`<img src="${a.capa}" alt="Capa da apostila ${a.uni}">`, ...pags];
-  if (faces.length % 2) faces.push(`<div class="pg"></div>`);
-  book.style.setProperty("--acc", a.cor);
-  book.innerHTML = `<div class="base l"></div><div class="base r"><div class="more"><b>E muito mais</b><span>${a.itens[0]}</span><a href="#apostilas">Quero a minha</a></div></div>` +
-    Array.from({length: faces.length/2}, (_, i) =>
-      `<div class="leaf" style="z-index:${100-i}"><div class="f">${faces[2*i]}</div><div class="b">${faces[2*i+1]}</div></div>`).join("");
-  leaves = [...book.querySelectorAll(".leaf")];
-  book.classList.add("closed");
-  step = 0;
+  const faces = [`<img src="${a.capa}" alt="Capa da apostila ${a.uni}">`, ...a.paginas.map((src, k) => `<img src="${src}" alt="Página ${k + 2} da apostila ${a.uni}" loading="lazy">`)];
+  if (faces.length % 2) faces.push(`<div class="more" style="background:${a.cor}"><b>${a.questoes}</b><span>questões esperando você</span></div>`);
+  book.innerHTML = `<div class="base l"></div><div class="base r"><div class="more"><div class="mosaic" aria-hidden="true"><i class="qbl pk"></i><i class="ci yl"></i></div><b>E muito<br>mais</b><span>${a.questoes} questões em ${a.nAssuntos} assuntos, com levantamento estatístico e checklist.</span><a href="#card-${a.id}">Quero a minha</a></div></div>` +
+    Array.from({length: faces.length / 2}, (_, i) => `<div class="leaf"><div class="f">${faces[2 * i]}</div><div class="b">${faces[2 * i + 1]}</div></div>`).join("");
+  leaves = [...book.querySelectorAll(".leaf")]; step = 0; zfix(); estado();
 }
-function avancar(){
+function estado(){
   const n = leaves.length;
-  if (step < n){                     // vira a próxima folha
-    const l = leaves[step];
-    l.style.zIndex = 200;
-    l.classList.add("flipped");
-    if (step === 0) book.classList.remove("closed");
-    const i = step; setTimeout(() => { l.style.zIndex = 100 + i; }, 1000);
-    step++;
-  } else {                           // fecha e recomeça
-    leaves.slice().reverse().forEach((l, k) => setTimeout(() => {
-      l.style.zIndex = 300 + k; l.classList.remove("flipped");
-      setTimeout(() => { l.style.zIndex = 100 - leaves.indexOf(l); }, 1000);
-    }, k * 160));
-    setTimeout(() => book.classList.add("closed"), leaves.length * 160 + 300);
-    step = 0;
-  }
+  book.classList.toggle("closed", step === 0);
+  $("prev").disabled = step === 0; $("next").disabled = step === n;
+  $("count").innerHTML = step === 0 ? "<b>Capa</b>" : step === n ? "<b>Fim</b> da prévia" : `<b>${step * 2}–${step * 2 + 1}</b> de ${n * 2}`;
+}
+function ir(d){
+  const n = leaves.length;
+  if (d > 0 && step < n){ const l = leaves[step]; l.classList.remove("peek"); l.style.zIndex = 500; l.classList.add("flipped"); step++; }
+  else if (d < 0 && step > 0){ step--; const l = leaves[step]; l.style.zIndex = 500; l.classList.remove("flipped"); }
+  else return false;
+  estado(); clearTimeout(ir.t); ir.t = setTimeout(zfix, 900); return true;
+}
+function parar(){ touched = true; clearInterval(bTimer); }
+function auto(){
+  clearInterval(bTimer); if (reduce || touched || !inView) return;
+  bTimer = setInterval(() => { if (!ir(1)) { const back = () => { if (ir(-1)) setTimeout(back, 140); }; back(); } }, 2000);
 }
 function escolher(i){
-  cur = i;
   [...$("tabs").children].forEach((b, k) => b.setAttribute("aria-pressed", k === i));
-  montar(APOSTILAS[i]);
-  clearInterval(timer);
-  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) timer = setInterval(avancar, 1800);
-  else { leaves[0].classList.add("flipped"); book.classList.remove("closed"); }
+  montar(APOSTILAS[i]); auto();
 }
-$("tabs").innerHTML = APOSTILAS.map((a, i) => `<button type="button" aria-pressed="false">${a.uni}</button>`).join("");
+$("tabs").innerHTML = APOSTILAS.map(a => `<button class="tab" type="button" aria-pressed="false">${a.uni}</button>`).join("");
 [...$("tabs").children].forEach((b, i) => b.addEventListener("click", () => escolher(i)));
+$("next").addEventListener("click", () => { parar(); ir(1); });
+$("prev").addEventListener("click", () => { parar(); ir(-1); });
+book.addEventListener("keydown", e => { if (e.key === "ArrowRight") { parar(); ir(1); } if (e.key === "ArrowLeft") { parar(); ir(-1); } });
+let sx = null, moved = false;
+book.addEventListener("pointerdown", e => { sx = e.clientX; moved = false; });
+book.addEventListener("pointermove", e => {
+  if (sx === null) {
+    if (e.pointerType !== "mouse") return;
+    const r = book.getBoundingClientRect(), right = e.clientX > r.left + r.width / 2;
+    leaves.forEach(l => l.classList.remove("peek"));
+    if (right && step > 0 && step < leaves.length) leaves[step].classList.add("peek");
+    return;
+  }
+  if (Math.abs(e.clientX - sx) > 40 && !moved){ moved = true; parar(); ir(e.clientX < sx ? 1 : -1); }
+});
+book.addEventListener("pointerup", e => {
+  if (!moved && sx !== null){
+    const r = book.getBoundingClientRect();
+    parar();
+    if (step === 0) ir(1); else ir(e.clientX - r.left > r.width / 2 ? 1 : -1);
+  }
+  sx = null;
+});
+book.addEventListener("pointerleave", () => { sx = null; leaves.forEach(l => l.classList.remove("peek")); });
 escolher(0);
+new IntersectionObserver(([en]) => { inView = en.isIntersecting; if (inView) auto(); else clearInterval(bTimer); }, {threshold:.3}).observe(book);
 
-/* Botão fixo no celular: aparece depois do topo e some na seção das apostilas */
+/* ---------- o que mais cai ---------- */
+let si = 0, fase = 0, todos = false;
+const INC = ["Altíssima","Alta","Média","Baixa"];
+$("sUni").innerHTML = APOSTILAS.map(a => `<button type="button" aria-pressed="false">${a.uni}</button>`).join("");
+$("sFase").innerHTML = ["Total","1ª fase","2ª fase"].map(t => `<button type="button" aria-pressed="false">${t}</button>`).join("");
+[...$("sUni").children].forEach((b, i) => b.addEventListener("click", () => { si = i; fase = 0; grafico(); }));
+[...$("sFase").children].forEach((b, i) => b.addEventListener("click", () => { fase = i; grafico(); }));
+$("sMore").addEventListener("click", () => { todos = !todos; grafico(); });
+function grafico(){
+  const a = APOSTILAS[si], uece = a.assuntos[0].length === 3;
+  [...$("sUni").children].forEach((b, k) => b.setAttribute("aria-pressed", k === si));
+  $("sFase").hidden = !uece;
+  [...$("sFase").children].forEach((b, k) => b.setAttribute("aria-pressed", k === fase));
+  const val = r => uece ? (fase === 0 ? r[1] + r[2] : r[fase]) : r[1];
+  const tot = r => uece ? r[1] + r[2] : r[1];
+  const lista = a.assuntos.map(r => ({n: r[0], v: val(r), t: tot(r)})).sort((x, y) => y.v - x.v || x.n.localeCompare(y.n));
+  const soma = lista.reduce((s, r) => s + r.v, 0), max = lista[0].v;
+  const inc = t => t >= a.corte[0] ? 0 : t >= a.corte[1] ? 1 : t >= a.corte[2] ? 2 : 3;
+  const pct = Math.round(100 * lista.slice(0, 5).reduce((s, r) => s + r.v, 0) / soma);
+  contar($("sPct"), pct);
+  $("sTxt").textContent = `das questões${uece && fase ? ` da ${fase}ª fase` : ""} da ${a.uni} vêm de só 5 dos ${lista.length} assuntos. É por eles que vale começar.`;
+  const mostra = todos ? lista : lista.slice(0, 10);
+  $("bars").innerHTML = mostra.map(r => `<div class="row" title="${r.n}: ${r.v} questões · incidência ${INC[inc(r.t)].toLowerCase()}"><span class="nm">${r.n}</span><span class="track"><span class="fill inc-${"ABCD"[inc(r.t)]}" data-w="${(100 * r.v / max).toFixed(1)}"></span></span><span class="v">${r.v}</span></div>`).join("");
+  requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll("#bars .fill").forEach(f => f.style.width = f.dataset.w + "%")));
+  $("sMore").textContent = todos ? "Mostrar só os 10 que mais caem" : `Ver todos os ${lista.length} assuntos`;
+  $("sSrc").textContent = `Fonte: levantamento estatístico da apostila ${a.uni} (${soma} questões${uece && fase ? ` da ${fase}ª fase` : ""}). A cor indica a incidência de cada assunto no total.`;
+}
+function contar(el, alvo){
+  if (reduce) { el.textContent = alvo + "%"; return; }
+  const ini = parseInt(el.textContent) || 0, t0 = performance.now();
+  const passo = t => { const p = Math.min(1, (t - t0) / 700); el.textContent = Math.round(ini + (alvo - ini) * (1 - Math.pow(1 - p, 3))) + "%"; if (p < 1) requestAnimationFrame(passo); };
+  requestAnimationFrame(passo);
+}
+grafico();
+
+/* ---------- entradas suaves e botão fixo ---------- */
+const rv = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); rv.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll(".reveal").forEach(el => rv.observe(el));
 const sticky = $("sticky"), vis = new Set();
 const io = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? vis.add(e.target) : vis.delete(e.target)); sticky.classList.toggle("off", vis.size > 0); }, {threshold:.1});
-io.observe(document.querySelector(".hero")); io.observe($("apostilas"));
+io.observe($("hero")); io.observe($("apostilas"));
 </script>
 </body>
 </html>
