@@ -3,244 +3,252 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Matemática por Assunto · Apostilas UECE, UNIFOR e Unichristus</title>
-<meta name="description" content="Apostilas de Matemática organizadas por assunto para os vestibulares da UECE, UNIFOR e Unichristus. Do professor Pedro Araújo, da Sala dos Números.">
+<title>Matemática por Assunto · Sala dos Números</title>
+<meta name="description" content="Apostilas de Matemática organizadas por assunto para os vestibulares da UECE, UNIFOR Medicina e Unichristus Medicina. Do professor Pedro Araújo.">
 <meta name="theme-color" content="#409BE4">
-<meta property="og:title" content="Matemática por Assunto · Apostilas para UECE, UNIFOR e Unichristus">
-<meta property="og:description" content="Estude a Matemática do seu vestibular assunto por assunto.">
+<meta property="og:title" content="Matemática por Assunto · Sala dos Números">
+<meta property="og:description" content="A Matemática do seu vestibular, assunto por assunto. UECE, UNIFOR e Unichristus.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23409BE4'/%3E%3Ctext x='32' y='46' font-family='Arial' font-weight='900' font-size='40' text-anchor='middle' fill='%23fff'%3EM%3C/text%3E%3C/svg%3E">
+<meta property="og:image" content="img/uece.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23409BE4'/%3E%3Ctext x='32' y='46' font-family='Arial' font-weight='900' font-size='40' text-anchor='middle' fill='%23fff'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:light;--blue:#409BE4;--deep:#2289D4;--navy:#14365c;--ink:#304254;--muted:#5c6f82;--pink:#FD0C64;--yellow:#FCE906;--soft:#EAF4FD;--line:#CFE4F7;--white:#fff;
-  --c-uece:#2289D4;--c-unifor:#1f9e6e;--c-unichristus:#e8195f}
+/* Mesma linguagem do site de agendamento do Matematizando:
+   azul #409BE4 chapado, recortes brancos (.blob), cartões brancos de canto 28px,
+   azul escuro #2289D4 nas seções alternadas, rosa #FD0C64 nos botões, amarelo #FCE906 nos destaques. */
+:root{color-scheme:light;--blue:#409BE4;--deep:#2289D4;--ink:#304254;--muted:#5c6f82;--pink:#FD0C64;--yellow:#FCE906;--green:#2DAF7E;--soft:#EAF4FD;--line:#CFE4F7;--white:#fff}
 *{box-sizing:border-box;min-width:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{margin:0;background:#fff;color:var(--ink);font:16px/1.6 Montserrat,system-ui,sans-serif;overflow-x:clip}
-img{max-width:100%;display:block}
-.wrap{max-width:1180px;margin:0 auto;padding:0 max(5vw,16px)}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--blue);color:#fff;font:16px/1.55 Montserrat,system-ui,sans-serif;overflow-x:clip}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(5vw,18px)}
 a{color:inherit}
-button:focus-visible,a:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+button:focus-visible,a:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
 
-/* topo */
-nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 2px 14px rgba(16,40,70,.10)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:62px}
-.brand{font-weight:900;font-size:18px;color:var(--deep);text-decoration:none;white-space:nowrap}
-.brand span{color:var(--pink)}
-.menu{display:flex;gap:clamp(12px,2.6vw,30px);overflow-x:auto;white-space:nowrap}
-.menu a{font-weight:700;font-size:14px;text-decoration:none;color:var(--ink);padding:8px 0}
-.menu a:hover{color:var(--deep)}
-.menu .buy{background:var(--pink);color:#fff;padding:9px 18px;border-radius:999px}
-@media (max-width:720px){.menu a:not(.buy){display:none}.brand .pre{display:none}}
-.brand b{font-weight:900}
+nav{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 2px 14px rgba(16,40,70,.12)}
+nav .wrap{display:flex;justify-content:flex-end;align-items:center;gap:clamp(14px,3vw,34px);overflow-x:auto;white-space:nowrap}
+nav a{color:var(--ink);font-weight:700;font-size:15px;text-decoration:none;padding:16px 0;flex:none}
+nav a:hover{color:var(--deep)}
+nav .navcta{background:var(--pink);color:#fff;padding:9px 18px;border-radius:999px;margin:7px 0}
+nav .navcta:hover{color:#fff}
 
-/* hero */
-.hero{background:var(--blue);color:#fff;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:auto -10% -40% auto;width:60vw;height:60vw;border-radius:50%;background:var(--deep);opacity:.55}
-.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,56px);align-items:center;padding-top:clamp(40px,6vw,84px);padding-bottom:clamp(48px,7vw,96px)}
-.tag{display:inline-block;background:var(--yellow);color:var(--navy);font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
-h1{font:900 clamp(34px,5.4vw,64px)/1.02 Montserrat,sans-serif;margin:18px 0 16px;text-wrap:balance}
-h1 em{font-style:normal;background:#fff;color:var(--deep);padding:0 .22em;border-radius:14px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.lead{font-size:clamp(16px,1.6vw,19px);max-width:48ch;margin:0 0 28px;color:#f2f8ff}
-.ctas{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 28px;border-radius:999px;font:800 17px Montserrat,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}
-.btn-pink{background:var(--pink);color:#fff;box-shadow:0 10px 24px -8px rgba(253,12,100,.6)}
-.btn-white{background:#fff;color:var(--deep)}
-.btn-line{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
-.proof{display:flex;flex-wrap:wrap;gap:18px 28px;margin-top:30px;font-size:14px;color:#e6f2fd}
-.proof b{display:block;font-size:24px;color:#fff;font-weight:900;line-height:1.1}
-
-.fan{position:relative;height:clamp(300px,38vw,470px)}
-.fan .cv{position:absolute;top:50%;left:50%;width:clamp(140px,15.5vw,205px);transform-origin:50% 100%;transition:transform .35s}
-.fan .cv:nth-child(1){transform:translate(-112%,-46%) rotate(-10deg)}
-.fan .cv:nth-child(2){transform:translate(-50%,-56%);z-index:2}
-.fan .cv:nth-child(3){transform:translate(12%,-46%) rotate(10deg)}
-.fan .cv{outline:4px solid rgba(255,255,255,.9)}
-.fan:hover .cv:nth-child(1){transform:translate(-120%,-48%) rotate(-13deg)}
-.fan:hover .cv:nth-child(3){transform:translate(20%,-48%) rotate(13deg)}
-
-/* capa (imagem ou capa gerada se a imagem faltar) */
-.cv{aspect-ratio:376/532;border-radius:10px;overflow:hidden;box-shadow:0 24px 44px -16px rgba(5,30,70,.55);background:var(--c,var(--deep));position:relative}
-.cv img{width:100%;height:100%;object-fit:cover}
-.cv .fake{position:absolute;inset:0;display:none;flex-direction:column;justify-content:space-between;padding:12% 10%;color:#fff}
-.cv.noimg .fake{display:flex}
-.cv.noimg img{display:none}
-.fake small{font-weight:700;font-size:clamp(9px,1vw,12px);letter-spacing:.12em;text-transform:uppercase;opacity:.9}
-.fake strong{font:900 clamp(18px,2.2vw,30px)/1 Montserrat,sans-serif}
-.fake strong span{display:block;color:var(--yellow);font-size:1.25em;margin-top:6px}
-.fake i{font-style:normal;font-size:clamp(9px,1vw,12px);font-weight:600;opacity:.85}
-
+.blob{display:inline-block;background:#fff;color:var(--deep);font-weight:700;padding:.08em .55em .14em;border-radius:999px;line-height:1.15}
+h1{font:800 clamp(28px,3.6vw,44px)/1.12 Montserrat,sans-serif;margin:26px 0 14px;text-wrap:balance}
+h1 .blob{font-size:.62em;vertical-align:.3em}
+h2{font:800 clamp(30px,4.2vw,48px)/1.08 Montserrat,sans-serif;margin:0 0 10px;text-wrap:balance}
+h2 .blob{font-size:.72em;vertical-align:.18em}
+.intro{margin:0 0 32px;color:#f2f8ff;max-width:58ch;font-size:clamp(16px,1.5vw,18px)}
+.kicker{margin:0 0 6px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--yellow)}
 section{padding:clamp(56px,8vw,104px) 0}
-.kicker{color:var(--pink);font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px}
-h2{font:900 clamp(28px,4vw,46px)/1.08 Montserrat,sans-serif;margin:0 0 12px;color:var(--navy);text-wrap:balance}
-.sub{margin:0 0 36px;color:var(--muted);max-width:60ch;font-size:17px}
-.center{text-align:center}.center .sub{margin-left:auto;margin-right:auto}
+.alt{background:var(--deep)}
 
-/* apostilas */
-.shop{background:var(--soft)}
+.cta{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border-radius:999px;background:#fff;color:var(--deep);font-weight:800;font-size:18px;text-decoration:none;box-shadow:0 8px 20px rgba(10,60,120,.18);border:0;cursor:pointer;font-family:inherit}
+.cta.pink{background:var(--pink);color:#fff;box-shadow:0 10px 24px -8px rgba(160,0,60,.55)}
+.cta:hover{transform:translateY(-1px)}
+
+/* HERO */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:end;gap:24px;padding-top:clamp(28px,5vw,60px)}
+.hero .txt{padding-bottom:clamp(36px,6vw,80px)}
+.logo{width:min(300px,70vw);height:auto;display:block}
+.lead{font-size:clamp(16px,1.6vw,19px);max-width:46ch;margin:0 0 26px;color:#f2f8ff}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:0}
+.chips li{border:1.5px solid rgba(255,255,255,.7);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:600}
+.stage{position:relative;justify-self:end;width:100%;max-width:470px;aspect-ratio:470/520;align-self:end}
+.stage .foto{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:76%;height:auto;z-index:2;display:block}
+.stage .cv{position:absolute;width:38%;border-radius:8px;box-shadow:0 20px 40px -14px rgba(0,30,80,.55);border:4px solid #fff}
+.stage .c1{left:0;top:18%;transform:rotate(-12deg);z-index:1}
+.stage .c2{right:0;top:12%;transform:rotate(10deg);z-index:1}
+.stage .c3{right:4%;bottom:6%;width:30%;transform:rotate(-6deg);z-index:3}
+
+/* APOSTILAS */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-@media (max-width:960px){.grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
-.prod{background:#fff;border-radius:26px;padding:22px;display:flex;flex-direction:column;box-shadow:0 18px 40px -26px rgba(10,50,100,.45);border-top:8px solid var(--c);position:relative}
-.prod .top{display:grid;grid-template-columns:120px minmax(0,1fr);gap:18px;align-items:center}
-.prod .cv{border-radius:8px}
-.uni{display:inline-block;background:var(--c);color:#fff;font-weight:800;font-size:12px;letter-spacing:.06em;padding:4px 12px;border-radius:999px;text-transform:uppercase}
-.prod h3{font:900 22px/1.15 Montserrat,sans-serif;color:var(--navy);margin:10px 0 4px}
-.prod .for{font-size:14px;color:var(--muted);margin:0}
-.prod ul{list-style:none;padding:0;margin:20px 0;display:grid;gap:10px;font-size:15px;flex:1}
-.prod li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px}
-.prod li::before{content:"";width:20px;height:20px;border-radius:50%;margin-top:2px;background:var(--c) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
-.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-top:2px dashed var(--line);padding-top:16px;margin-bottom:14px}
-.price .val{font:900 30px/1 Montserrat,sans-serif;color:var(--navy)}
-.price .soon{font-weight:800;color:var(--muted);font-size:17px}
-.price small{color:var(--muted);font-size:13px}
-.prod .btn{width:100%}
-.ribbon{position:absolute;top:-8px;right:22px;background:var(--yellow);color:var(--navy);font-weight:800;font-size:12px;padding:6px 12px;border-radius:0 0 10px 10px}
+.card{background:#fff;color:var(--ink);border-radius:28px;padding:clamp(18px,2.4vw,26px);box-shadow:0 18px 40px -20px rgba(10,50,100,.45);display:flex;flex-direction:column}
+.card .cover{position:relative;border-radius:18px;padding:22px 22px 0;background:var(--c);overflow:hidden;display:flex;justify-content:center}
+.card .cover img{width:68%;display:block;border-radius:6px 6px 0 0;box-shadow:0 -6px 30px rgba(0,0,0,.18);transition:transform .25s}
+.card:hover .cover img{transform:translateY(-6px)}
+.ed{position:absolute;top:12px;left:12px;background:#fff;color:var(--ink);font-weight:800;font-size:12px;padding:4px 12px;border-radius:999px}
+.card h3{font:800 22px/1.2 Montserrat,sans-serif;color:var(--deep);margin:18px 0 2px}
+.card .for{font-weight:600;font-size:14px;color:var(--muted);margin:0}
+.card ul{list-style:none;padding:0;margin:16px 0;display:grid;gap:9px;font-size:15px;flex:1}
+.card li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px}
+.card li::before{content:"";width:20px;height:20px;border-radius:50%;margin-top:2px;background:var(--c) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.price{background:var(--soft);border-radius:18px;padding:12px 16px;margin-bottom:12px}
+.price .note{font-size:13px;color:var(--muted)}
+.price .val{font:800 22px/1.25 Montserrat,sans-serif;color:var(--deep)}
+.buy{min-height:54px;border:0;border-radius:999px;background:var(--pink);color:#fff;font:800 17px Montserrat,sans-serif;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;width:100%}
+.buy:hover{filter:brightness(1.05)}
+.combo{margin-top:22px;background:var(--deep);border-radius:28px;padding:clamp(20px,3vw,30px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;box-shadow:0 18px 40px -20px rgba(10,50,100,.45)}
+.combo h3{font:800 22px/1.2 Montserrat,sans-serif;margin:0 0 4px}
+.combo p{margin:0;color:#eaf4ff}
 
-/* combo */
-.combo{margin-top:26px;background:var(--navy);color:#fff;border-radius:26px;padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}
-.combo h3{font:900 clamp(20px,2.4vw,28px)/1.15 Montserrat,sans-serif;margin:0 0 6px}
-.combo p{margin:0;color:#cfe0f2}
-@media (max-width:720px){.combo{grid-template-columns:1fr}}
+/* POR DENTRO: apostila sendo folheada */
+.inside .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.feats{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.feats li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start}
+.feats .num{width:40px;height:40px;border-radius:50%;background:var(--pink);color:#fff;font:800 19px/40px Montserrat,sans-serif;text-align:center}
+.feats b{display:block;font-size:17px;font-weight:800;margin:2px 0 2px}
+.feats p{margin:0;color:#eaf4ff;font-size:15px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:22px}
+.tabs button{min-height:42px;padding:0 18px;border-radius:999px;border:2px solid rgba(255,255,255,.6);background:transparent;color:#fff;font:700 15px Montserrat,sans-serif;cursor:pointer}
+.tabs button[aria-pressed=true]{background:#fff;color:var(--deep);border-color:#fff}
+.bookwrap{display:flex;justify-content:center;padding:10px 0 20px}
+.book{--pw:min(285px,40vw);position:relative;width:calc(var(--pw)*2);aspect-ratio:752/532;perspective:2200px;transition:transform .8s cubic-bezier(.4,.1,.2,1)}
+.book.closed{transform:translateX(-25%)}
+.book .base{position:absolute;top:0;bottom:0;width:50%;background:#fff;box-shadow:0 30px 50px -20px rgba(0,20,60,.6)}
+.book .base.l{left:0;border-radius:6px 0 0 6px;opacity:0;transition:opacity .3s .3s}
+.book:not(.closed) .base.l{opacity:1}
+.book .base.r{right:0;border-radius:0 6px 6px 0;background:var(--acc);overflow:hidden}
+.more{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:10px;padding:12%;color:#fff}
+.more b{font:800 calc(var(--pw)*.11)/1.05 Montserrat,sans-serif}
+.more span{font-weight:600;font-size:calc(var(--pw)*.055);line-height:1.35}
+.more a{margin-top:6px;background:#fff;color:var(--ink);font-weight:800;text-decoration:none;border-radius:999px;padding:8px 16px;font-size:calc(var(--pw)*.05)}
+.leaf{position:absolute;top:0;right:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.45,.05,.25,1)}
+.leaf.flipped{transform:rotateY(-180deg)}
+.leaf .f,.leaf .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#fff;color:var(--ink)}
+.leaf .f{border-radius:0 6px 6px 0}
+.leaf .b{transform:rotateY(180deg);border-radius:6px 0 0 6px}
+.leaf .f::after{content:"";position:absolute;inset:0 auto 0 0;width:18px;background:linear-gradient(90deg,rgba(0,0,0,.12),transparent)}
+.leaf .b::after{content:"";position:absolute;inset:0 0 0 auto;width:18px;background:linear-gradient(270deg,rgba(0,0,0,.12),transparent)}
+.leaf img{width:100%;height:100%;object-fit:cover;display:block}
+.pg{padding:9% 9% 7%;height:100%;display:flex;flex-direction:column;font-size:calc(var(--pw)*.042)}
+.pg .hd{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--acc);padding-bottom:5%;margin-bottom:6%}
+.pg .hd b{color:var(--acc);font-weight:800;font-size:1.05em}
+.pg .hd span{background:var(--acc);color:#fff;font-weight:800;font-size:.8em;padding:.2em .7em;border-radius:999px}
+.pg h4{margin:0 0 6%;font-size:1.5em;line-height:1.1;color:var(--ink);font-weight:800}
+.pg .toc{list-style:none;padding:0;margin:0;display:grid;gap:.55em;counter-reset:t}
+.pg .toc li{display:flex;gap:.6em;align-items:baseline;font-weight:600}
+.pg .toc li::before{counter-increment:t;content:counter(t,decimal-leading-zero);color:var(--acc);font-weight:800}
+.pg .toc li i{flex:1;border-bottom:1.5px dotted var(--line);font-style:normal}
+.pg .q{margin-bottom:7%}
+.pg .src{font-weight:800;color:var(--pink);font-size:.85em}
+.pg .bar{height:.55em;border-radius:3px;background:var(--soft);margin:.45em 0}
+.pg .bar.s{width:72%}.pg .bar.m{width:88%}
+.pg .alts{display:grid;grid-template-columns:repeat(5,1fr);gap:4%;margin-top:.7em}
+.pg .alts i{font-style:normal;text-align:center;font-weight:800;font-size:.85em;border:1.5px solid var(--line);border-radius:5px;padding:.2em 0;color:var(--muted)}
+.pg .alts i.ok{border-color:var(--green);background:#e6f7ef;color:#16865b}
+.pg .box{background:var(--soft);border-left:4px solid var(--acc);border-radius:8px;padding:6%;margin-bottom:7%;font-weight:600}
+.pg .box b{display:block;color:var(--acc);margin-bottom:.3em}
+.pg .fn{font-weight:800;font-size:1.3em;text-align:center;margin:.4em 0;color:var(--ink)}
+.pg .foot{margin-top:auto;display:flex;justify-content:space-between;font-size:.8em;color:var(--muted);font-weight:600}
+.booknote{text-align:center;font-size:13px;color:#dcecff;margin:6px 0 0}
 
-/* por dentro */
-.inside .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
-@media (max-width:860px){.inside .wrap,.hero .wrap{grid-template-columns:1fr}.fan{order:-1}}
-.feat{display:grid;gap:16px}
-.feat > div{display:grid;grid-template-columns:54px minmax(0,1fr);gap:16px;align-items:start}
-.feat .n{width:54px;height:54px;border-radius:16px;background:var(--soft);color:var(--deep);display:grid;place-items:center;font:900 22px Montserrat,sans-serif}
-.feat h4{margin:4px 0 2px;font-size:18px;color:var(--navy)}
-.feat p{margin:0;color:var(--muted);font-size:15px}
-.page{background:#fff;border-radius:18px;box-shadow:0 30px 60px -30px rgba(10,50,100,.5);padding:26px 26px 30px;border:1px solid var(--line);transform:rotate(-2deg)}
-.page .hd{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--blue);padding-bottom:10px;margin-bottom:16px}
-.page .hd b{color:var(--deep);font-weight:900}
-.page .hd span{font-size:12px;font-weight:700;background:var(--pink);color:#fff;padding:3px 10px;border-radius:999px}
-.q{margin-bottom:14px;font-size:14px}
-.q .src{font-weight:800;color:var(--pink);font-size:12px}
-.bar{height:9px;border-radius:5px;background:var(--soft);margin:7px 0}
-.bar.s{width:70%}.bar.m{width:86%}
-.alts{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px}
-.alts i{font-style:normal;text-align:center;font-weight:800;font-size:13px;border:2px solid var(--line);border-radius:8px;padding:4px 0;color:var(--muted)}
-.alts i.ok{border-color:#1fa855;background:#e7f8ee;color:#138a43}
+/* COMO COMPRAR */
+.buygrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:22px;align-items:stretch}
+.howcard{background:var(--deep);border-radius:28px;padding:clamp(18px,2.6vw,30px);box-shadow:0 18px 40px -20px rgba(10,50,100,.45)}
+.howcard h3,.card.g h3{font:800 22px/1.2 Montserrat,sans-serif;margin:0 0 16px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.steps li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start}
+.steps .num{width:40px;height:40px;border-radius:50%;background:var(--pink);color:#fff;font:800 19px/40px Montserrat,sans-serif;text-align:center}
+.steps b{display:block;font-size:17px;font-weight:800;margin:2px 0 2px}
+.steps p{margin:0;color:#eaf4ff;font-size:15px}
+.pays{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pays span{border:1.5px solid rgba(255,255,255,.7);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:600}
+.card.g{justify-content:center;align-items:flex-start}
+.card.g h3{color:var(--deep);margin:0}
+.seal{width:92px;height:92px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;text-align:center;font-weight:800;line-height:1;margin-bottom:16px;box-shadow:0 0 0 6px #fff,0 0 0 9px var(--yellow)}
+.seal b{display:block;font-size:36px}.seal small{font-size:10px;letter-spacing:.06em}
+.card.g p{margin:8px 0 0;color:var(--muted)}
 
-/* como comprar */
-.steps{background:var(--blue);color:#fff}
-.steps h2{color:#fff}.steps .sub{color:#e6f2fd}.steps .kicker{color:var(--yellow)}
-.stepgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;counter-reset:s}
-@media (max-width:860px){.stepgrid{grid-template-columns:1fr}}
-.step{background:#fff;color:var(--ink);border-radius:24px;padding:26px}
-.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--pink);color:#fff;font:900 22px Montserrat,sans-serif;margin-bottom:14px}
-.step h4{margin:0 0 6px;font-size:19px;color:var(--navy)}
-.step p{margin:0;color:var(--muted);font-size:15px}
-.secure{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;justify-content:center}
-.secure span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:8px 16px;border-radius:999px;font-weight:700;font-size:14px}
+/* SOBRE (igual ao site de agendamento) */
+.about .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,6vw,80px);align-items:center}
+.me{display:grid;justify-items:center;text-align:center;gap:18px}
+.ring{width:min(300px,64vw);aspect-ratio:1;border-radius:50%;padding:8px;background:conic-gradient(var(--yellow) 0 33%,var(--pink) 0 66%,#fff 0 100%);box-shadow:0 24px 50px -24px rgba(0,20,60,.6)}
+.ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:#1f7fc4;display:block}
+.name{font:800 clamp(30px,3.6vw,44px)/1.05 Montserrat,sans-serif;margin:6px 0 10px}
+.role{display:inline-block;line-height:1.3;background:#fff;color:var(--deep);font-weight:800;font-size:15px;padding:6px 16px;border-radius:999px}
+.bio{font-size:clamp(16px,1.5vw,18px);line-height:1.6;margin:0 0 22px;max-width:52ch}
+.creds{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.creds li{background:#fff;color:var(--ink);border-radius:20px;padding:16px 18px;border-left:6px solid var(--yellow)}
+.creds li:nth-child(2),.creds li:nth-child(4){border-left-color:var(--pink)}
+.creds li:nth-child(3){border-left-color:var(--blue)}
+.creds b{display:block;font-size:16px;font-weight:800;color:var(--deep);line-height:1.25}
+.creds span{display:block;font-size:14px;line-height:1.4;margin-top:4px;color:#4f6274}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.links a{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:999px;background:#fff;color:var(--deep);font-weight:800;text-decoration:none}
+.links a.go{background:var(--pink);color:#fff}
 
-/* professor */
-.prof .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px);align-items:center}
-@media (max-width:860px){.prof .wrap{grid-template-columns:1fr}}
-.avatar{aspect-ratio:1;border-radius:32px;background:linear-gradient(160deg,var(--blue),var(--deep));display:grid;place-items:center;color:#fff;font:900 clamp(60px,10vw,120px) Montserrat,sans-serif;position:relative;overflow:hidden;max-width:420px}
-.avatar::after{content:"π  √  ∑  ∫  %  x²";position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:18px;letter-spacing:.3em;opacity:.55;font-weight:700}
-.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-.links a{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;background:var(--soft);color:var(--deep);font-weight:800;text-decoration:none}
-
-/* garantia */
-.guar{background:var(--soft)}
-.guar .box{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,44px);align-items:center;background:#fff;border-radius:28px;padding:clamp(24px,4vw,44px);box-shadow:0 18px 40px -26px rgba(10,50,100,.45)}
-.seal{width:clamp(110px,14vw,150px);aspect-ratio:1;border-radius:50%;background:var(--yellow);color:var(--navy);display:grid;place-items:center;text-align:center;font-weight:900;line-height:1;border:6px dashed #fff;outline:4px solid var(--yellow)}
-.seal b{font-size:clamp(40px,5vw,56px);display:block}
-.seal small{font-size:13px;letter-spacing:.06em}
-@media (max-width:600px){.guar .box{grid-template-columns:1fr;justify-items:center;text-align:center}}
-
-/* faq */
-.faq{max-width:820px;margin:0 auto}
-details{border-bottom:2px solid var(--soft);padding:4px 0}
-summary{cursor:pointer;list-style:none;font-weight:800;font-size:17px;color:var(--navy);padding:16px 40px 16px 0;position:relative}
+/* DÚVIDAS */
+.faqcard{background:#fff;color:var(--ink);border-radius:28px;padding:clamp(8px,2vw,18px) clamp(18px,3vw,34px);box-shadow:0 18px 40px -20px rgba(10,50,100,.45);max-width:860px}
+details{border-bottom:2px solid var(--soft)}
+details:last-child{border-bottom:0}
+summary{cursor:pointer;list-style:none;font-weight:800;font-size:17px;color:var(--deep);padding:18px 40px 18px 0;position:relative}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";position:absolute;right:6px;top:10px;font-size:28px;color:var(--pink);font-weight:700;transition:transform .2s}
+summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:28px;color:var(--pink);font-weight:700;transition:transform .2s}
 details[open] summary::after{transform:rotate(45deg)}
-details p{margin:0 0 18px;color:var(--muted)}
+details p{margin:0 0 18px;color:#4f6274}
+.final{margin-top:36px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.final p{margin:0;font:800 clamp(20px,2.4vw,26px)/1.2 Montserrat,sans-serif}
 
-/* final */
-.final{background:var(--navy);color:#fff;text-align:center}
-.final h2{color:#fff}.final .sub{color:#cfe0f2}
-.final .ctas{justify-content:center}
-footer{background:#0d2742;color:#a9c0d8;font-size:14px;padding:28px 0}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-footer a{color:#fff}
+footer{background:#fff;color:var(--ink);font-size:14px;padding:22px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+footer a{color:var(--deep);font-weight:700}
 
-/* janela de aviso (botão provisório) */
-dialog{border:0;border-radius:26px;padding:0;max-width:min(460px,calc(100vw - 32px));box-shadow:0 30px 80px rgba(0,20,50,.4)}
-dialog::backdrop{background:rgba(10,30,60,.6)}
-.dlg{padding:28px}
-.dlg h3{margin:0 0 8px;color:var(--navy);font:900 24px/1.2 Montserrat,sans-serif}
-.dlg p{margin:0 0 18px;color:var(--muted)}
-.dlg .btn{width:100%;margin-top:8px}
+dialog{border:0;border-radius:28px;padding:0;max-width:min(440px,calc(100vw - 32px));box-shadow:0 30px 80px rgba(0,20,50,.4);color:var(--ink)}
+dialog::backdrop{background:rgba(10,40,80,.55)}
+.dlg{padding:28px;display:grid;gap:10px}
+.dlg h3{margin:0;color:var(--deep);font:800 22px/1.2 Montserrat,sans-serif}
+.dlg p{margin:0 0 8px;color:var(--muted)}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:999px;font:800 16px Montserrat,sans-serif;text-decoration:none;cursor:pointer;border:0;width:100%}
 .wa{background:#1fa855;color:#fff}
-.ghost{background:var(--soft);color:var(--ink)}
+.ghost{background:#fff;border:2px solid var(--line);color:var(--ink)}
 
-/* barra fixa no celular */
-.mbar{display:none}
-@media (max-width:720px){
-  .mbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;transition:transform .3s}
-  .mbar.hide{transform:translateY(140%)}
-  .mbar .btn{width:100%;box-shadow:0 12px 28px rgba(10,30,60,.35)}
-  footer{padding-bottom:90px}
+.sticky{display:none}
+@media(max-width:960px){.grid{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto}}
+@media(max-width:860px){
+  .inside .wrap,.buygrid,.about .wrap{grid-template-columns:minmax(0,1fr)}
+  .combo{grid-template-columns:minmax(0,1fr)}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:640px){
+  nav a:not(.navcta):not(:first-child){display:none}
+  nav .wrap{justify-content:space-between}
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:0;padding-top:22px}
+  .hero .txt{padding-bottom:8px}
+  .stage{justify-self:center;max-width:340px;margin-top:10px}
+  section{padding:44px 0}
+  .creds{grid-template-columns:minmax(0,1fr)}
+  .book{--pw:min(44vw,200px)}
+  .sticky{display:flex;position:fixed;left:16px;right:16px;bottom:14px;z-index:15;min-height:54px;align-items:center;justify-content:center;border-radius:999px;background:var(--pink);color:#fff;font:800 17px Montserrat,sans-serif;text-decoration:none;box-shadow:0 10px 24px rgba(120,0,40,.35);transition:opacity .2s,transform .2s}
+  .sticky.off{opacity:0;transform:translateY(20px);pointer-events:none}
+  footer{padding-bottom:84px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <a class="brand" href="#"><b class="pre">Sala dos Números · </b><span>Matemática por Assunto</span></a>
-    <div class="menu">
-      <a href="#apostilas">Apostilas</a>
-      <a href="#por-dentro">Por dentro</a>
-      <a href="#como-comprar">Como comprar</a>
-      <a href="#duvidas">Dúvidas</a>
-      <a class="buy" href="#apostilas">Comprar</a>
-    </div>
-  </div>
-</nav>
+<nav><div class="wrap">
+  <a href="#apostilas">Apostilas</a><a href="#por-dentro">Por dentro</a><a href="#como-comprar">Como comprar</a><a href="#sobre">Sobre mim</a><a href="#duvidas">Dúvidas</a>
+  <a class="navcta" href="#apostilas">Comprar</a>
+</div></nav>
 
 <header class="hero">
   <div class="wrap">
-    <div>
-      <span class="tag">Lançamento · Sala dos Números</span>
-      <h1>A Matemática do seu vestibular, <em>assunto por assunto</em>.</h1>
-      <p class="lead">Apostilas feitas para a prova que você vai fazer: UECE (1ª e 2ª fases), UNIFOR Medicina ou Unichristus Medicina. Questões organizadas por tema, do básico ao nível da prova, para você estudar com foco e sem perder tempo.</p>
-      <div class="ctas">
-        <a class="btn btn-pink" href="#apostilas">Escolher minha apostila</a>
-        <a class="btn btn-line" href="#por-dentro">Ver como é por dentro</a>
-      </div>
-      <div class="proof">
-        <div><b>3</b>vestibulares</div>
-        <div><b>100%</b>digital</div>
-        <div><b>7 dias</b>de garantia</div>
-      </div>
+    <div class="txt">
+      <img class="logo" src="img/sala-logo.png" alt="Sala dos Números" width="315" height="85">
+      <h1>A Matemática do seu vestibular, <span class="blob">assunto por assunto</span></h1>
+      <p class="lead">Questões das provas anteriores do seu vestibular, separadas por assunto, com levantamento estatístico e checklist. Estude com foco no que mais cai.</p>
+      <a class="cta" href="#apostilas">Escolher minha apostila</a>
+      <ul class="chips"><li>UECE · 970 questões</li><li>UNIFOR Medicina · 180</li><li>Unichristus Medicina · 240</li></ul>
     </div>
-    <div class="fan" aria-hidden="true" id="fan"></div>
+    <div class="stage" aria-hidden="true">
+      <img class="cv c1" src="img/uece.jpg" alt="">
+      <img class="cv c2" src="img/unichristus.jpg" alt="">
+      <img class="foto" src="img/foto.webp" alt="" width="1020" height="1316">
+      <img class="cv c3" src="img/unifor.jpg" alt="">
+    </div>
   </div>
 </header>
 
-<section class="shop" id="apostilas">
+<section class="alt" id="apostilas">
   <div class="wrap">
-    <div class="center">
-      <p class="kicker">As apostilas</p>
-      <h2>Escolha a sua prova</h2>
-      <p class="sub">Cada apostila é montada em cima do estilo de uma banca. Você estuda exatamente o que cai na sua.</p>
-    </div>
+    <h2>Escolha a sua <span class="blob">prova</span></h2>
+    <p class="intro">Questões reais de provas anteriores, separadas por assunto. Você estuda exatamente o que cai no seu vestibular.</p>
     <div class="grid" id="grid"></div>
-
     <div class="combo">
-      <div>
-        <h3>Vai fazer mais de uma prova?</h3>
-        <p>Fale com a gente pelo WhatsApp e monte o seu combo com as apostilas que você precisa.</p>
-      </div>
-      <a class="btn btn-pink" id="comboBtn" href="#" target="_blank" rel="noopener">Quero um combo</a>
+      <div><h3>Vai fazer mais de uma prova?</h3><p>Fale com o professor pelo WhatsApp e monte um combo com as apostilas que você precisa.</p></div>
+      <a class="cta pink" id="comboBtn" href="#" target="_blank" rel="noopener">Quero um combo</a>
     </div>
   </div>
 </section>
@@ -249,103 +257,87 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   <div class="wrap">
     <div>
       <p class="kicker">Por dentro</p>
-      <h2>Feita para você estudar sozinho, com método</h2>
-      <p class="sub">Nada de lista solta de exercícios. Cada capítulo é um assunto, com a teoria que você precisa e as questões na ordem certa.</p>
-      <div class="feat">
-        <div><span class="n">1</span><div><h4>Separada por assunto</h4><p>Você sabe exatamente o que está estudando e consegue focar nos temas em que mais erra.</p></div></div>
-        <div><span class="n">2</span><div><h4>No estilo da sua banca</h4><p>Questões no formato e no nível de cobrança do vestibular que você vai fazer.</p></div></div>
-        <div><span class="n">3</span><div><h4>Gabarito para conferir</h4><p>Resolva, confira e marque o que precisa revisar antes da prova.</p></div></div>
-        <div><span class="n">4</span><div><h4>Estude onde quiser</h4><p>Material digital: abre no celular, no tablet ou no computador. Se preferir, imprima.</p></div></div>
-      </div>
+      <h2>Folheie a <span class="blob">apostila</span></h2>
+      <p class="intro">Nada de lista solta de exercícios. Cada capítulo é um assunto, com as questões das provas anteriores da sua banca.</p>
+      <ol class="feats">
+        <li><span class="num">1</span><div><b>Separada por assunto</b><p>Você sabe o que está estudando e foca nos temas em que mais erra.</p></div></li>
+        <li><span class="num">2</span><div><b>Levantamento estatístico</b><p>Mostra quantas questões caíram de cada assunto, para você saber o que tem incidência altíssima e o que cai pouco.</p></div></li>
+        <li><span class="num">3</span><div><b>Checklist de estudo</b><p>Para cada assunto, marque quando resolveu, corrigiu e revisou. Gabarito no final.</p></div></li>
+      </ol>
     </div>
-    <div class="page" aria-hidden="true">
-      <div class="hd"><b>Capítulo 4 · Porcentagem</b><span>UECE</span></div>
-      <div class="q"><span class="src">QUESTÃO 01</span><div class="bar m"></div><div class="bar"></div><div class="bar s"></div>
-        <div class="alts"><i>A</i><i>B</i><i class="ok">C</i><i>D</i><i>E</i></div></div>
-      <div class="q"><span class="src">QUESTÃO 02</span><div class="bar"></div><div class="bar m"></div>
-        <div class="alts"><i class="ok">A</i><i>B</i><i>C</i><i>D</i><i>E</i></div></div>
-      <div class="q"><span class="src">QUESTÃO 03</span><div class="bar s"></div><div class="bar m"></div><div class="bar s"></div>
-        <div class="alts"><i>A</i><i>B</i><i>C</i><i class="ok">D</i><i>E</i></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="steps" id="como-comprar">
-  <div class="wrap">
-    <div class="center">
-      <p class="kicker">Como comprar</p>
-      <h2>Em três passos você já está estudando</h2>
-      <p class="sub">O pagamento é processado pela Hotmart, a maior plataforma de produtos digitais do Brasil.</p>
-    </div>
-    <div class="stepgrid">
-      <div class="step"><h4>Escolha sua apostila</h4><p>Clique em comprar na apostila do seu vestibular.</p></div>
-      <div class="step"><h4>Pague com segurança</h4><p>Pix, cartão de crédito (em parcelas) ou boleto, direto no checkout da Hotmart.</p></div>
-      <div class="step"><h4>Receba no seu e-mail</h4><p>Assim que o pagamento é aprovado, o acesso chega no e-mail que você cadastrou.</p></div>
-    </div>
-    <div class="secure"><span>Pix</span><span>Cartão de crédito</span><span>Boleto</span><span>Compra segura Hotmart</span></div>
-  </div>
-</section>
-
-<section class="prof" id="professor">
-  <div class="wrap">
-    <div class="avatar" aria-hidden="true">PA</div>
     <div>
-      <p class="kicker">Quem preparou</p>
-      <h2>Professor Pedro Araújo</h2>
-      <p class="sub" style="margin-bottom:0">Professor de Matemática do Matematizando e da Sala dos Números. Prepara alunos para o ENEM e para os vestibulares do Ceará, e transformou essa experiência em apostilas pensadas para cada prova.</p>
-      <div class="links">
-        <a href="https://instagram.com/matematizando" target="_blank" rel="noopener">@matematizando</a>
-        <a id="waProf" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <div class="tabs" id="tabs" role="group" aria-label="Escolha a apostila"></div>
+      <div class="bookwrap"><div class="book closed" id="book" aria-label="Apostila sendo folheada"></div></div>
+      <p class="booknote" id="booknote">Páginas ilustrativas</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="como-comprar">
+  <div class="wrap">
+    <h2>Como <span class="blob">comprar</span></h2>
+    <p class="intro">O pagamento é feito pela Hotmart, a maior plataforma de produtos digitais do Brasil.</p>
+    <div class="buygrid">
+      <div class="howcard" style="background:var(--blue)">
+        <h3>Em três passos</h3>
+        <ol class="steps">
+          <li><span class="num">1</span><div><b>Escolha</b><p>Toque em comprar na apostila do seu vestibular.</p></div></li>
+          <li><span class="num">2</span><div><b>Pague</b><p>Pix, cartão de crédito em parcelas ou boleto, no checkout seguro da Hotmart.</p></div></li>
+          <li><span class="num">3</span><div><b>Receba</b><p>Assim que o pagamento é aprovado, o acesso chega no seu e-mail.</p></div></li>
+        </ol>
+        <div class="pays"><span>Pix</span><span>Cartão de crédito</span><span>Boleto</span></div>
+      </div>
+      <div class="card g">
+        <div class="seal"><div><b>7</b><small>DIAS DE<br>GARANTIA</small></div></div>
+        <h3>Risco zero para você</h3>
+        <p>Se a apostila não for o que você esperava, peça o reembolso em até 7 dias pela própria Hotmart.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="guar">
+<section class="about" id="sobre">
   <div class="wrap">
-    <div class="box">
-      <div class="seal"><div><b>7</b><small>DIAS DE<br>GARANTIA</small></div></div>
+    <div class="me">
+      <div class="ring"><img src="img/mefoto.webp" alt="Professor Pedro Araújo" width="640" height="640" loading="lazy"></div>
       <div>
-        <h2>Risco zero para você</h2>
-        <p class="sub" style="margin:0">Se a apostila não for o que você esperava, peça o reembolso em até 7 dias pela própria Hotmart. Você recebe o valor de volta, sem burocracia.</p>
+        <p class="kicker">Quem escreveu</p>
+        <h2 class="name">Pedro Araújo</h2>
+        <span class="role">Professor de Matemática</span>
       </div>
+    </div>
+    <div>
+      <p class="bio">Sou licenciado em Matemática pela UFC e criador do Matematizando e da Sala dos Números. Escrevi estas apostilas com o mesmo jeito das minhas aulas: simples, sem perder o rigor, e focado no que a sua prova cobra.</p>
+      <ul class="creds">
+        <li><b>Licenciado em Matemática</b><span>Universidade Federal do Ceará (UFC)</span></li>
+        <li><b>Professor efetivo</b><span>Prefeitura Municipal de Caucaia, com nota máxima na discursiva do concurso</span></li>
+        <li><b>9 aprovações</b><span>em instituições públicas</span></li>
+        <li><b>Escolas de destaque</b><span>Farias Brito, Adauto Bezerra e César Cals</span></li>
+      </ul>
+      <div class="links"><a class="go" href="#apostilas">Ver as apostilas</a><a href="https://www.instagram.com/matematizando/" target="_blank" rel="noopener">@matematizando</a><a href="https://www.youtube.com/@matematizandocompedroaraujo" target="_blank" rel="noopener">YouTube</a></div>
     </div>
   </div>
 </section>
 
-<section id="duvidas">
+<section class="alt" id="duvidas">
   <div class="wrap">
-    <div class="center">
-      <p class="kicker">Dúvidas</p>
-      <h2>Perguntas frequentes</h2>
-    </div>
-    <div class="faq">
+    <h2>Dúvidas <span class="blob">frequentes</span></h2>
+    <p class="intro">Se a sua não estiver aqui, chame no WhatsApp.</p>
+    <div class="faqcard">
       <details><summary>A apostila é física ou digital?</summary><p>É digital, em PDF. Você pode estudar no celular, no tablet ou no computador, e também pode imprimir.</p></details>
       <details><summary>Como recebo depois de pagar?</summary><p>A Hotmart envia o acesso para o e-mail cadastrado na compra assim que o pagamento é aprovado. No Pix e no cartão costuma ser na hora. No boleto, leva até 3 dias úteis.</p></details>
-      <details><summary>Quais formas de pagamento posso usar?</summary><p>Pix, cartão de crédito (com parcelamento) e boleto, todos pelo checkout seguro da Hotmart.</p></details>
-      <details><summary>Serve para quem vai fazer mais de um vestibular?</summary><p>Cada apostila é focada em uma banca. Se você vai fazer mais de uma prova, fale com a gente pelo WhatsApp para montar um combo.</p></details>
+      <details><summary>Quais formas de pagamento posso usar?</summary><p>Pix, cartão de crédito com parcelamento e boleto, todos pelo checkout seguro da Hotmart.</p></details>
+      <details><summary>A apostila da UECE serve para as duas fases?</summary><p>Sim. A 2ª edição tem 970 questões da 1ª e da 2ª fase da UECE, com um levantamento estatístico para cada fase.</p></details>
+      <details><summary>As questões são de provas anteriores?</summary><p>Sim. São questões dos processos seletivos de cada instituição, separadas por assunto, com gabarito no final.</p></details>
+      <details><summary>Vou fazer mais de um vestibular. O que eu compro?</summary><p>Cada apostila é focada em uma banca. Fale com o professor pelo WhatsApp para montar um combo.</p></details>
       <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Basta pedir o reembolso pela Hotmart dentro desse prazo.</p></details>
-      <details><summary>Não recebi o e-mail. O que faço?</summary><p>Confira a caixa de spam e a aba Promoções. Se não encontrar, chame no WhatsApp com o e-mail usado na compra que a gente resolve.</p></details>
     </div>
+    <div class="final"><p>Sua aprovação começa pela Matemática.</p><a class="cta" href="#apostilas">Escolher minha apostila</a></div>
   </div>
 </section>
 
-<section class="final">
-  <div class="wrap">
-    <h2>Sua aprovação começa pela Matemática</h2>
-    <p class="sub">Escolha a apostila do seu vestibular e comece a estudar hoje.</p>
-    <div class="ctas"><a class="btn btn-pink" href="#apostilas">Escolher minha apostila</a></div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <span>© <span id="yr"></span> Sala dos Números · Prof. Pedro Araújo</span>
-    <span>Pagamentos processados pela Hotmart</span>
-  </div>
-</footer>
-
-<div class="mbar" id="mbar"><a class="btn btn-pink" href="#apostilas">Escolher minha apostila</a></div>
+<a class="sticky off" id="sticky" href="#apostilas">Escolher minha apostila</a>
+<footer><div class="wrap"><span>© <span id="yr">2026</span> Sala dos Números · Matemática com Pedro Araújo</span><span>WhatsApp <a href="https://wa.me/5585997336975" target="_blank" rel="noopener">(85) 99733-6975</a></span><span>Pagamentos processados pela Hotmart</span></div></footer>
 
 <dialog id="soon">
   <div class="dlg">
@@ -359,82 +351,131 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 <script>
 /* ============================================================
    CONFIGURAÇÃO: é só editar aqui.
-   - checkout: cole o link de checkout da Hotmart (ex.: https://pay.hotmart.com/XXXXXXXX).
+   - checkout: link de checkout da Hotmart (ex.: https://pay.hotmart.com/XXXXXXXX).
      Enquanto estiver vazio, o botão abre o aviso "Vendas abrem em breve".
-   - price / installments: preço e parcelamento exibidos no cartão.
-   - capa: arquivo dentro da pasta img/.
+   - preco / parcelas: aparecem no cartão da apostila.
+   - paginas: imagens de páginas reais da apostila (ex.: ["img/uece-p1.jpg","img/uece-p2.jpg",...]).
+     Enquanto estiver vazio, o livro mostra páginas ilustrativas.
    ============================================================ */
 const WHATSAPP = "5585997336975";
-const CHECKOUT_NA_PAGINA = true; // true = abre o checkout Hotmart numa janela por cima do site
+const CHECKOUT_NA_PAGINA = true; // true = o checkout da Hotmart abre numa janela por cima do site
 
 const APOSTILAS = [
-  { id:"uece", uni:"UECE", nome:"Matemática por Assunto", para:"Vestibular UECE · 1ª e 2ª fases",
-    capa:"img/uece.jpg", cor:"var(--c-uece)", destaque:"2ª edição",
-    itens:["Cobre a 1ª e a 2ª fase da UECE","Questões no estilo da UECE, organizadas por assunto","Do básico ao nível da prova","Gabarito para conferir cada questão","PDF para estudar no celular ou imprimir"],
-    price:"", installments:"", checkout:"" },
-  { id:"unifor", uni:"UNIFOR", nome:"Matemática por Assunto", para:"Vestibular UNIFOR · Medicina",
-    capa:"img/unifor.jpg", cor:"var(--c-unifor)", destaque:"1ª edição",
-    itens:["Focada no vestibular de Medicina da UNIFOR","Questões no estilo da UNIFOR, organizadas por assunto","Do básico ao nível da prova","Gabarito para conferir cada questão","PDF para estudar no celular ou imprimir"],
-    price:"", installments:"", checkout:"" },
-  { id:"unichristus", uni:"Unichristus", nome:"Matemática por Assunto", para:"Vestibular Unichristus · Medicina",
-    capa:"img/unichristus.jpg", cor:"var(--c-unichristus)", destaque:"1ª edição",
-    itens:["Focada no vestibular de Medicina da Unichristus","Questões no estilo da Unichristus, organizadas por assunto","Do básico ao nível da prova","Gabarito para conferir cada questão","PDF para estudar no celular ou imprimir"],
-    price:"", installments:"", checkout:"" }
+  { id:"uece", uni:"UECE", para:"Vestibular UECE · 1ª e 2ª fases", edicao:"2ª edição",
+    capa:"img/uece.jpg", cor:"#409BE4",
+    itens:["970 questões da 1ª e da 2ª fase da UECE","29 assuntos, cada um no seu capítulo","Dois levantamentos estatísticos, um por fase","Checklist de estudo e gabarito"],
+    preco:"", parcelas:"", checkout:"", paginas:[],
+    sumario:["Análise Combinatória","Binômio de Newton","Conjuntos","Divisibilidade","Equação do 1º grau","Equação do 2º grau","Funções","Geometria Analítica","Geometria Espacial","Geometria Plana","Logaritmo","Probabilidade"] },
+  { id:"unifor", uni:"UNIFOR", para:"Vestibular UNIFOR · Medicina", edicao:"1ª edição",
+    capa:"img/unifor.jpg", cor:"#2DAF7E",
+    itens:["180 questões do vestibular de Medicina da UNIFOR","22 assuntos, cada um no seu capítulo","Levantamento estatístico da incidência de cada assunto","Checklist de estudo e gabarito"],
+    preco:"", parcelas:"", checkout:"", paginas:["img/paginas/uf-02.jpg","img/paginas/uf-03.jpg","img/paginas/uf-04.jpg","img/paginas/uf-05.jpg","img/paginas/uf-06.jpg","img/paginas/uf-07.jpg","img/paginas/uf-08.jpg"] },
+  { id:"unichristus", uni:"Unichristus", para:"Vestibular Unichristus · Medicina", edicao:"1ª edição",
+    capa:"img/unichristus.jpg", cor:"#FD0C64",
+    itens:["240 questões do vestibular de Medicina da Unichristus","21 assuntos, cada um no seu capítulo","Levantamento estatístico da incidência de cada assunto","Checklist de estudo e gabarito"],
+    preco:"", parcelas:"", checkout:"", paginas:["img/paginas/uc-02.jpg","img/paginas/uc-03.jpg","img/paginas/uc-04.jpg","img/paginas/uc-05.jpg","img/paginas/uc-06.jpg","img/paginas/uc-07.jpg","img/paginas/uc-08.jpg"] }
 ];
 /* ============================================================ */
 
+const $ = id => document.getElementById(id);
 const wa = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
-const cover = a => `<div class="cv" style="--c:${a.cor}">
-  <img src="${a.capa}" alt="Capa da apostila ${a.nome} ${a.uni}" loading="lazy" onerror="this.parentNode.classList.add('noimg')">
-  <div class="fake"><small>Apostila</small><strong>Matemática por Assunto<span>${a.uni}</span></strong><i>Prof. Pedro Araújo</i></div></div>`;
 
-document.getElementById("fan").innerHTML = APOSTILAS.map(cover).join("");
-document.getElementById("grid").innerHTML = APOSTILAS.map(a => `
-  <article class="prod" style="--c:${a.cor}">
-    ${a.destaque ? `<span class="ribbon">${a.destaque}</span>` : ""}
-    <div class="top">${cover(a)}
-      <div><span class="uni">${a.uni}</span><h3>${a.nome}</h3><p class="for">${a.para}</p></div>
-    </div>
+/* Cartões */
+$("grid").innerHTML = APOSTILAS.map(a => `
+  <article class="card" style="--c:${a.cor}">
+    <div class="cover"><span class="ed">${a.edicao}</span><img src="${a.capa}" alt="Capa da apostila Matemática por Assunto ${a.uni}" loading="lazy"></div>
+    <h3>Matemática por Assunto ${a.uni}</h3>
+    <p class="for">${a.para}</p>
     <ul>${a.itens.map(i => `<li>${i}</li>`).join("")}</ul>
-    <div class="price">${a.price
-        ? `<span class="val">${a.price}</span><small>${a.installments}</small>`
-        : `<span class="soon">Preço no lançamento</span>`}</div>
+    <div class="price">${a.preco
+      ? `<div class="note">Investimento</div><div class="val">${a.preco}</div><div class="note">${a.parcelas}</div>`
+      : `<div class="note">Investimento</div><div class="val">Preço no lançamento</div>`}</div>
     ${a.checkout
-        ? `<a class="btn btn-pink ${CHECKOUT_NA_PAGINA ? "hotmart-fb hotmart__button-checkout" : ""}" href="${a.checkout}" ${CHECKOUT_NA_PAGINA ? "" : 'target="_blank" rel="noopener"'}>Comprar apostila ${a.uni}</a>`
-        : `<button class="btn btn-pink" type="button" data-soon="${a.uni}">Comprar apostila ${a.uni}</button>`}
+      ? `<a class="buy ${CHECKOUT_NA_PAGINA ? "hotmart-fb hotmart__button-checkout" : ""}" href="${a.checkout}" ${CHECKOUT_NA_PAGINA ? "" : 'target="_blank" rel="noopener"'}>Comprar apostila ${a.uni}</a>`
+      : `<button class="buy" type="button" data-soon="${a.uni}">Comprar apostila ${a.uni}</button>`}
   </article>`).join("");
 
-/* Botão provisório */
-const dlg = document.getElementById("soon");
+const dlg = $("soon");
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-soon]");
   if (!b) return;
-  const uni = b.dataset.soon;
-  document.getElementById("soonTitle").textContent = `Apostila ${uni}: vendas em breve`;
-  document.getElementById("soonWa").href = wa(`Olá! Quero ser avisado quando a apostila Matemática por Assunto ${uni} for lançada.`);
+  $("soonTitle").textContent = `Apostila ${b.dataset.soon}: vendas em breve`;
+  $("soonWa").href = wa(`Olá, professor! Quero ser avisado quando a apostila Matemática por Assunto ${b.dataset.soon} for lançada.`);
   dlg.showModal();
 });
-document.getElementById("comboBtn").href = wa("Olá! Vou fazer mais de um vestibular e quero um combo das apostilas Matemática por Assunto.");
-document.getElementById("waProf").href = wa("Olá, professor! Vim pelo site das apostilas.");
-document.getElementById("yr").textContent = new Date().getFullYear();
+$("comboBtn").href = wa("Olá, professor! Vou fazer mais de um vestibular e quero um combo das apostilas Matemática por Assunto.");
+$("yr").textContent = new Date().getFullYear();
 
-/* Checkout Hotmart dentro do site: só carrega se algum link estiver preenchido */
 if (CHECKOUT_NA_PAGINA && APOSTILAS.some(a => a.checkout)) {
-  const s = document.createElement("script");
-  s.src = "https://static.hotmart.com/checkout/widget.min.js";
-  document.head.appendChild(s);
-  const l = document.createElement("link");
-  l.rel = "stylesheet"; l.href = "https://static.hotmart.com/css/hotmart-fb.min.css";
-  document.head.appendChild(l);
+  const s = document.createElement("script"); s.src = "https://static.hotmart.com/checkout/widget.min.js"; document.head.appendChild(s);
+  const l = document.createElement("link"); l.rel = "stylesheet"; l.href = "https://static.hotmart.com/css/hotmart-fb.min.css"; document.head.appendChild(l);
 }
 
-/* Esconde a barra fixa do celular quando a seção das apostilas está na tela */
-const mbar = document.getElementById("mbar");
-const seen = new Set();
-const io = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target)); mbar.classList.toggle("hide", seen.size > 0); }, {threshold:.15});
-mbar.classList.add("hide");
-["apostilas"].forEach(id => io.observe(document.getElementById(id)));
-io.observe(document.querySelector(".hero"));
+/* Livro folheando */
+const qs = (n, ok, src) => `<div class="q"><span class="src">QUESTÃO ${n} · ${src}</span><div class="bar m"></div><div class="bar"></div><div class="bar s"></div>
+  <div class="alts">${"ABCDE".split("").map(l => `<i class="${l===ok?"ok":""}">${l}</i>`).join("")}</div></div>`;
+function paginasIlustrativas(a){
+  const hd = (cap, n) => `<div class="hd"><b>${cap}</b><span>${a.uni}</span></div>`;
+  const ft = n => `<div class="foot"><span>Matemática por Assunto</span><span>${n}</span></div>`;
+  return [
+    `<div class="pg">${hd("Sumário")}<h4>Assuntos</h4><ol class="toc">${(a.sumario||[]).map(t=>`<li>${t}<i></i></li>`).join("")}</ol>${ft(3)}</div>`,
+    `<div class="pg">${hd("Capítulo 2")}<h4>Porcentagem</h4><div class="box"><b>Resumo</b>Aumentos e descontos sucessivos se multiplicam.</div><div class="fn">V = V₀ · (1 + i)ⁿ</div>${ft(17)}</div>`,
+    `<div class="pg">${hd("Porcentagem")}${qs("01","C",a.uni)}${qs("02","A",a.uni)}${ft(18)}</div>`,
+    `<div class="pg">${hd("Porcentagem")}${qs("03","D",a.uni)}${qs("04","B",a.uni)}${ft(19)}</div>`,
+    `<div class="pg">${hd("Capítulo 3")}<h4>Funções</h4><div class="box"><b>Resumo</b>O gráfico de f(x) = ax² + bx + c é uma parábola.</div><div class="fn">xᵥ = −b / 2a</div>${ft(29)}</div>`,
+    `<div class="pg">${hd("Funções")}${qs("01","E",a.uni)}${qs("02","C",a.uni)}${ft(30)}</div>`
+  ];
+}
+const book = $("book");
+let cur = 0, timer = null, step = 0, leaves = [];
+function montar(a){
+  const reais = a.paginas && a.paginas.length;
+  const pags = reais ? a.paginas.map(src => `<img src="${src}" alt="">`) : paginasIlustrativas(a);
+  $("booknote").textContent = reais ? "" : "Páginas ilustrativas";
+  const faces = [`<img src="${a.capa}" alt="Capa da apostila ${a.uni}">`, ...pags];
+  if (faces.length % 2) faces.push(`<div class="pg"></div>`);
+  book.style.setProperty("--acc", a.cor);
+  book.innerHTML = `<div class="base l"></div><div class="base r"><div class="more"><b>E muito mais</b><span>${a.itens[0]}</span><a href="#apostilas">Quero a minha</a></div></div>` +
+    Array.from({length: faces.length/2}, (_, i) =>
+      `<div class="leaf" style="z-index:${100-i}"><div class="f">${faces[2*i]}</div><div class="b">${faces[2*i+1]}</div></div>`).join("");
+  leaves = [...book.querySelectorAll(".leaf")];
+  book.classList.add("closed");
+  step = 0;
+}
+function avancar(){
+  const n = leaves.length;
+  if (step < n){                     // vira a próxima folha
+    const l = leaves[step];
+    l.style.zIndex = 200;
+    l.classList.add("flipped");
+    if (step === 0) book.classList.remove("closed");
+    const i = step; setTimeout(() => { l.style.zIndex = 100 + i; }, 1000);
+    step++;
+  } else {                           // fecha e recomeça
+    leaves.slice().reverse().forEach((l, k) => setTimeout(() => {
+      l.style.zIndex = 300 + k; l.classList.remove("flipped");
+      setTimeout(() => { l.style.zIndex = 100 - leaves.indexOf(l); }, 1000);
+    }, k * 160));
+    setTimeout(() => book.classList.add("closed"), leaves.length * 160 + 300);
+    step = 0;
+  }
+}
+function escolher(i){
+  cur = i;
+  [...$("tabs").children].forEach((b, k) => b.setAttribute("aria-pressed", k === i));
+  montar(APOSTILAS[i]);
+  clearInterval(timer);
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) timer = setInterval(avancar, 1800);
+  else { leaves[0].classList.add("flipped"); book.classList.remove("closed"); }
+}
+$("tabs").innerHTML = APOSTILAS.map((a, i) => `<button type="button" aria-pressed="false">${a.uni}</button>`).join("");
+[...$("tabs").children].forEach((b, i) => b.addEventListener("click", () => escolher(i)));
+escolher(Math.max(0, APOSTILAS.findIndex(a => a.paginas.length)));
+
+/* Botão fixo no celular: aparece depois do topo e some na seção das apostilas */
+const sticky = $("sticky"), vis = new Set();
+const io = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? vis.add(e.target) : vis.delete(e.target)); sticky.classList.toggle("off", vis.size > 0); }, {threshold:.1});
+io.observe(document.querySelector(".hero")); io.observe($("apostilas"));
 </script>
 </body>
 </html>
