@@ -13,136 +13,131 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23409BE4'/%3E%3Cpath d='M32 0h32v32A32 32 0 0 1 32 0z' fill='%23FD0C64'/%3E%3Ccircle cx='20' cy='44' r='10' fill='%23FCE906'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* SALA DOS NÚMEROS
-   Cores das capas: azul #409BE4 (UECE), verde #2DAF7E (UNIFOR), rosa #FD0C64 (Unichristus), amarelo #FCE906, branco e preto.
+   Cores das capas: azul #409BE4 (UECE), verde #00A36C (UNIFOR), rosa #FD0C64 (Unichristus), amarelo #FCE906, branco e preto.
    Formas das capas: quartos de círculo, círculos e quadrados em mosaico.
-   Tipo: Lexend (geométrica, como "matemática por assunto" nas capas) + Bebas Neue (condensada, como "UECE"). */
+   Tipo: Lexend. As capas aparecem só como imagem; o site não imita a tipografia delas. */
 :root{color-scheme:light;
-  --blue:#409BE4;--deep:#2289D4;--green:#2DAF7E;--pink:#FD0C64;--yellow:#FCE906;--ink:#16222f;--text:#304254;--muted:#5c6f82;--soft:#EEF5FC;--line:#D6E6F5;--white:#fff;
+  --blue:#409BE4;--deep:#2289D4;--green:#00A36C;--pink:#FD0C64;--yellow:#FCE906;--ink:#16222f;--text:#304254;--muted:#5c6f82;--soft:#EEF5FC;--line:#D6E6F5;--white:#fff;
   --brand:var(--blue);
-  --display:"Bebas Neue",Impact,"Arial Narrow",sans-serif;
+  --display:Lexend,"Segoe UI",system-ui,sans-serif;
   --sans:Lexend,"Segoe UI",system-ui,sans-serif}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{margin:0;background:var(--blue);color:#fff;font:17px/1.6 var(--sans);overflow-x:clip}
+body{margin:0;background:var(--blue);color:#fff;font:15.5px/1.6 var(--sans);overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit}
-.wrap{max-width:1200px;margin:0 auto;padding:0 max(5vw,18px)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 max(5vw,18px)}
 button{font-family:inherit}
 button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
 
-/* ---------- formas da Sala ---------- */
-.mosaic{display:grid;grid-template-columns:repeat(var(--cols,2),var(--t,56px));grid-auto-rows:var(--t,56px);gap:0;pointer-events:auto}
-.mosaic i{display:block;transition:transform .5s cubic-bezier(.3,1.4,.5,1),border-radius .5s}
-.mosaic i:hover{transform:rotate(90deg)}
+/* ---------- formas da Sala (iguais às capas) ---------- */
+.sh{position:absolute;display:grid;grid-template-columns:repeat(3,var(--t,48px));grid-template-rows:repeat(2,var(--t,48px));pointer-events:none;z-index:0}
+.sh.tr{top:0;right:0}.sh.bl{bottom:0;left:0}
+.sh i{display:block}
+.sh .c{border-radius:50%;width:78%;height:78%;place-self:center}
+.sh.bl .c{position:absolute;width:calc(var(--t,48px)*.78);height:calc(var(--t,48px)*.78);left:calc(var(--t,48px)*1.99);top:calc(var(--t,48px)*.61)}
 .qtl{border-radius:100% 0 0 0}.qtr{border-radius:0 100% 0 0}.qbl{border-radius:0 0 0 100%}.qbr{border-radius:0 0 100% 0}
-.ci{border-radius:50%;transform:scale(.72)}.ci:hover{transform:scale(.72) rotate(90deg)}
-.e{visibility:hidden}
-.pk{background:var(--pink)}.yl{background:var(--yellow)}.wh{background:#fff}.bk{background:var(--ink)}.bl{background:var(--blue)}.gr{background:var(--green)}
-.deco{position:absolute;z-index:0}
 
 /* ---------- topo ---------- */
 nav{position:sticky;top:0;z-index:30;background:#fff;box-shadow:0 2px 14px rgba(16,40,70,.1)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:60px}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:56px}
 .nlogo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:700;font-size:15px;white-space:nowrap}
-.nlogo .dot{width:26px;height:26px;display:grid;grid-template-columns:1fr 1fr}
-.nlogo .dot i{display:block}
+.nlogo img{height:28px;width:auto}
 .links{display:flex;gap:clamp(12px,2.4vw,28px);overflow-x:auto;white-space:nowrap;align-items:center}
-.links a{color:var(--text);font-weight:600;font-size:15px;text-decoration:none;padding:8px 0}
+.links a{color:var(--text);font-weight:600;font-size:14px;text-decoration:none;padding:8px 0}
 .links a:hover{color:var(--deep)}
 .links .navcta{background:var(--pink);color:#fff;padding:9px 20px;border-radius:999px}
 .links .navcta:hover{color:#fff}
 
 /* ---------- HERO que muda de cor ---------- */
-.hero{position:relative;overflow:hidden;background:var(--brand);transition:background-color .7s ease}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,56px);align-items:center;padding-top:clamp(36px,5vw,70px);padding-bottom:clamp(56px,7vw,96px)}
-.hero .logo{width:min(230px,58vw);height:auto}
-.mpa{font:600 clamp(30px,4.2vw,56px)/1 var(--sans);letter-spacing:-.02em;margin:clamp(22px,3vw,36px) 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:.25em .4em}
-.mpa .pill{font-size:.38em;font-weight:700;background:#fff;color:var(--brand);padding:.45em 1em;border-radius:999px;letter-spacing:0;transition:color .7s}
-.uni{font:400 clamp(96px,16vw,210px)/.86 var(--display);letter-spacing:.01em;margin:6px 0 0;height:.9em;overflow:hidden;position:relative}
-.uni span{display:block;animation:up .55s cubic-bezier(.2,.9,.3,1)}
+.hero{position:relative;overflow:hidden;background:var(--hc,var(--blue));transition:background-color .6s ease}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,56px);align-items:center;padding-top:clamp(28px,4vw,52px);padding-bottom:clamp(90px,10vw,124px)}
+.hero .logo{width:min(190px,52vw);height:auto}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.htit{height:clamp(150px,17vw,220px);margin:24px 0 16px;display:flex;align-items:center}
+.htit img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:left center;transition:opacity .3s}
+.fx{position:absolute;pointer-events:none;z-index:0;height:auto;transition:transform .2s ease-out}
+.fx.tr{top:0;right:0;width:clamp(130px,16vw,215px)}
+.fx.bl{bottom:0;left:0;width:clamp(115px,14vw,190px)}
+.hlead{font-size:clamp(15px,1.3vw,17px);color:#eef6ff;max-width:46ch;margin:0 0 20px}
 @keyframes up{from{transform:translateY(60%);opacity:0}}
-.hfacts{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
-.hfacts b{font-weight:700;border:2px solid rgba(255,255,255,.75);border-radius:999px;padding:6px 16px;font-size:15px}
+.hfacts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 24px;font-size:14px;color:#eef6ff}
+.hfacts b{font-weight:700;color:#fff;margin-right:4px}
 .hcta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 30px;border-radius:999px;font:700 17px var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;font:700 15px var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
 .b-white{background:#fff;color:var(--ink)}
 .b-pink{background:var(--pink);color:#fff}
 .b-ink{background:var(--ink);color:#fff}
-.picker{display:flex;gap:10px;margin-top:22px;padding-bottom:22px}
-.picker button{width:48px;height:48px;border-radius:50%;border:3px solid #fff;cursor:pointer;position:relative;transition:transform .2s}
-.picker button[aria-pressed=true]{transform:scale(1.18);box-shadow:0 0 0 4px rgba(255,255,255,.35)}
-.picker button span{position:absolute;left:50%;top:100%;transform:translateX(-50%);margin-top:6px;font-size:11px;font-weight:700;white-space:nowrap;opacity:0;transition:opacity .2s;color:#fff}
-.picker button:hover span,.picker button[aria-pressed=true] span{opacity:1}
-.covers{position:relative;aspect-ratio:1/1.02;max-width:520px;width:100%;justify-self:end}
+.picker{display:flex;flex-wrap:wrap;gap:8px}
+.picker button{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px 0 10px;border-radius:999px;border:2px solid rgba(255,255,255,.7);background:transparent;color:#fff;font:600 14px var(--sans);cursor:pointer}
+.picker button i{width:16px;height:16px;border-radius:0 100% 0 0;background:var(--c);box-shadow:0 0 0 2px #fff}
+.picker button[aria-pressed=true]{background:#fff;color:var(--ink);border-color:#fff}
+.covers{position:relative;aspect-ratio:1/1.02;max-width:400px;width:100%;justify-self:end}
 .covers img{position:absolute;width:56%;top:50%;left:50%;border-radius:10px;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);border:5px solid #fff;transition:transform .7s cubic-bezier(.3,1.2,.4,1),z-index 0s .25s;cursor:pointer}
 .covers img[data-pos="0"]{transform:translate(-50%,-50%) rotate(-2deg);z-index:3}
 .covers img[data-pos="1"]{transform:translate(-8%,-56%) rotate(9deg) scale(.86);z-index:2}
 .covers img[data-pos="2"]{transform:translate(-92%,-44%) rotate(-11deg) scale(.86);z-index:1}
-.hero .d1{top:0;right:0;--t:clamp(44px,6vw,84px);--cols:3}
-.hero .d2{bottom:0;left:44%;--t:clamp(40px,5vw,72px);--cols:3}
 
 /* ---------- seções ---------- */
-section{position:relative;padding:clamp(64px,9vw,120px) 0;overflow:hidden}
+section{position:relative;padding:clamp(48px,6.5vw,84px) 0;overflow:hidden}
 section > .wrap{position:relative;z-index:1}
 .s-deep{background:var(--deep)}
 .s-white{background:#fff;color:var(--text)}
-.kick{display:inline-flex;align-items:center;gap:10px;font:700 14px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin:0 0 14px}
-.kick::before{content:"";width:22px;height:22px;border-radius:0 100% 0 0;background:currentColor}
+.kick{display:inline-flex;align-items:center;gap:10px;font:700 12.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin:0 0 14px}
+.kick::before{content:"";width:18px;height:18px;border-radius:0 100% 0 0;background:currentColor}
 .s-white .kick{color:var(--pink)}
-h2{font:700 clamp(38px,5.6vw,72px)/1.02 var(--sans);letter-spacing:-.03em;margin:0 0 16px;text-wrap:balance}
+h2{font:700 clamp(28px,3.8vw,46px)/1.05 var(--sans);letter-spacing:-.03em;margin:0 0 16px;text-wrap:balance}
 h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em .06em;border-radius:999px;line-height:1.12}
 .s-white h2{color:var(--ink)}
 .s-white h2 .blob{background:var(--pink);color:#fff}
-.lede{font-size:clamp(17px,1.6vw,20px);max-width:56ch;margin:0 0 clamp(28px,4vw,44px);color:#eef6ff}
+.lede{font-size:clamp(15px,1.3vw,17px);max-width:56ch;margin:0 0 clamp(22px,3vw,34px);color:#eef6ff}
 .s-white .lede{color:var(--muted)}
 
 /* ---------- apostilas ---------- */
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.card{background:#fff;color:var(--text);border-radius:30px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 22px 44px -24px rgba(0,30,70,.55);transition:transform .3s}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{background:#fff;color:var(--text);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 22px 44px -24px rgba(0,30,70,.55);transition:transform .3s}
 .card:hover{transform:translateY(-6px)}
-.card .top{position:relative;background:var(--c);padding:26px 26px 0;display:flex;justify-content:center;overflow:hidden;min-height:250px}
-.card .top img{width:62%;border-radius:6px 6px 0 0;box-shadow:0 -10px 30px rgba(0,0,0,.2);transition:transform .35s;position:relative;z-index:1;align-self:flex-end}
+.card .top{position:relative;background:var(--c);padding:22px 22px 0;display:flex;justify-content:center;overflow:hidden;min-height:200px}
+.card .top img{width:56%;border-radius:6px 6px 0 0;box-shadow:0 -10px 30px rgba(0,0,0,.2);transition:transform .35s;position:relative;z-index:1;align-self:flex-end}
 .card:hover .top img{transform:translateY(-10px) rotate(-2deg)}
-.card .top .mosaic{position:absolute;--t:38px}
-.card .top .m1{top:0;right:0}.card .top .m2{bottom:0;left:0}
 .ed{position:absolute;top:14px;left:14px;z-index:2;background:#fff;color:var(--ink);font-weight:700;font-size:12px;padding:5px 12px;border-radius:999px}
-.card .body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
-.card .nm{font:400 46px/.9 var(--display);color:var(--c);margin:0;letter-spacing:.01em}
+.card .body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.card .nm{font:700 24px/1.1 var(--sans);color:var(--ink);margin:0;letter-spacing:-.02em}
 .card .for{font-weight:600;font-size:14px;color:var(--muted);margin:4px 0 0}
 .big{display:flex;gap:22px;margin:18px 0 6px;padding:14px 0;border-top:2px solid var(--soft);border-bottom:2px solid var(--soft)}
 .big div{display:grid}
-.big b{font:400 42px/.9 var(--display);color:var(--ink)}
+.big b{font:700 26px/1 var(--sans);color:var(--c);letter-spacing:-.02em}
 .big span{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.card ul{list-style:none;padding:0;margin:14px 0 18px;display:grid;gap:9px;font-size:15px;flex:1}
+.card ul{list-style:none;padding:0;margin:12px 0 16px;display:grid;gap:7px;font-size:14px;flex:1}
 .card li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:10px;align-items:start}
 .card li::before{content:"";width:16px;height:16px;margin-top:4px;border-radius:0 100% 0 0;background:var(--c)}
 .price{margin-bottom:12px}
 .price small{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.price b{font:700 22px/1.3 var(--sans);color:var(--ink)}
-.buy{width:100%;min-height:56px;border-radius:999px;border:0;background:var(--pink);color:#fff;font:700 17px var(--sans);cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;transition:filter .15s,transform .15s}
+.price b{font:700 18px/1.3 var(--sans);color:var(--ink)}
+.buy{width:100%;min-height:48px;border-radius:999px;border:0;background:var(--pink);color:#fff;font:700 15px var(--sans);cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;transition:filter .15s,transform .15s}
 .buy:hover{filter:brightness(1.07);transform:translateY(-1px)}
-.combo{margin-top:24px;background:var(--ink);border-radius:30px;padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center}
-.combo h3{font:700 24px/1.2 var(--sans);margin:0 0 4px}
+.combo{margin-top:20px;background:var(--ink);border-radius:24px;padding:clamp(18px,2.4vw,26px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:center}
+.combo h3{font:700 19px/1.2 var(--sans);margin:0 0 4px}
 .combo p{margin:0;color:#c8d6e6}
-.combo .mosaic{--t:30px}
 
 /* ---------- livro ---------- */
 .inside .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px);align-items:center}
 .feats{list-style:none;margin:0;padding:0;display:grid;gap:18px}
-.feats li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;align-items:start}
-.feats .ic{width:52px;height:52px;display:grid;grid-template-columns:1fr 1fr}
-.feats .ic i{display:block}
-.feats b{display:block;font-size:18px;font-weight:700;margin:2px 0}
-.feats p{margin:0;color:#eaf4ff;font-size:15px}
+.feats li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:16px;align-items:start}
+.feats li::before{content:"";width:36px;height:36px;border-radius:0 100% 0 0;background:var(--pink)}
+.feats li:nth-child(2)::before{background:var(--yellow);border-radius:0 0 0 100%}
+.feats li:nth-child(3)::before{background:#fff;border-radius:50%;transform:scale(.8)}
+.feats b{display:block;font-size:16px;font-weight:700;margin:2px 0}
+.feats p{margin:0;color:#eaf4ff;font-size:14px}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
-.tab{min-height:44px;padding:0 20px;border-radius:999px;border:2px solid rgba(255,255,255,.65);background:transparent;color:#fff;font:600 15px var(--sans);cursor:pointer}
+.tab{min-height:40px;padding:0 18px;border-radius:999px;border:2px solid rgba(255,255,255,.65);background:transparent;color:#fff;font:600 15px var(--sans);cursor:pointer}
 .tab[aria-pressed=true]{background:#fff;color:var(--ink);border-color:#fff}
 .bookwrap{display:flex;justify-content:center;padding:6px 0 10px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
-.book{--pw:min(300px,40vw);position:relative;width:calc(var(--pw)*2);aspect-ratio:752/532;perspective:2400px;transition:transform .8s cubic-bezier(.4,.1,.2,1);cursor:pointer}
+.book{--pw:min(240px,36vw);position:relative;width:calc(var(--pw)*2);aspect-ratio:752/532;perspective:2400px;transition:transform .8s cubic-bezier(.4,.1,.2,1);cursor:pointer}
 .book.closed{transform:translateX(-25%)}
 .base{position:absolute;top:0;bottom:0;width:50%;box-shadow:0 34px 60px -24px rgba(0,20,60,.65)}
 .base.l{left:0;background:#fff;border-radius:6px 0 0 6px;opacity:0;transition:opacity .3s .3s}
@@ -158,17 +153,16 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 .leaf .b::after{content:"";position:absolute;inset:0 0 0 auto;width:22px;background:linear-gradient(270deg,rgba(0,0,0,.14),transparent)}
 .leaf img{width:100%;height:100%;object-fit:cover;pointer-events:none}
 .more{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:12px;padding:12%;color:#fff}
-.more b{font:400 calc(var(--pw)*.2)/.88 var(--display)}
+.more b{font:700 calc(var(--pw)*.12)/1 var(--sans);letter-spacing:-.02em}
 .more span{font-weight:500;font-size:calc(var(--pw)*.052);line-height:1.4;color:#d6e2ee}
 .more a{margin-top:4px;background:var(--pink);color:#fff;font-weight:700;text-decoration:none;border-radius:999px;padding:.7em 1.3em;font-size:calc(var(--pw)*.052)}
-.more .mosaic{position:absolute;top:0;right:0;--t:calc(var(--pw)*.13)}
 .bctl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:8px}
-.bctl button{width:52px;height:52px;border-radius:50%;border:0;background:#fff;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:transform .15s,opacity .2s}
+.bctl button{width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:transform .15s,opacity .2s}
 .bctl button:hover{transform:scale(1.08)}
 .bctl button:disabled{opacity:.35;cursor:default;transform:none}
 .bctl svg{width:22px;height:22px}
 .count{min-width:120px;text-align:center;font-weight:600;font-size:15px}
-.count b{font:400 26px/1 var(--display);margin-right:4px}
+.count b{font:700 17px/1 var(--sans);margin-right:4px}
 .hint{text-align:center;font-size:13px;color:#dcecff;margin:10px 0 0}
 
 /* ---------- o que mais cai ---------- */
@@ -176,94 +170,83 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 .ctrl{display:grid;gap:14px;align-content:start}
 .seg{display:flex;flex-wrap:wrap;gap:8px}
 .seg[hidden]{display:none}
-.seg button{min-height:46px;padding:0 20px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--text);font:600 15px var(--sans);cursor:pointer}
+.seg button{min-height:40px;padding:0 16px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--text);font:600 15px var(--sans);cursor:pointer}
 .seg button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
 .seg.fase button[aria-pressed=true]{background:var(--blue);border-color:var(--blue)}
 .insight{background:var(--soft);border-radius:26px;padding:22px 24px;position:relative;overflow:hidden}
-.insight .n{font:400 clamp(64px,8vw,96px)/.85 var(--display);color:var(--pink)}
+.insight .n{font:700 clamp(32px,3.4vw,44px)/1 var(--sans);color:var(--pink);letter-spacing:-.03em}
 .insight p{margin:6px 0 0;font-weight:500;color:var(--text);max-width:30ch;position:relative;z-index:1}
-.insight .mosaic{position:absolute;right:0;bottom:0;--t:34px}
 .legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:13px;font-weight:600;color:var(--muted)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:14px;height:14px;border-radius:0 100% 0 0;display:block}
 .bars{display:grid;gap:8px}
-.row{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr) 44px;gap:12px;align-items:center;font-size:15px}
+.row{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr) 40px;gap:12px;align-items:center;font-size:14px}
 .row .nm{font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.track{height:26px;border-radius:0 999px 999px 0;background:var(--soft);overflow:hidden}
+.track{height:22px;border-radius:0 999px 999px 0;background:var(--soft);overflow:hidden}
 .fill{display:block;height:100%;width:0;border-radius:0 999px 999px 0;transition:width .9s cubic-bezier(.2,.8,.2,1)}
-.row .v{font:400 26px/1 var(--display);color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.row .v{font:700 15px/1 var(--sans);color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
 .inc-A{background:var(--pink)}.inc-B{background:var(--yellow)}.inc-C{background:var(--blue)}.inc-D{background:#b9c7d6}
-.toggle{margin-top:14px;background:none;border:0;color:var(--pink);font:700 15px var(--sans);cursor:pointer;padding:6px 0}
+.locked{position:relative;margin-top:8px}
+.locked .blur{display:grid;gap:8px;filter:blur(5px);opacity:.7;user-select:none;pointer-events:none}
+.lockmsg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:999px;padding:12px 22px 12px 16px;white-space:nowrap;box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
+.lockmsg svg{width:28px;height:28px;color:var(--yellow);flex:none}
+.lockmsg b{display:block;font-size:15px}
+.lockmsg span{display:block;font-size:12.5px;color:#c8d6e6}
+.insight .btn{margin-top:14px}
 .src{font-size:13px;color:var(--muted);margin:12px 0 0}
 
 /* ---------- comprar ---------- */
 .buygrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.step{background:#fff;color:var(--text);border-radius:30px;padding:28px;position:relative;overflow:hidden}
-.step .no{font:400 84px/.8 var(--display);color:var(--c)}
-.step h3{font:700 22px/1.2 var(--sans);color:var(--ink);margin:14px 0 6px}
+.step{background:#fff;color:var(--text);border-radius:24px;padding:22px;position:relative;overflow:hidden}
+.step .no{width:44px;height:44px;border-radius:0 100% 0 0;background:var(--c);color:#fff;font:700 20px/1 var(--sans);display:flex;align-items:flex-end;padding:0 0 7px 9px}
+.step h3{font:700 18px/1.2 var(--sans);color:var(--ink);margin:14px 0 6px}
 .step p{margin:0;color:var(--muted);font-size:15px}
-.step .mosaic{position:absolute;top:0;right:0;--t:34px}
-.guar{margin-top:22px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;align-items:center;background:var(--yellow);color:var(--ink);border-radius:30px;padding:clamp(22px,3vw,34px)}
-.guar .seven{font:400 clamp(90px,10vw,130px)/.8 var(--display)}
-.guar h3{font:700 clamp(22px,2.4vw,30px)/1.15 var(--sans);margin:0 0 6px}
+.guar{margin-top:20px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center;background:var(--yellow);color:var(--ink);border-radius:24px;padding:clamp(18px,2.4vw,26px)}
+.guar .seven{font:700 clamp(48px,5vw,64px)/1 var(--sans);letter-spacing:-.04em}
+.guar h3{font:700 clamp(18px,1.8vw,22px)/1.15 var(--sans);margin:0 0 6px}
 .guar p{margin:0;font-weight:500}
 .pays{display:flex;flex-wrap:wrap;gap:8px}
 .pays span{background:var(--ink);color:#fff;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
 
-/* ---------- sobre: mosaico ---------- */
-.mos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(170px,auto);gap:14px}
-.mt{border-radius:28px;padding:22px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .3s}
-.mt:hover{transform:translateY(-4px) rotate(-.6deg)}
-.mt b{font:400 clamp(44px,5vw,68px)/.88 var(--display);display:block}
-.mt span{font-weight:600;font-size:15px;line-height:1.35;display:block;margin-top:6px}
-.mt.photo{grid-column:span 2;grid-row:span 2;padding:0;background:var(--pink);min-height:360px}
-.mt.photo img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:94%;width:auto;max-width:none}
-.mt.photo .tag{position:relative;z-index:2;margin:18px;align-self:flex-start;background:#fff;color:var(--ink);border-radius:999px;padding:8px 16px;font-weight:700;font-size:15px}
-.mt.photo .mosaic{position:absolute;top:0;left:0;--t:56px}
-.mt.name{grid-column:span 2;background:#fff;color:var(--ink)}
-.mt.name b{font-size:clamp(64px,8vw,112px);color:var(--ink)}
-.mt.name span{font-size:17px;color:var(--muted);font-weight:500;max-width:46ch}
-.mt.y{background:var(--yellow);color:var(--ink)}
-.mt.k{background:var(--ink);color:#fff}
-.mt.w{background:#fff;color:var(--ink)}
-.mt.g{background:var(--green);color:#fff}
-.mt.shape{padding:0;background:transparent;display:grid}
-.mt.shape .mosaic{position:absolute;inset:0;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);border-radius:28px;overflow:hidden}
-.mt.shape .mosaic i:hover{transform:rotate(180deg)}
-.mt.shape .mosaic .ci{transform:none;width:72%;height:auto;aspect-ratio:1;place-self:center}
-.mt.shape .mosaic .ci:hover{transform:rotate(180deg)}
-.mt.cta{grid-column:span 2;background:var(--pink);color:#fff;text-decoration:none}
-.mt.cta b{font-size:clamp(52px,6vw,84px)}
-.mt.cta .mosaic{position:absolute;top:0;right:0;--t:48px}
-.quote{grid-column:span 2;background:var(--deep);color:#fff}
-.quote p{font:600 clamp(20px,2.2vw,28px)/1.25 var(--sans);margin:0}
-.links2{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.links2 a{background:#fff;color:var(--ink);text-decoration:none;font-weight:700;font-size:15px;border-radius:999px;padding:10px 18px}
+/* ---------- sobre: a "capa" do professor ---------- */
+.about .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px);align-items:center}
+.pcard{position:relative;container-type:inline-size;aspect-ratio:376/532;max-width:320px;width:100%;justify-self:center;background:var(--blue);border:5px solid #fff;border-radius:10px;box-shadow:0 30px 60px -24px rgba(0,30,70,.6);overflow:hidden}
+.pcard .fx.tr{width:42%}.pcard .fx.bl{width:38%}
+.pcard .lg{position:absolute;top:7%;left:7%;width:46%;height:auto;z-index:1}
+.pcard .ph{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:70%;width:auto;max-width:none;z-index:1}
+.pcard .au{position:absolute;right:6%;bottom:4%;z-index:2;text-align:right;font-weight:700;font-size:15px;line-height:1.1}
+.pcard .au small{display:block;font-style:italic;font-weight:400;font-size:11px}
+.creds2{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.creds2 li{display:grid;grid-template-columns:22px minmax(0,1fr);column-gap:12px}
+.creds2 li::before{content:"";grid-row:span 2;width:20px;height:20px;margin-top:3px;border-radius:0 100% 0 0;background:var(--yellow)}
+.creds2 li:nth-child(even)::before{background:var(--pink)}
+.creds2 b{font-weight:700}
+.creds2 span{color:#e3effa;font-size:14px}
+.links2{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.links2 a{background:#fff;color:var(--ink);text-decoration:none;font-weight:700;font-size:14px;border-radius:999px;padding:10px 18px}
 
 /* ---------- dúvidas ---------- */
 .faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
-details{background:#fff;color:var(--text);border-radius:24px;padding:0 22px}
-summary{cursor:pointer;list-style:none;font-weight:700;font-size:17px;color:var(--ink);padding:20px 40px 20px 0;position:relative}
+details{background:#fff;color:var(--text);border-radius:20px;padding:0 20px}
+summary{cursor:pointer;list-style:none;font-weight:600;font-size:15px;color:var(--ink);padding:16px 36px 16px 0;position:relative}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"";position:absolute;right:0;top:20px;width:24px;height:24px;border-radius:0 100% 0 0;background:var(--pink);transition:transform .3s}
+summary::after{content:"";position:absolute;right:0;top:16px;width:20px;height:20px;border-radius:0 100% 0 0;background:var(--pink);transition:transform .3s}
 details[open] summary::after{transform:rotate(90deg);background:var(--yellow)}
-details p{margin:0 0 20px;color:var(--muted);font-size:16px}
-.final{margin-top:clamp(40px,6vw,72px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;background:var(--pink);border-radius:30px;padding:clamp(24px,4vw,44px);position:relative;overflow:hidden}
-.final p{margin:0;font:700 clamp(26px,3.4vw,44px)/1.05 var(--sans);letter-spacing:-.02em;position:relative;z-index:1;padding-right:40px}
+details p{margin:0 0 16px;color:var(--muted);font-size:14.5px}
+.final{margin-top:clamp(32px,4.5vw,56px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;background:var(--pink);border-radius:24px;padding:clamp(22px,3vw,34px);position:relative;overflow:hidden}
+.final p{margin:0;font:700 clamp(20px,2.4vw,30px)/1.1 var(--sans);letter-spacing:-.02em;position:relative;z-index:1;padding-right:110px}
 .final .btn{position:relative;z-index:1}
-.final .mosaic{position:absolute;right:0;top:0;--t:48px}
 
 footer{background:#fff;color:var(--text);font-size:14px;padding:24px 0}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;align-items:center}
 footer a{color:var(--deep);font-weight:700}
-footer img{height:34px;width:auto;background:var(--blue);border-radius:8px;padding:4px 8px}
+footer img{height:26px;width:auto}
 
 dialog{border:0;border-radius:30px;padding:0;max-width:min(440px,calc(100vw - 32px));box-shadow:0 30px 80px rgba(0,20,50,.4);color:var(--text);overflow:hidden}
 dialog::backdrop{background:rgba(10,30,60,.6)}
 .dlg{padding:30px;display:grid;gap:10px;position:relative}
 .dlg h3{margin:0;color:var(--ink);font:700 24px/1.2 var(--sans);padding-right:50px}
 .dlg p{margin:0 0 8px;color:var(--muted)}
-.dlg .mosaic{position:absolute;top:0;right:0;--t:28px}
 .wbtn{display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:999px;font:700 16px var(--sans);text-decoration:none;cursor:pointer;border:0;width:100%}
 .wa{background:#1fa855;color:#fff}
 .gh{background:var(--soft);color:var(--ink)}
@@ -273,23 +256,19 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 .reveal.in{transform:none}
 @media (max-width:1000px){.grid{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto}.buygrid{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:900px){
-  .hero .wrap,.inside .wrap,.stats .wrap{grid-template-columns:minmax(0,1fr)}
+  .hero .wrap,.inside .wrap,.stats .wrap,.about .wrap{grid-template-columns:minmax(0,1fr)}
   .covers{justify-self:center;max-width:420px}
-  .mos{grid-template-columns:repeat(2,minmax(0,1fr))}
   .faq{grid-template-columns:minmax(0,1fr)}
   .combo,.guar{grid-template-columns:minmax(0,1fr)}
-  .combo .mosaic{display:none}
 }
 @media (max-width:640px){
-  body{font-size:16px}
+  body{font-size:15px}
+  .final p{padding-right:0;padding-top:40px}
   .links a:not(.navcta){display:none}
-  .nlogo span:last-child{display:none}
   .book{--pw:min(45vw,210px)}
   .row{grid-template-columns:minmax(0,118px) minmax(0,1fr) 36px;font-size:13px;gap:8px}
-  .row .v{font-size:22px}
+  .row .v{font-size:14px}
   .row .nm{white-space:normal;line-height:1.2}
-  .mt.name b{font-size:60px}
-  .mt.photo,.mt.name,.quote{grid-column:span 2}
   .final{grid-template-columns:minmax(0,1fr)}
   .sticky{display:flex;position:fixed;left:16px;right:16px;bottom:14px;z-index:25;min-height:56px;align-items:center;justify-content:center;border-radius:999px;background:var(--pink);color:#fff;font:700 17px var(--sans);text-decoration:none;box-shadow:0 10px 24px rgba(120,0,40,.35);transition:opacity .2s,transform .2s}
   .sticky.off{opacity:0;transform:translateY(20px);pointer-events:none}
@@ -301,7 +280,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 <body>
 
 <nav><div class="wrap">
-  <a class="nlogo" href="#"><span class="dot" aria-hidden="true"><i class="qbr pk"></i><i class="ci yl"></i><i class="ci bl"></i><i class="qtl pk"></i></span><span>Sala dos Números</span></a>
+  <a class="nlogo" href="#"><img src="img/logo-escuro.png" alt="Sala dos Números" width="640" height="169"></a>
   <div class="links">
     <a href="#apostilas">Apostilas</a><a href="#por-dentro">Por dentro</a><a href="#o-que-mais-cai">O que mais cai</a><a href="#sobre">Quem escreveu</a><a href="#duvidas">Dúvidas</a>
     <a class="navcta" href="#apostilas">Comprar</a>
@@ -309,33 +288,35 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 </div></nav>
 
 <header class="hero" id="hero">
-  <div class="deco mosaic d1" aria-hidden="true"><i class="e"></i><i class="qbl pk"></i><i class="qbr yl"></i><i class="e"></i><i class="ci wh"></i><i class="qtl pk"></i></div>
-  <div class="deco mosaic d2" aria-hidden="true"><i class="qtr wh"></i><i class="ci yl"></i><i class="e"></i><i class="qbr pk"></i><i class="qbl wh"></i><i class="qtl yl"></i></div>
+  <img class="fx tr" id="hTR" src="img/formas-tr-uece.png" alt="" aria-hidden="true" width="425" height="287">
+  <img class="fx bl" id="hBL" src="img/formas-bl-uece.png" alt="" aria-hidden="true" width="378" height="272">
   <div class="wrap">
     <div>
-      <img class="logo" src="img/sala-logo.png" alt="Sala dos Números" width="315" height="85">
-      <p class="mpa">matemática por assunto <span class="pill" id="hPill">1ª e 2ª fases</span></p>
-      <h1 class="uni" id="hUni"><span>UECE</span></h1>
+      <img class="logo" src="img/logo-sala.png" alt="Sala dos Números" width="660" height="178">
+      <h1 class="vh" id="hH1">Matemática por Assunto UECE, 1ª e 2ª fases</h1>
+      <div class="htit"><img id="hTit" src="img/titulo-uece.png" alt="" width="900" height="596"></div>
+      <p class="hlead">Questões das provas anteriores separadas por assunto, com levantamento estatístico e checklist de estudo.</p>
+      <div class="picker" id="picker" role="group" aria-label="Escolha o vestibular"></div>
       <div class="hfacts" id="hFacts"></div>
       <div class="hcta">
         <a class="btn b-white" id="hBuy" href="#apostilas">Quero a apostila</a>
         <a class="btn b-ink" href="#por-dentro">Folhear</a>
       </div>
-      <div class="picker" id="picker" role="group" aria-label="Escolha o vestibular"></div>
     </div>
     <div class="covers" id="covers"></div>
   </div>
 </header>
 
 <section class="s-deep" id="apostilas">
-  <div class="deco mosaic" style="top:0;right:0;--t:64px;--cols:2" aria-hidden="true"><i class="qbl yl"></i><i class="ci pk"></i><i class="e"></i><i class="qtr wh"></i></div>
+  <div class="sh tr" data-s="blue" style="--t:42px"></div>
+  
   <div class="wrap">
     <p class="kick">As apostilas</p>
     <h2>Escolha a sua <span class="blob">prova</span></h2>
     <p class="lede">Questões reais das provas anteriores, separadas por assunto. Você estuda exatamente o que cai no seu vestibular.</p>
     <div class="grid" id="grid"></div>
     <div class="combo reveal">
-      <div class="mosaic" aria-hidden="true"><i class="qtl pk"></i><i class="ci yl"></i><i class="ci bl"></i><i class="qbr gr"></i></div>
+      
       <div><h3>Vai fazer mais de uma prova?</h3><p>Fale com o professor pelo WhatsApp e monte um combo com as apostilas que você precisa.</p></div>
       <a class="btn b-pink" id="comboBtn" href="#" target="_blank" rel="noopener">Quero um combo</a>
     </div>
@@ -343,16 +324,17 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 </section>
 
 <section class="inside" id="por-dentro">
-  <div class="deco mosaic" style="bottom:0;left:0;--t:60px;--cols:2" aria-hidden="true"><i class="qtr pk"></i><i class="e"></i><i class="ci yl"></i><i class="qtl wh"></i></div>
+  <div class="sh bl" data-s="blue" style="--t:42px"></div>
+  
   <div class="wrap">
     <div>
       <p class="kick">Por dentro</p>
       <h2>Folheie a <span class="blob">apostila</span></h2>
       <p class="lede">Toque nas páginas, arraste para os lados ou use as setas. São páginas reais de cada material.</p>
       <ul class="feats">
-        <li><span class="ic" aria-hidden="true"><i class="qbr pk"></i><i class="qbl pk"></i><i class="qtr pk"></i><i class="qtl pk"></i></span><div><b>Separada por assunto</b><p>Cada capítulo é um tema, com as questões das provas anteriores da sua banca.</p></div></li>
-        <li><span class="ic" aria-hidden="true"><i class="ci yl"></i><i class="qtl yl"></i><i class="qbr yl"></i><i class="ci yl"></i></span><div><b>Levantamento estatístico</b><p>Quantas questões caíram de cada assunto, para você priorizar o que mais cai.</p></div></li>
-        <li><span class="ic" aria-hidden="true"><i class="qbr wh"></i><i class="e"></i><i class="ci wh"></i><i class="qtl wh"></i></span><div><b>Checklist de estudo</b><p>Para cada assunto: resolvi, corrigi e revisei. Gabarito no final.</p></div></li>
+        <li><div><b>Separada por assunto</b><p>Cada capítulo é um tema, com as questões das provas anteriores da sua banca.</p></div></li>
+        <li><div><b>Levantamento estatístico</b><p>Quantas questões caíram de cada assunto, para você priorizar o que mais cai.</p></div></li>
+        <li><div><b>Checklist de estudo</b><p>Para cada assunto: resolvi, corrigi e revisei. Gabarito no final.</p></div></li>
       </ul>
     </div>
     <div>
@@ -369,35 +351,35 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 </section>
 
 <section class="s-white stats" id="o-que-mais-cai">
-  <div class="deco mosaic" style="top:0;right:0;--t:58px;--cols:3" aria-hidden="true"><i class="e"></i><i class="qbl yl"></i><i class="qbr pk"></i><i class="e"></i><i class="e"></i><i class="ci bl"></i></div>
+  <div class="sh tr" data-s="white" style="--t:42px"></div>
+  
   <div class="wrap">
     <div class="ctrl">
       <p class="kick">Levantamento estatístico</p>
       <h2>O que mais <span class="blob">cai</span></h2>
-      <p class="lede">Os números da própria apostila: quantas questões de cada assunto caíram nas provas anteriores.</p>
+      <p class="lede">Uma amostra do levantamento estatístico da apostila: quantas questões de cada assunto caíram nas provas anteriores.</p>
       <div class="seg" id="sUni" role="group" aria-label="Vestibular"></div>
       <div class="seg fase" id="sFase" role="group" aria-label="Fase da UECE"></div>
-      <div class="insight"><div class="n" id="sPct">0%</div><p id="sTxt"></p>
-        <div class="mosaic" aria-hidden="true"><i class="e"></i><i class="qbr pk"></i><i class="ci yl"></i><i class="qtl pk"></i></div></div>
+      <div class="insight"><div class="n" id="sLock">0</div><p id="sTxt"></p><a class="btn b-pink" id="sBuy" href="#apostilas">Ver a apostila completa</a></div>
       <div class="legend"><span><i class="inc-A"></i>Altíssima</span><span><i class="inc-B"></i>Alta</span><span><i class="inc-C"></i>Média</span><span><i class="inc-D"></i>Baixa</span></div>
     </div>
     <div>
       <div class="bars" id="bars"></div>
-      <button class="toggle" id="sMore" type="button">Ver todos os assuntos</button>
       <p class="src" id="sSrc"></p>
     </div>
   </div>
 </section>
 
 <section class="s-deep" id="como-comprar">
+  <div class="sh bl" data-s="blue" style="--t:42px"></div>
   <div class="wrap">
     <p class="kick">Como comprar</p>
     <h2>Três passos e você já está <span class="blob">estudando</span></h2>
     <p class="lede">O pagamento é feito pela Hotmart, a maior plataforma de produtos digitais do Brasil.</p>
     <div class="buygrid">
-      <div class="step reveal" style="--c:var(--blue)"><div class="mosaic" aria-hidden="true"><i class="qbl pk"></i><i class="ci yl"></i></div><div class="no">1</div><h3>Escolha</h3><p>Toque em comprar na apostila do seu vestibular.</p></div>
-      <div class="step reveal" style="--c:var(--green)"><div class="mosaic" aria-hidden="true"><i class="ci pk"></i><i class="qbr yl"></i></div><div class="no">2</div><h3>Pague</h3><p>Pix, cartão de crédito em parcelas ou boleto, no checkout seguro da Hotmart.</p></div>
-      <div class="step reveal" style="--c:var(--pink)"><div class="mosaic" aria-hidden="true"><i class="qbl yl"></i><i class="qtr bl"></i></div><div class="no">3</div><h3>Receba</h3><p>Assim que o pagamento é aprovado, o acesso chega no seu e-mail.</p></div>
+      <div class="step reveal" style="--c:var(--blue)"><div class="no">1</div><h3>Escolha</h3><p>Toque em comprar na apostila do seu vestibular.</p></div>
+      <div class="step reveal" style="--c:var(--green)"><div class="no">2</div><h3>Pague</h3><p>Pix, cartão de crédito em parcelas ou boleto, no checkout seguro da Hotmart.</p></div>
+      <div class="step reveal" style="--c:var(--pink)"><div class="no">3</div><h3>Receba</h3><p>Assim que o pagamento é aprovado, o acesso chega no seu e-mail.</p></div>
     </div>
     <div class="guar reveal">
       <div class="seven">7</div>
@@ -408,21 +390,26 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 </section>
 
 <section class="about" id="sobre">
+  <div class="sh tr" data-s="blue" style="--t:42px"></div>
   <div class="wrap">
-    <p class="kick">Quem escreveu</p>
-    <h2>Feita por quem dá <span class="blob">aula</span></h2>
-    <div class="mos">
-      <div class="mt photo reveal"><div class="mosaic" aria-hidden="true"><i class="qbr yl"></i><i class="ci wh"></i></div><img src="img/foto.webp" alt="Professor Pedro Araújo" width="1020" height="1316"><span class="tag">Prof. Pedro Araújo</span></div>
-      <div class="mt name reveal"><b>Pedro Araújo</b><span>Professor de Matemática, criador do Matematizando e da Sala dos Números.</span></div>
-      <div class="mt y reveal"><b>UFC</b><span>Licenciado em Matemática pela Universidade Federal do Ceará</span></div>
-      <div class="mt shape reveal" aria-hidden="true"><div class="mosaic"><i class="qbr pk"></i><i class="qbl bk"></i><i class="ci yl"></i><i class="qtl pk"></i></div></div>
-      <div class="mt k reveal"><b>9</b><span>aprovações em instituições públicas</span></div>
-      <div class="mt w reveal"><b>Nota máxima</b><span>na discursiva do concurso para efetivos da Prefeitura de Caucaia</span></div>
-      <div class="mt g reveal"><b>3 escolas</b><span>de destaque: Farias Brito, Adauto Bezerra e César Cals</span></div>
-      <div class="mt shape reveal" aria-hidden="true"><div class="mosaic"><i class="ci wh"></i><i class="qbl yl"></i><i class="qtr pk"></i><i class="qtl wh"></i></div></div>
-      <div class="mt quote reveal"><p>“Ensinar de um jeito simples, sem perder o rigor. Foi assim que montei cada uma destas apostilas.”</p>
-        <div class="links2"><a href="https://www.instagram.com/matematizando/" target="_blank" rel="noopener">@matematizando</a><a href="https://www.youtube.com/@matematizandocompedroaraujo" target="_blank" rel="noopener">YouTube</a></div></div>
-      <a class="mt cta reveal" href="#apostilas"><div class="mosaic" aria-hidden="true"><i class="qbl yl"></i><i class="ci wh"></i></div><b>Ver as apostilas</b><span>UECE · UNIFOR · Unichristus</span></a>
+    <div class="pcard reveal">
+      <img class="fx tr" src="img/formas-tr-uece.png" alt="" width="425" height="287">
+      <img class="fx bl" src="img/formas-bl-uece.png" alt="" width="378" height="272">
+      <img class="lg" src="img/logo-sala.png" alt="" width="660" height="178">
+      <img class="ph" src="img/foto.webp" alt="Professor Pedro Araújo" width="1020" height="1316">
+      <div class="au"><small>autor</small>Pedro Araújo</div>
+    </div>
+    <div>
+      <p class="kick">Quem escreveu</p>
+      <h2>Pedro <span class="blob">Araújo</span></h2>
+      <p class="lede">Professor de Matemática e criador da Sala dos Números. Montei cada apostila com o mesmo cuidado das minhas aulas: simples, sem perder o rigor, e focada no que a sua prova cobra.</p>
+      <ul class="creds2">
+        <li><b>Licenciado em Matemática pela UFC</b><span>Universidade Federal do Ceará</span></li>
+        <li><b>9 aprovações em instituições públicas</b><span>Professor efetivo da Prefeitura Municipal de Caucaia</span></li>
+        <li><b>Nota máxima na discursiva</b><span>do concurso para efetivos da Prefeitura de Caucaia</span></li>
+        <li><b>Escolas de destaque no Ceará</b><span>Farias Brito, Adauto Bezerra e César Cals</span></li>
+      </ul>
+      <div class="links2"><a href="https://www.instagram.com/matematizando/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@matematizandocompedroaraujo" target="_blank" rel="noopener">YouTube</a></div>
     </div>
   </div>
 </section>
@@ -443,7 +430,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
       <details><summary>Não recebi o e-mail. O que faço?</summary><p>Confira o spam e a aba Promoções. Se não encontrar, chame no WhatsApp com o e-mail usado na compra.</p></details>
     </div>
     <div class="final reveal">
-      <div class="mosaic" aria-hidden="true"><i class="e"></i><i class="qbl yl"></i><i class="ci wh"></i><i class="qtr yl"></i></div>
+      <div class="sh tr" data-s="pink" style="--t:36px"></div>
       <p>Sua aprovação começa pela Matemática.</p>
       <a class="btn b-white" href="#apostilas">Escolher minha apostila</a>
     </div>
@@ -451,11 +438,11 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 </section>
 
 <a class="sticky off" id="sticky" href="#apostilas">Escolher minha apostila</a>
-<footer><div class="wrap"><img src="img/sala-logo.png" alt="Sala dos Números" width="315" height="85"><span>© <span id="yr">2026</span> Pedro Araújo · Todos os direitos reservados</span><span>WhatsApp <a href="https://wa.me/5585997336975" target="_blank" rel="noopener">(85) 99733-6975</a></span><span>Pagamentos processados pela Hotmart</span></div></footer>
+<footer><div class="wrap"><img src="img/logo-escuro.png" alt="Sala dos Números" width="640" height="169"><span>© <span id="yr">2026</span> Pedro Araújo · Todos os direitos reservados</span><span>WhatsApp <a href="https://wa.me/5585997336975" target="_blank" rel="noopener">(85) 99733-6975</a></span><span>Pagamentos processados pela Hotmart</span></div></footer>
 
 <dialog id="soon">
   <div class="dlg">
-    <div class="mosaic" aria-hidden="true"><i class="qbl pk"></i><i class="ci yl"></i></div>
+    <div class="sh tr" data-s="white" style="--t:24px"></div>
     <h3 id="soonTitle">Vendas abrem em breve</h3>
     <p>Esta apostila está nos últimos ajustes. Chame no WhatsApp para ser avisado assim que as vendas abrirem.</p>
     <a class="wbtn wa" id="soonWa" href="#" target="_blank" rel="noopener">Quero ser avisado</a>
@@ -470,7 +457,8 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
      Enquanto estiver vazio, o botão abre o aviso "Vendas abrem em breve".
    - preco / parcelas: aparecem no cartão da apostila.
    - paginas: imagens de páginas reais (pasta img/paginas).
-   - assuntos: [nome, questões] do levantamento estatístico (UECE: [nome, 1ª fase, 2ª fase]).
+   - assuntos: só 1/3 do levantamento estatístico vai para o site, na ordem da apostila ([nome, questões]; UECE: [nome, 1ª fase, 2ª fase]).
+     bloqueados: quantos assuntos aparecem como bloqueados.
    ============================================================ */
 const WHATSAPP = "5585997336975";
 const CHECKOUT_NA_PAGINA = true; // true = o checkout da Hotmart abre numa janela por cima do site
@@ -482,39 +470,49 @@ const APOSTILAS = [
     preco:"", parcelas:"", checkout:"",
     paginas:["img/paginas/ue-02.jpg","img/paginas/ue-03.jpg","img/paginas/ue-04.jpg","img/paginas/ue-05.jpg","img/paginas/ue-06.jpg","img/paginas/ue-07.jpg","img/paginas/ue-08.jpg"],
     corte:[53,28,14],
-    assuntos:[["Análise Combinatória",18,47],["Binômio de Newton",2,12],["Conjuntos",7,9],["Divisibilidade",13,21],["Equação do 1º grau",4,0],["Equação do 2º grau",12,11],["Equação do 3º grau",1,2],["Equação Exponencial",1,2],["Função do 1º grau",4,4],["Função do 2º grau",10,19],["Função Exponencial",2,12],["Função Modular",2,2],["Função Trigonométrica",6,9],["Funções",12,17],["Geometria Analítica",32,50],["Geometria Espacial",24,61],["Geometria Plana",64,71],["Logaritmo",19,26],["Matemática Básica",26,53],["Matemática Financeira",3,8],["Matrizes e Determinantes",15,28],["Números Complexos",9,27],["Polinômios",11,33],["Probabilidade",1,2],["Progressão Aritmética",9,16],["Progressão Geométrica",10,21],["Sequências",7,14],["Sistemas Lineares",7,6],["Trigonometria",19,37]] },
+    assuntos:[["Análise Combinatória",18,47],["Binômio de Newton",2,12],["Conjuntos",7,9],["Divisibilidade",13,21],["Equação do 1º grau",4,0],["Equação do 2º grau",12,11],["Equação do 3º grau",1,2],["Equação Exponencial",1,2],["Função do 1º grau",4,4],["Função do 2º grau",10,19]], bloqueados:19 },
   { id:"unifor", uni:"UNIFOR", nome:"UNIFOR", para:"Vestibular UNIFOR · Medicina", edicao:"1ª edição", pill:"medicina",
-    capa:"img/unifor.jpg", cor:"#2DAF7E", questoes:180, nAssuntos:22,
+    capa:"img/unifor.jpg", cor:"#00A36C", questoes:180, nAssuntos:22,
     itens:["Questões do vestibular de Medicina da UNIFOR","Levantamento estatístico por assunto","Checklist de estudo","Gabarito no final"],
     preco:"", parcelas:"", checkout:"",
     paginas:["img/paginas/uf-02.jpg","img/paginas/uf-03.jpg","img/paginas/uf-04.jpg","img/paginas/uf-05.jpg","img/paginas/uf-06.jpg","img/paginas/uf-07.jpg","img/paginas/uf-08.jpg"],
     corte:[19,10,5],
-    assuntos:[["Análise Combinatória",8],["Conjuntos",13],["Equações e Sistemas",18],["Estatística",5],["Função Afim",3],["Função Exponencial",6],["Função Quadrática",8],["Funções",1],["Geometria Analítica",1],["Geometria Espacial",15],["Geometria Plana",19],["Logaritmo",6],["Matemática Básica",2],["Múltiplos e Divisores",3],["Polinômios",1],["Porcentagem",22],["Probabilidade",12],["Progressão Aritmética",2],["Progressão Geométrica",2],["Raciocínio Lógico",3],["Razão e Proporção",24],["Trigonometria",6]] },
+    assuntos:[["Análise Combinatória",8],["Conjuntos",13],["Equações e Sistemas",18],["Estatística",5],["Função Afim",3],["Função Exponencial",6],["Função Quadrática",8],["Funções",1]], bloqueados:14 },
   { id:"unichristus", uni:"Unichristus", nome:"UNICHRISTUS", para:"Vestibular Unichristus · Medicina", edicao:"1ª edição", pill:"medicina",
     capa:"img/unichristus.jpg", cor:"#FD0C64", questoes:240, nAssuntos:21,
     itens:["Questões do vestibular de Medicina da Unichristus","Levantamento estatístico por assunto","Checklist de estudo","Gabarito no final"],
     preco:"", parcelas:"", checkout:"",
     paginas:["img/paginas/uc-02.jpg","img/paginas/uc-03.jpg","img/paginas/uc-04.jpg","img/paginas/uc-05.jpg","img/paginas/uc-06.jpg","img/paginas/uc-07.jpg","img/paginas/uc-08.jpg"],
     corte:[19,10,5],
-    assuntos:[["Análise Combinatória",20],["Conjuntos",8],["Equações e Sistemas",7],["Estatística",19],["Função Afim",20],["Função Exponencial",4],["Função Quadrática",16],["Geometria Analítica",6],["Geometria Espacial",23],["Geometria Plana",18],["Logaritmo",4],["Matemática Financeira",7],["Múltiplos e Divisores",2],["Porcentagem",22],["Princípio da Casa dos Pombos",3],["Probabilidade",23],["Progressão Aritmética",7],["Progressão Geométrica",2],["Raciocínio Lógico",4],["Razão e Proporção",19],["Trigonometria",6]] }
+    assuntos:[["Análise Combinatória",20],["Conjuntos",8],["Equações e Sistemas",7],["Estatística",19],["Função Afim",20],["Função Exponencial",4],["Função Quadrática",16]], bloqueados:14 }
 ];
 /* ============================================================ */
 
 const $ = id => document.getElementById(id);
 const wa = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const MOS = ['<i class="qbl wh"></i><i class="ci yl"></i>','<i class="ci wh"></i><i class="qbr yl"></i>','<i class="qbl yl"></i><i class="ci wh"></i>'];
 
-/* ---------- topo que troca de cor ---------- */
+/* ---------- formas iguais às capas ---------- */
+const SCH = { blue:["var(--pink)","var(--yellow)","#fff"], pink:["var(--blue)","var(--yellow)","#fff"], white:["var(--pink)","var(--yellow)","var(--blue)"], ink:["var(--pink)","var(--yellow)","#fff"] };
+document.querySelectorAll(".sh").forEach(el => {
+  const [A, B, W] = SCH[el.dataset.s] || SCH.blue, i = (c, k) => `<i class="${k}" style="background:${c}"></i>`;
+  el.setAttribute("aria-hidden", "true");
+  el.innerHTML = el.classList.contains("tr")
+    ? i(A,"qtr") + i(B,"qtr") + "<i></i>" + i(W,"c") + i(A,"qbl") + i(B,"qbl")
+    : i(W,"qbr") + i(A,"qbr") + "<i></i>" + i(A,"qtr") + i(W,"qtr") + "<i></i>" + i(B,"c");
+});
+
+/* ---------- topo ---------- */
 let hi = 0, hTimer = null;
-$("picker").innerHTML = APOSTILAS.map(a => `<button type="button" style="background:${a.cor}" aria-pressed="false" aria-label="${a.uni}"><span>${a.uni}</span></button>`).join("");
+$("picker").innerHTML = APOSTILAS.map(a => `<button type="button" style="--c:${a.cor}" aria-pressed="false"><i></i>${a.uni}</button>`).join("");
 $("covers").innerHTML = APOSTILAS.map((a, i) => `<img src="${a.capa}" alt="Capa da apostila ${a.uni}" data-i="${i}" data-pos="${i}">`).join("");
 function hero(i){
   hi = i; const a = APOSTILAS[i];
-  document.documentElement.style.setProperty("--brand", a.cor);
-  $("hUni").innerHTML = `<span>${a.nome}</span>`;
-  $("hPill").textContent = a.pill;
-  $("hFacts").innerHTML = `<b>${a.questoes} questões</b><b>${a.nAssuntos} assuntos</b><b>${a.edicao}</b>`;
+  $("hero").style.setProperty("--hc", a.cor);
+  $("hTit").src = `img/titulo-${a.id}.png`;
+  $("hH1").textContent = `Matemática por Assunto ${a.uni}`;
+  $("hTR").src = `img/formas-tr-${a.id}.png`; $("hBL").src = `img/formas-bl-${a.id}.png`;
+  $("hFacts").innerHTML = `<span><b>${a.questoes}</b>questões</span><span><b>${a.nAssuntos}</b>assuntos</span><span>${a.para.split(" · ")[1]} · ${a.edicao}</span>`;
   $("hBuy").textContent = `Quero a da ${a.uni}`;
   $("hBuy").href = `#card-${a.id}`;
   [...$("picker").children].forEach((b, k) => b.setAttribute("aria-pressed", k === i));
@@ -526,20 +524,21 @@ $("covers").addEventListener("click", e => { const im = e.target.closest("img");
 $("hero").addEventListener("mouseenter", () => clearInterval(hTimer));
 $("hero").addEventListener("mouseleave", autoHero);
 hero(0); autoHero();
+APOSTILAS.forEach(a => ["titulo","formas-tr","formas-bl"].forEach(n => { new Image().src = `img/${n}-${a.id}.png`; }));
 if (!reduce) $("hero").addEventListener("pointermove", e => {
   const r = e.currentTarget.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-  document.querySelectorAll(".hero .deco").forEach((d, k) => d.style.transform = `translate(${x * (k ? -18 : 18)}px,${y * (k ? -14 : 14)}px)`);
+  document.querySelectorAll(".hero .fx").forEach((d, k) => d.style.transform = `translate(${x * (k ? -10 : 10)}px,${y * (k ? -8 : 8)}px)`);
 });
 
 /* ---------- cartões ---------- */
 $("grid").innerHTML = APOSTILAS.map((a, i) => `
   <article class="card reveal" id="card-${a.id}" style="--c:${a.cor}">
     <div class="top"><span class="ed">${a.edicao}</span>
-      <div class="mosaic m1" aria-hidden="true">${MOS[i]}</div>
-      <div class="mosaic m2" aria-hidden="true"><i class="qtr wh"></i><i class="e"></i></div>
+      
+      
       <img src="${a.capa}" alt="Capa da apostila Matemática por Assunto ${a.uni}" loading="lazy"></div>
     <div class="body">
-      <h3 class="nm">${a.nome}</h3>
+      <h3 class="nm">Matemática por Assunto ${a.uni}</h3>
       <p class="for">${a.para}</p>
       <div class="big"><div><b>${a.questoes}</b><span>questões</span></div><div><b>${a.nAssuntos}</b><span>assuntos</span></div></div>
       <ul>${a.itens.map(t => `<li>${t}</li>`).join("")}</ul>
@@ -571,7 +570,7 @@ function zfix(){ const n = leaves.length; leaves.forEach((l, i) => l.style.zInde
 function montar(a){
   const faces = [`<img src="${a.capa}" alt="Capa da apostila ${a.uni}">`, ...a.paginas.map((src, k) => `<img src="${src}" alt="Página ${k + 2} da apostila ${a.uni}" loading="lazy">`)];
   if (faces.length % 2) faces.push(`<div class="more" style="background:${a.cor}"><b>${a.questoes}</b><span>questões esperando você</span></div>`);
-  book.innerHTML = `<div class="base l"></div><div class="base r"><div class="more"><div class="mosaic" aria-hidden="true"><i class="qbl pk"></i><i class="ci yl"></i></div><b>E muito<br>mais</b><span>${a.questoes} questões em ${a.nAssuntos} assuntos, com levantamento estatístico e checklist.</span><a href="#card-${a.id}">Quero a minha</a></div></div>` +
+  book.innerHTML = `<div class="base l"></div><div class="base r"><div class="more"><div class="sh tr" data-s="ink" style="--t:calc(var(--pw)*.12)"></div><b>E muito<br>mais</b><span>${a.questoes} questões em ${a.nAssuntos} assuntos, com levantamento estatístico e checklist.</span><a href="#card-${a.id}">Quero a minha</a></div></div>` +
     Array.from({length: faces.length / 2}, (_, i) => `<div class="leaf"><div class="f">${faces[2 * i]}</div><div class="b">${faces[2 * i + 1]}</div></div>`).join("");
   leaves = [...book.querySelectorAll(".leaf")]; step = 0; zfix(); estado();
 }
@@ -626,14 +625,13 @@ book.addEventListener("pointerleave", () => { sx = null; leaves.forEach(l => l.c
 escolher(0);
 new IntersectionObserver(([en]) => { inView = en.isIntersecting; if (inView) auto(); else clearInterval(bTimer); }, {threshold:.3}).observe(book);
 
-/* ---------- o que mais cai ---------- */
-let si = 0, fase = 0, todos = false;
+/* ---------- o que mais cai (só 1/3 liberado) ---------- */
+let si = 0, fase = 0;
 const INC = ["Altíssima","Alta","Média","Baixa"];
 $("sUni").innerHTML = APOSTILAS.map(a => `<button type="button" aria-pressed="false">${a.uni}</button>`).join("");
 $("sFase").innerHTML = ["Total","1ª fase","2ª fase"].map(t => `<button type="button" aria-pressed="false">${t}</button>`).join("");
 [...$("sUni").children].forEach((b, i) => b.addEventListener("click", () => { si = i; fase = 0; grafico(); }));
 [...$("sFase").children].forEach((b, i) => b.addEventListener("click", () => { fase = i; grafico(); }));
-$("sMore").addEventListener("click", () => { todos = !todos; grafico(); });
 function grafico(){
   const a = APOSTILAS[si], uece = a.assuntos[0].length === 3;
   [...$("sUni").children].forEach((b, k) => b.setAttribute("aria-pressed", k === si));
@@ -641,23 +639,20 @@ function grafico(){
   [...$("sFase").children].forEach((b, k) => b.setAttribute("aria-pressed", k === fase));
   const val = r => uece ? (fase === 0 ? r[1] + r[2] : r[fase]) : r[1];
   const tot = r => uece ? r[1] + r[2] : r[1];
-  const lista = a.assuntos.map(r => ({n: r[0], v: val(r), t: tot(r)})).sort((x, y) => y.v - x.v || x.n.localeCompare(y.n));
-  const soma = lista.reduce((s, r) => s + r.v, 0), max = lista[0].v;
   const inc = t => t >= a.corte[0] ? 0 : t >= a.corte[1] ? 1 : t >= a.corte[2] ? 2 : 3;
-  const pct = Math.round(100 * lista.slice(0, 5).reduce((s, r) => s + r.v, 0) / soma);
-  contar($("sPct"), pct);
-  $("sTxt").textContent = `das questões${uece && fase ? ` da ${fase}ª fase` : ""} da ${a.uni} vêm de só 5 dos ${lista.length} assuntos. É por eles que vale começar.`;
-  const mostra = todos ? lista : lista.slice(0, 10);
-  $("bars").innerHTML = mostra.map(r => `<div class="row" title="${r.n}: ${r.v} questões · incidência ${INC[inc(r.t)].toLowerCase()}"><span class="nm">${r.n}</span><span class="track"><span class="fill inc-${"ABCD"[inc(r.t)]}" data-w="${(100 * r.v / max).toFixed(1)}"></span></span><span class="v">${r.v}</span></div>`).join("");
-  requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll("#bars .fill").forEach(f => f.style.width = f.dataset.w + "%")));
-  $("sMore").textContent = todos ? "Mostrar só os 10 que mais caem" : `Ver todos os ${lista.length} assuntos`;
-  $("sSrc").textContent = `Fonte: levantamento estatístico da apostila ${a.uni} (${soma} questões${uece && fase ? ` da ${fase}ª fase` : ""}). A cor indica a incidência de cada assunto no total.`;
-}
-function contar(el, alvo){
-  if (reduce) { el.textContent = alvo + "%"; return; }
-  const ini = parseInt(el.textContent) || 0, t0 = performance.now();
-  const passo = t => { const p = Math.min(1, (t - t0) / 700); el.textContent = Math.round(ini + (alvo - ini) * (1 - Math.pow(1 - p, 3))) + "%"; if (p < 1) requestAnimationFrame(passo); };
-  requestAnimationFrame(passo);
+  const lista = a.assuntos.map(r => ({n: r[0], v: val(r), t: tot(r)}));
+  const max = Math.max(...lista.map(r => r.v), 1) * 1.6;
+  const linha = r => `<div class="row" title="${r.n}: ${r.v} questões · incidência ${INC[inc(r.t)].toLowerCase()}"><span class="nm">${r.n}</span><span class="track"><span class="fill inc-${"ABCD"[inc(r.t)]}" data-w="${(100 * r.v / max).toFixed(1)}"></span></span><span class="v">${r.v}</span></div>`;
+  const falsas = Array.from({length: Math.min(a.bloqueados, 8)}, (_, k) => `<div class="row"><span class="nm">Assunto bloqueado</span><span class="track"><span class="fill inc-D" style="width:${[62,38,80,24,55,70,30,46][k]}%"></span></span><span class="v">00</span></div>`).join("");
+  $("bars").innerHTML = lista.map(linha).join("") +
+    `<div class="locked"><div class="blur" aria-hidden="true">${falsas}</div>
+      <div class="lockmsg"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="3" fill="currentColor"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>
+      <div><b>Mais ${a.bloqueados} assuntos bloqueados</b><span>O levantamento completo está na apostila.</span></div></div></div>`;
+  requestAnimationFrame(() => requestAnimationFrame(() => document.querySelectorAll("#bars .fill[data-w]").forEach(f => f.style.width = f.dataset.w + "%")));
+  $("sLock").textContent = `${lista.length} de ${lista.length + a.bloqueados}`;
+  $("sTxt").textContent = `assuntos liberados nesta prévia${uece && fase ? ` (${fase}ª fase)` : ""}. Os outros ${a.bloqueados}, com a incidência de cada um, estão na apostila ${a.uni}.`;
+  $("sBuy").href = `#card-${a.id}`;
+  $("sSrc").textContent = `Fonte: levantamento estatístico da apostila ${a.uni}, na ordem em que aparece no material.`;
 }
 grafico();
 
