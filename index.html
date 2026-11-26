@@ -193,18 +193,15 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 .pays{display:flex;flex-wrap:wrap;gap:6px}
 .pays span{background:var(--soft);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
 
-/* ---------- sobre: a "capa" do professor ---------- */
-.about .wrap{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(28px,5vw,64px);align-items:center}
-.ptile{margin:0;max-width:340px;width:100%;justify-self:center}
-.pbg{background:var(--blue);border-radius:20px;aspect-ratio:4/4.6;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
-.pbg img{height:92%;width:auto;max-width:none}
-.ptile figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;font-size:13px;color:#5a6b7d}
-.ptile figcaption img{height:24px;width:auto}
-.cgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.cgrid li{background:#fff;border-radius:20px;padding:18px 20px;box-shadow:0 18px 36px -26px rgba(0,30,70,.45)}
-.cgrid b{display:block;font:700 19px/1.2 var(--sans);color:var(--c);letter-spacing:-.01em}
-.cgrid span{display:block;font-size:14px;color:var(--muted);margin-top:4px}
-.links2{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+/* ---------- sobre: apresentação no estilo do topo ---------- */
+.about{background:var(--blue);padding-bottom:0}
+.about .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:end}
+.atext{padding-bottom:clamp(44px,5.5vw,72px)}
+.aname{font-size:clamp(34px,4.6vw,56px)}
+.afacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;margin:0 0 28px}
+.afacts dt{font:700 19px/1.2 var(--sans);color:#fff;letter-spacing:-.01em}
+.afacts dd{margin:4px 0 0;font-size:14px;color:#dcebfb}
+.aphoto{width:100%;max-width:430px;height:auto;justify-self:center}
 
 /* ---------- dúvidas ---------- */
 .faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
@@ -240,12 +237,14 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   .hero .wrap,.inside .wrap,.stats .wrap,.about .wrap{grid-template-columns:minmax(0,1fr)}
   .covers{justify-self:center;max-width:420px}
   .faq{grid-template-columns:minmax(0,1fr)}
+  .about .wrap{align-items:start}
+  .atext{padding-bottom:0}
   .guar{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:640px){
-  .cgrid{grid-template-columns:minmax(0,1fr)}
+  .afacts{grid-template-columns:minmax(0,1fr);gap:14px}
   .flow{grid-template-columns:minmax(0,1fr);gap:14px}
-  .ptile{max-width:260px}
+  .aphoto{max-width:300px}
   body{font-size:15px}
   .final p{padding-right:0;padding-top:40px}
   .links a:not(.navcta){display:none}
@@ -323,7 +322,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
     <div>
       <p class="kick">Por dentro</p>
       <h2>Folheie a apostila</h2>
-      <p class="lede">Clique duas vezes na apostila para virar a página, ou use as setas. São páginas reais de cada material.</p>
+      <p class="lede">Clique na apostila para virar a página, ou use as setas. São páginas reais de cada material.</p>
       <ul class="feats">
         <li><div><b>Separada por assunto</b><p>Cada capítulo é um tema, com as questões das provas anteriores da sua banca.</p></div></li>
         <li><div><b>Levantamento estatístico</b><p>Quantas questões caíram de cada assunto, para você priorizar o que mais cai.</p></div></li>
@@ -338,7 +337,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
         <div class="count" id="count" aria-live="polite"></div>
         <button type="button" id="next" aria-label="Próxima página"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
-      <p class="hint">Dois cliques na página da direita avançam; na da esquerda, voltam.</p>
+      <p class="hint">Clique na página da direita para avançar e na da esquerda para voltar.</p>
     </div>
   </div>
 </section>
@@ -363,24 +362,21 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 </section>
 
 
-<section class="about s-soft" id="sobre">
+<section class="about" id="sobre">
   <div class="wrap">
-    <figure class="ptile reveal">
-      <div class="pbg"><img src="img/foto.webp" alt="Professor Pedro Araújo" width="1020" height="1316"></div>
-      <figcaption><img src="img/logo-escuro.png" alt="Sala dos Números" height="24"><span>Autor das apostilas</span></figcaption>
-    </figure>
-    <div>
+    <div class="atext">
       <p class="kick">Quem escreveu</p>
-      <h2>Pedro Araújo</h2>
+      <h2 class="aname">Pedro Araújo</h2>
       <p class="lede">Professor de Matemática e criador da Sala dos Números. Montei cada apostila com o mesmo cuidado das minhas aulas: simples, sem perder o rigor, e focada no que a sua prova cobra.</p>
-      <ul class="cgrid">
-        <li style="--c:var(--blue)"><b>Licenciado pela UFC</b><span>Matemática, Universidade Federal do Ceará</span></li>
-        <li style="--c:var(--green)"><b>9 aprovações</b><span>em instituições públicas; efetivo em Caucaia</span></li>
-        <li style="--c:var(--pink)"><b>Nota máxima</b><span>na discursiva do concurso de Caucaia</span></li>
-        <li style="--c:var(--ink)"><b>Escolas de destaque</b><span>Farias Brito, Adauto Bezerra e César Cals</span></li>
-      </ul>
-      <div class="links2"><a class="btn b-pink" href="https://www.instagram.com/matematizando/" target="_blank" rel="noopener">Instagram</a><a class="btn b-ink" href="https://www.youtube.com/@matematizandocompedroaraujo" target="_blank" rel="noopener">YouTube</a></div>
+      <dl class="afacts">
+        <div><dt>Licenciado pela UFC</dt><dd>Matemática, Universidade Federal do Ceará</dd></div>
+        <div><dt>9 aprovações</dt><dd>em instituições públicas; efetivo em Caucaia</dd></div>
+        <div><dt>Nota máxima</dt><dd>na discursiva do concurso de Caucaia</dd></div>
+        <div><dt>Escolas de destaque</dt><dd>Farias Brito, Adauto Bezerra e César Cals</dd></div>
+      </dl>
+      <div class="hcta"><a class="btn b-white" href="https://www.instagram.com/matematizando/" target="_blank" rel="noopener">Instagram</a><a class="btn b-ink" href="https://www.youtube.com/@matematizandocompedroaraujo" target="_blank" rel="noopener">YouTube</a></div>
     </div>
+    <img class="aphoto" src="img/foto.webp" alt="Professor Pedro Araújo" width="1020" height="1316" loading="lazy">
   </div>
 </section>
 
@@ -554,7 +550,6 @@ $("tabs").innerHTML = APOSTILAS.map(a => `<button class="tab" type="button" aria
 $("next").addEventListener("click", () => { parar(); ir(1); });
 $("prev").addEventListener("click", () => { parar(); ir(-1); });
 book.addEventListener("keydown", e => { if (e.key === "ArrowRight") { parar(); ir(1); } if (e.key === "ArrowLeft") { parar(); ir(-1); } });
-let lastUp = 0;
 book.style.touchAction = "manipulation";
 book.addEventListener("pointermove", e => {
   if (e.pointerType !== "mouse") return;
@@ -564,15 +559,10 @@ book.addEventListener("pointermove", e => {
 });
 book.addEventListener("pointerup", e => {
   if (e.target.closest("a")) return;
-  const now = Date.now();
-  if (now - lastUp < 400){
-    lastUp = 0;
-    const r = book.getBoundingClientRect();
-    parar();
-    if (step === 0) ir(1); else ir(e.clientX - r.left > r.width / 2 ? 1 : -1);
-  } else lastUp = now;
+  const r = book.getBoundingClientRect();
+  parar();
+  if (step === 0) ir(1); else ir(e.clientX - r.left > r.width / 2 ? 1 : -1);
 });
-book.addEventListener("dblclick", e => e.preventDefault());
 book.addEventListener("pointerleave", () => leaves.forEach(l => l.classList.remove("peek")));
 escolher(0);
 new IntersectionObserver(([en]) => { inView = en.isIntersecting; if (inView) auto(); else clearInterval(bTimer); }, {threshold:.3}).observe(book);
