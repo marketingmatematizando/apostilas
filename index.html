@@ -48,9 +48,8 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px
 /* ---------- HERO que muda de cor ---------- */
 .hero{position:relative;overflow:hidden;background:var(--hc,var(--blue));transition:background-color .6s ease}
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,56px);align-items:center;padding-top:clamp(28px,4vw,52px);padding-bottom:clamp(90px,10vw,124px)}
-.hero .logo{width:min(190px,52vw);height:auto}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.htit{height:clamp(130px,14vw,185px);margin:20px 0 14px;display:flex;align-items:center}
+.htit{height:clamp(130px,14vw,185px);margin:0 0 14px;display:flex;align-items:center}
 .htit img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:left center;transition:opacity .3s}
 .fx{position:absolute;pointer-events:none;z-index:0;height:auto;transition:transform .2s ease-out}
 .fx.tr{top:0;right:0;width:clamp(130px,16vw,215px)}
@@ -236,6 +235,12 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 @media (max-width:900px){
   .hero .wrap,.inside .wrap,.stats .wrap,.about .wrap{grid-template-columns:minmax(0,1fr)}
   .covers{justify-self:center;max-width:420px}
+  .hero .wrap{row-gap:0}
+  .hero .wrap > div:first-child{display:contents}
+  .hero .covers{order:1;margin:0 auto 18px}
+  .hero .hcta{order:2}
+  .fx.tr{width:104px}
+  .hero .htit{margin-top:44px}
   .faq{grid-template-columns:minmax(0,1fr)}
   .about .wrap{align-items:start}
   .atext{padding-bottom:0}
@@ -275,7 +280,6 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   <img class="fx bl" id="hBL" src="img/formas-bl-uece.png" alt="" aria-hidden="true" width="378" height="272">
   <div class="wrap">
     <div>
-      <img class="logo" src="img/logo-sala.png" alt="Sala dos Números" width="660" height="178">
       <h1 class="vh" id="hH1">Matemática por Assunto UECE, 1ª e 2ª fases</h1>
       <div class="htit"><img id="hTit" src="img/titulo-uece.png" alt="" width="900" height="596"></div>
       <p class="hlead">Questões das provas anteriores separadas por assunto, com levantamento estatístico e checklist de estudo.</p>
