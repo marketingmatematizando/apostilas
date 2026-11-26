@@ -81,7 +81,6 @@ section > .wrap{position:relative;z-index:1}
 .s-deep{background:var(--deep)}
 .s-white{background:#fff;color:var(--text)}
 .kick{display:inline-flex;align-items:center;gap:10px;font:700 12.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin:0 0 14px}
-.kick::before{content:"";width:22px;height:2px;background:currentColor}
 .s-white .kick{color:var(--pink)}
 h2{font:700 clamp(28px,3.8vw,46px)/1.05 var(--sans);letter-spacing:-.03em;margin:0 0 16px;text-wrap:balance}
 h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em .06em;border-radius:999px;line-height:1.12}
@@ -120,10 +119,8 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 /* ---------- livro ---------- */
 .inside .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px);align-items:center}
 .feats{list-style:none;margin:0;padding:0;display:grid;gap:18px}
-.feats li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:16px;align-items:start}
-.feats li::before{content:"";width:28px;height:3px;margin-top:4px;border-radius:2px;background:var(--pink)}
-.feats li:nth-child(2)::before{background:var(--yellow);border-radius:0 0 0 100%}
-.feats li:nth-child(3)::before{background:#fff;border-radius:50%;transform:scale(.8)}
+.feats li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:16px;align-items:start}
+.feats li::before{content:"";width:22px;height:22px;margin-top:1px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%232289D4' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/70% no-repeat}
 .feats b{display:block;font-size:16px;font-weight:700;margin:2px 0}
 .feats p{margin:0;color:#eaf4ff;font-size:14px}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
@@ -202,19 +199,19 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 .pays span{background:var(--ink);color:#fff;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
 
 /* ---------- sobre: a "capa" do professor ---------- */
-.about .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px);align-items:center}
-.pcard{position:relative;container-type:inline-size;aspect-ratio:376/532;max-width:320px;width:100%;justify-self:center;background:var(--blue);border:5px solid #fff;border-radius:10px;box-shadow:0 30px 60px -24px rgba(0,30,70,.6);overflow:hidden}
-.pcard .lg{position:absolute;top:7%;left:7%;width:46%;height:auto;z-index:1}
-.pcard .ph{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:70%;width:auto;max-width:none;z-index:1}
-.pcard .au{position:absolute;right:6%;bottom:4%;z-index:2;text-align:right;font-weight:700;font-size:15px;line-height:1.1}
-.pcard .au small{display:block;font-style:italic;font-weight:400;font-size:11px}
-.creds2{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.creds2 li{display:grid;grid-template-columns:22px minmax(0,1fr);column-gap:12px}
-.creds2 li::before{content:"";grid-row:span 2;width:7px;height:7px;margin:8px 0 0 6px;border-radius:50%;background:#fff}
-.creds2 b{font-weight:700}
-.creds2 span{color:#e3effa;font-size:14px}
+.about .wrap{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(28px,5vw,64px);align-items:center}
+.ptile{margin:0;max-width:340px;width:100%;justify-self:center}
+.pbg{background:var(--blue);border-radius:20px;aspect-ratio:4/4.6;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+.pbg img{height:92%;width:auto;max-width:none}
+.ptile figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;font-size:13px;color:#5a6b7d}
+.ptile figcaption img{height:24px;width:auto}
+.cgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cgrid li{border:1px solid #e3eaf2;border-radius:14px;padding:16px}
+.cgrid svg{width:24px;height:24px;fill:none;stroke:var(--deep);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;margin-bottom:10px}
+.cgrid b{display:block;font-size:15px;color:var(--ink)}
+.cgrid span{display:block;font-size:13.5px;color:#5a6b7d;margin-top:2px}
 .links2{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.links2 a{background:#fff;color:var(--ink);text-decoration:none;font-weight:700;font-size:14px;border-radius:999px;padding:10px 18px}
+.links2 a{background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:14px;border-radius:999px;padding:10px 18px}
 
 /* ---------- dúvidas ---------- */
 .faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
@@ -253,6 +250,8 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   .combo,.guar{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:640px){
+  .cgrid{grid-template-columns:minmax(0,1fr)}
+  .ptile{max-width:260px}
   body{font-size:15px}
   .final p{padding-right:0;padding-top:40px}
   .links a:not(.navcta){display:none}
@@ -376,22 +375,21 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   </div>
 </section>
 
-<section class="about" id="sobre">
+<section class="about s-white" id="sobre">
   <div class="wrap">
-    <div class="pcard reveal">
-      <img class="lg" src="img/logo-sala.png" alt="" width="660" height="178">
-      <img class="ph" src="img/foto.webp" alt="Professor Pedro Araújo" width="1020" height="1316">
-      <div class="au"><small>autor</small>Pedro Araújo</div>
-    </div>
+    <figure class="ptile reveal">
+      <div class="pbg"><img src="img/foto.webp" alt="Professor Pedro Araújo" width="1020" height="1316"></div>
+      <figcaption><img src="img/logo-escuro.png" alt="Sala dos Números" height="24"><span>Autor das apostilas</span></figcaption>
+    </figure>
     <div>
       <p class="kick">Quem escreveu</p>
-      <h2>Pedro <span class="blob">Araújo</span></h2>
+      <h2>Pedro Araújo</h2>
       <p class="lede">Professor de Matemática e criador da Sala dos Números. Montei cada apostila com o mesmo cuidado das minhas aulas: simples, sem perder o rigor, e focada no que a sua prova cobra.</p>
-      <ul class="creds2">
-        <li><b>Licenciado em Matemática pela UFC</b><span>Universidade Federal do Ceará</span></li>
-        <li><b>9 aprovações em instituições públicas</b><span>Professor efetivo da Prefeitura Municipal de Caucaia</span></li>
-        <li><b>Nota máxima na discursiva</b><span>do concurso para efetivos da Prefeitura de Caucaia</span></li>
-        <li><b>Escolas de destaque no Ceará</b><span>Farias Brito, Adauto Bezerra e César Cals</span></li>
+      <ul class="cgrid">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/><path d="M22 9v6"/></svg><b>Licenciado pela UFC</b><span>Matemática, Universidade Federal do Ceará</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg><b>9 aprovações</b><span>em instituições públicas; efetivo em Caucaia</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><b>Nota máxima</b><span>na discursiva do concurso de Caucaia</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5"/></svg><b>Escolas de destaque</b><span>Farias Brito, Adauto Bezerra e César Cals</span></li>
       </ul>
       <div class="links2"><a href="https://www.instagram.com/matematizando/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@matematizandocompedroaraujo" target="_blank" rel="noopener">YouTube</a></div>
     </div>
