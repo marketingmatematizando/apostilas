@@ -26,10 +26,10 @@
   --sans:Lexend,"Segoe UI",system-ui,sans-serif}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{margin:0;background:var(--blue);color:#fff;font:15.5px/1.6 var(--sans);overflow-x:clip}
+body{margin:0;background:var(--blue);color:#fff;font:15px/1.6 var(--sans);overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit}
-.wrap{max-width:1100px;margin:0 auto;padding:0 max(5vw,18px)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(5vw,18px)}
 button{font-family:inherit}
 button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
 
@@ -50,7 +50,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,56px);align-items:center;padding-top:clamp(28px,4vw,52px);padding-bottom:clamp(90px,10vw,124px)}
 .hero .logo{width:min(190px,52vw);height:auto}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.htit{height:clamp(150px,17vw,220px);margin:24px 0 16px;display:flex;align-items:center}
+.htit{height:clamp(130px,14vw,185px);margin:20px 0 14px;display:flex;align-items:center}
 .htit img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:left center;transition:opacity .3s}
 .fx{position:absolute;pointer-events:none;z-index:0;height:auto;transition:transform .2s ease-out}
 .fx.tr{top:0;right:0;width:clamp(130px,16vw,215px)}
@@ -60,7 +60,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px
 .hfacts{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 24px;font-size:14px;color:#eef6ff}
 .hfacts b{font-weight:700;color:#fff;margin-right:4px}
 .hcta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;font:700 15px var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:0 22px;border-radius:999px;font:700 14.5px var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
 .b-white{background:#fff;color:var(--ink)}
 .b-pink{background:var(--pink);color:#fff}
@@ -76,18 +76,19 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px
 .covers img[data-pos="2"]{transform:translate(-92%,-44%) rotate(-11deg) scale(.86);z-index:1}
 
 /* ---------- seções ---------- */
-section{position:relative;padding:clamp(48px,6.5vw,84px) 0;overflow:hidden}
+section{position:relative;padding:clamp(44px,5.5vw,72px) 0;overflow:hidden}
 section > .wrap{position:relative;z-index:1}
 .s-deep{background:var(--deep)}
-.s-white{background:#fff;color:var(--text)}
+.s-white,.s-soft{background:#fff;color:var(--text)}
+.s-soft{background:var(--soft)}
 .kick{display:inline-flex;align-items:center;gap:10px;font:700 12.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin:0 0 14px}
-.s-white .kick{color:var(--pink)}
-h2{font:700 clamp(28px,3.8vw,46px)/1.05 var(--sans);letter-spacing:-.03em;margin:0 0 16px;text-wrap:balance}
+.s-white .kick,.s-soft .kick{color:var(--pink)}
+h2{font:700 clamp(25px,3.1vw,38px)/1.1 var(--sans);letter-spacing:-.03em;margin:0 0 16px;text-wrap:balance}
 h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em .06em;border-radius:999px;line-height:1.12}
-.s-white h2{color:var(--ink)}
+.s-white h2,.s-soft h2{color:var(--ink)}
 .s-white h2 .blob{background:var(--pink);color:#fff}
-.lede{font-size:clamp(15px,1.3vw,17px);max-width:56ch;margin:0 0 clamp(22px,3vw,34px);color:#eef6ff}
-.s-white .lede{color:var(--muted)}
+.lede{font-size:clamp(14.5px,1.2vw,16px);max-width:56ch;margin:0 0 clamp(20px,2.6vw,30px);color:#eef6ff}
+.s-white .lede,.s-soft .lede{color:var(--muted)}
 
 /* ---------- apostilas ---------- */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
@@ -127,7 +128,7 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 .tab{min-height:40px;padding:0 18px;border-radius:999px;border:2px solid rgba(255,255,255,.65);background:transparent;color:#fff;font:600 15px var(--sans);cursor:pointer}
 .tab[aria-pressed=true]{background:#fff;color:var(--ink);border-color:#fff}
 .bookwrap{display:flex;justify-content:center;padding:6px 0 10px;touch-action:pan-y;user-select:none;-webkit-user-select:none}
-.book{--pw:min(240px,36vw);position:relative;width:calc(var(--pw)*2);aspect-ratio:752/532;perspective:2400px;transition:transform .8s cubic-bezier(.4,.1,.2,1);cursor:pointer}
+.book{--pw:min(220px,34vw);position:relative;width:calc(var(--pw)*2);aspect-ratio:752/532;perspective:2400px;transition:transform .8s cubic-bezier(.4,.1,.2,1);cursor:pointer}
 .book.closed{transform:translateX(-25%)}
 .base{position:absolute;top:0;bottom:0;width:50%;box-shadow:0 34px 60px -24px rgba(0,20,60,.65)}
 .base.l{left:0;background:#fff;border-radius:6px 0 0 6px;opacity:0;transition:opacity .3s .3s}
@@ -186,17 +187,19 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 .src{font-size:13px;color:var(--muted);margin:12px 0 0}
 
 /* ---------- comprar ---------- */
-.buygrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.step{background:#fff;color:var(--text);border-radius:24px;padding:22px;position:relative;overflow:hidden}
-.step .no{width:40px;height:40px;border-radius:50%;background:var(--c);color:#fff;font:700 17px/1 var(--sans);display:flex;align-items:center;justify-content:center}
-.step h3{font:700 18px/1.2 var(--sans);color:var(--ink);margin:14px 0 6px}
-.step p{margin:0;color:var(--muted);font-size:15px}
-.guar{margin-top:20px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center;background:var(--yellow);color:var(--ink);border-radius:24px;padding:clamp(18px,2.4vw,26px)}
-.guar .seven{font:700 clamp(48px,5vw,64px)/1 var(--sans);letter-spacing:-.04em}
-.guar h3{font:700 clamp(18px,1.8vw,22px)/1.15 var(--sans);margin:0 0 6px}
-.guar p{margin:0;font-weight:500}
-.pays{display:flex;flex-wrap:wrap;gap:8px}
-.pays span{background:var(--ink);color:#fff;border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;position:relative}
+.flow::before{content:"";position:absolute;top:22px;left:calc(100%/6);right:calc(100%/6);border-top:2px dashed var(--line);z-index:0}
+.flow li{position:relative;z-index:1;text-align:center;padding:0 8px}
+.ico{width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.ico svg{width:22px;height:22px;fill:none;stroke:var(--deep);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.flow small{display:block;margin-top:12px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+.flow h3{font:700 17px/1.2 var(--sans);color:var(--ink);margin:4px 0 6px}
+.flow p{margin:0 auto;color:var(--muted);font-size:14px;max-width:26ch}
+.guar{margin-top:36px;display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);color:var(--text);border-radius:18px;padding:18px 20px}
+.guar h3{font:700 16px/1.2 var(--sans);color:var(--ink);margin:0 0 2px}
+.guar p{margin:0;font-size:14px;color:var(--muted)}
+.pays{display:flex;flex-wrap:wrap;gap:6px}
+.pays span{background:var(--soft);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
 
 /* ---------- sobre: a "capa" do professor ---------- */
 .about .wrap{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(28px,5vw,64px);align-items:center}
@@ -242,7 +245,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 .sticky{display:none}
 .reveal{transform:translateY(18px);transition:transform .7s}
 .reveal.in{transform:none}
-@media (max-width:1000px){.grid{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto}.buygrid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:1000px){.grid{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto}}
 @media (max-width:900px){
   .hero .wrap,.inside .wrap,.stats .wrap,.about .wrap{grid-template-columns:minmax(0,1fr)}
   .covers{justify-self:center;max-width:420px}
@@ -251,6 +254,12 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 }
 @media (max-width:640px){
   .cgrid{grid-template-columns:minmax(0,1fr)}
+  .flow{grid-template-columns:minmax(0,1fr);gap:18px}
+  .flow::before{top:22px;bottom:22px;left:22px;right:auto;border-top:0;border-left:2px dashed var(--line)}
+  .flow li{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:14px;text-align:left;padding:0}
+  .flow li .ico{grid-row:span 3}
+  .flow small{margin-top:0}
+  .flow p{margin:0;max-width:none}
   .ptile{max-width:260px}
   body{font-size:15px}
   .final p{padding-right:0;padding-top:40px}
@@ -301,7 +310,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   
   <div class="wrap">
     <p class="kick">As apostilas</p>
-    <h2>Escolha a sua <span class="blob">prova</span></h2>
+    <h2>Escolha a sua prova</h2>
     <p class="lede">Questões reais das provas anteriores, separadas por assunto. Você estuda exatamente o que cai no seu vestibular.</p>
     <div class="grid" id="grid"></div>
     <div class="combo reveal">
@@ -317,7 +326,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   <div class="wrap">
     <div>
       <p class="kick">Por dentro</p>
-      <h2>Folheie a <span class="blob">apostila</span></h2>
+      <h2>Folheie a apostila</h2>
       <p class="lede">Toque nas páginas, arraste para os lados ou use as setas. São páginas reais de cada material.</p>
       <ul class="feats">
         <li><div><b>Separada por assunto</b><p>Cada capítulo é um tema, com as questões das provas anteriores da sua banca.</p></div></li>
@@ -343,7 +352,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   <div class="wrap">
     <div class="ctrl">
       <p class="kick">Levantamento estatístico</p>
-      <h2>O que mais <span class="blob">cai</span></h2>
+      <h2>O que mais cai</h2>
       <p class="lede">Uma amostra do levantamento estatístico da apostila: quantas questões de cada assunto caíram nas provas anteriores.</p>
       <div class="seg" id="sUni" role="group" aria-label="Vestibular"></div>
       <div class="seg fase" id="sFase" role="group" aria-label="Fase da UECE"></div>
@@ -357,20 +366,21 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   </div>
 </section>
 
-<section class="s-deep" id="como-comprar">
+<section class="s-soft" id="como-comprar">
   <div class="wrap">
     <p class="kick">Como comprar</p>
-    <h2>Três passos e você já está <span class="blob">estudando</span></h2>
+    <h2>Três passos e você já está estudando</h2>
     <p class="lede">O pagamento é feito pela Hotmart, a maior plataforma de produtos digitais do Brasil.</p>
-    <div class="buygrid">
-      <div class="step reveal" style="--c:var(--blue)"><div class="no">1</div><h3>Escolha</h3><p>Toque em comprar na apostila do seu vestibular.</p></div>
-      <div class="step reveal" style="--c:var(--green)"><div class="no">2</div><h3>Pague</h3><p>Pix, cartão de crédito em parcelas ou boleto, no checkout seguro da Hotmart.</p></div>
-      <div class="step reveal" style="--c:var(--pink)"><div class="no">3</div><h3>Receba</h3><p>Assim que o pagamento é aprovado, o acesso chega no seu e-mail.</p></div>
-    </div>
+    <ol class="flow">
+      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.4 11.2a1.5 1.5 0 0 0 1.5 1.2h8.3a1.5 1.5 0 0 0 1.5-1.1L21 7.5H6.4"/></svg></span><small>Passo 1</small><h3>Escolha</h3><p>Toque em comprar na apostila do seu vestibular.</p></li>
+      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg></span><small>Passo 2</small><h3>Pague</h3><p>Pix, cartão em parcelas ou boleto, no checkout seguro da Hotmart.</p></li>
+      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg></span><small>Passo 3</small><h3>Receba</h3><p>Com o pagamento aprovado, o acesso chega no seu e-mail.</p></li>
+    </ol>
     <div class="guar reveal">
-      <div class="seven">7</div>
-      <div><h3>Dias de garantia</h3><p>Se a apostila não for o que você esperava, peça o reembolso em até 7 dias pela própria Hotmart.</p></div>
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.6-3.4 8.3-8 9-4.6-.7-8-4.4-8-9V6z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg></span>
+      <div><h3>7 dias de garantia</h3><p>Se a apostila não for o que você esperava, peça o reembolso pela própria Hotmart.</p></div>
       <div class="pays"><span>Pix</span><span>Cartão</span><span>Boleto</span></div>
+      <a class="btn b-pink" href="#apostilas">Escolher apostila</a>
     </div>
   </div>
 </section>
@@ -399,7 +409,7 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
 <section class="s-deep" id="duvidas">
   <div class="wrap">
     <p class="kick">Dúvidas</p>
-    <h2>Perguntas <span class="blob">frequentes</span></h2>
+    <h2>Perguntas frequentes</h2>
     <p class="lede">Se a sua não estiver aqui, chame no WhatsApp.</p>
     <div class="faq">
       <details><summary>A apostila é física ou digital?</summary><p>É digital, em PDF. Você pode estudar no celular, no tablet ou no computador, e também pode imprimir.</p></details>
