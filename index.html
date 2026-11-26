@@ -313,13 +313,31 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   </div>
 </section>
 
+<section class="s-soft" id="como-comprar">
+  <div class="wrap">
+    <p class="kick">Como comprar</p>
+    <h2>Três passos e você já está estudando</h2>
+    <p class="lede">O pagamento é feito pela Hotmart, a maior plataforma de produtos digitais do Brasil.</p>
+    <ol class="flow">
+      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.4 11.2a1.5 1.5 0 0 0 1.5 1.2h8.3a1.5 1.5 0 0 0 1.5-1.1L21 7.5H6.4"/></svg></span><small>Passo 1</small><h3>Escolha</h3><p>Toque em comprar na apostila do seu vestibular.</p></li>
+      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg></span><small>Passo 2</small><h3>Pague</h3><p>Pix, cartão em parcelas ou boleto, no checkout seguro da Hotmart.</p></li>
+      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg></span><small>Passo 3</small><h3>Receba</h3><p>Com o pagamento aprovado, o acesso chega no seu e-mail.</p></li>
+    </ol>
+    <div class="guar reveal">
+      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.6-3.4 8.3-8 9-4.6-.7-8-4.4-8-9V6z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg></span>
+      <div><h3>7 dias de garantia</h3><p>Se a apostila não for o que você esperava, peça o reembolso pela própria Hotmart.</p></div>
+      <div class="pays"><span>Pix</span><span>Cartão</span><span>Boleto</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="inside" id="por-dentro">
   
   <div class="wrap">
     <div>
       <p class="kick">Por dentro</p>
       <h2>Folheie a apostila</h2>
-      <p class="lede">Toque nas páginas, arraste para os lados ou use as setas. São páginas reais de cada material.</p>
+      <p class="lede">Clique duas vezes na apostila para virar a página, ou use as setas. São páginas reais de cada material.</p>
       <ul class="feats">
         <li><div><b>Separada por assunto</b><p>Cada capítulo é um tema, com as questões das provas anteriores da sua banca.</p></div></li>
         <li><div><b>Levantamento estatístico</b><p>Quantas questões caíram de cada assunto, para você priorizar o que mais cai.</p></div></li>
@@ -358,24 +376,6 @@ dialog::backdrop{background:rgba(10,30,60,.6)}
   </div>
 </section>
 
-<section class="s-soft" id="como-comprar">
-  <div class="wrap">
-    <p class="kick">Como comprar</p>
-    <h2>Três passos e você já está estudando</h2>
-    <p class="lede">O pagamento é feito pela Hotmart, a maior plataforma de produtos digitais do Brasil.</p>
-    <ol class="flow">
-      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h3l2.4 11.2a1.5 1.5 0 0 0 1.5 1.2h8.3a1.5 1.5 0 0 0 1.5-1.1L21 7.5H6.4"/></svg></span><small>Passo 1</small><h3>Escolha</h3><p>Toque em comprar na apostila do seu vestibular.</p></li>
-      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg></span><small>Passo 2</small><h3>Pague</h3><p>Pix, cartão em parcelas ou boleto, no checkout seguro da Hotmart.</p></li>
-      <li class="reveal"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg></span><small>Passo 3</small><h3>Receba</h3><p>Com o pagamento aprovado, o acesso chega no seu e-mail.</p></li>
-    </ol>
-    <div class="guar reveal">
-      <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.6-3.4 8.3-8 9-4.6-.7-8-4.4-8-9V6z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg></span>
-      <div><h3>7 dias de garantia</h3><p>Se a apostila não for o que você esperava, peça o reembolso pela própria Hotmart.</p></div>
-      <div class="pays"><span>Pix</span><span>Cartão</span><span>Boleto</span></div>
-      <a class="btn b-pink" href="#apostilas">Escolher apostila</a>
-    </div>
-  </div>
-</section>
 
 <section class="about s-white" id="sobre">
   <div class="wrap">
@@ -561,10 +561,7 @@ function ir(d){
   estado(); clearTimeout(ir.t); ir.t = setTimeout(zfix, 900); return true;
 }
 function parar(){ touched = true; clearInterval(bTimer); }
-function auto(){
-  clearInterval(bTimer); if (reduce || touched || !inView) return;
-  bTimer = setInterval(() => { if (!ir(1)) { const back = () => { if (ir(-1)) setTimeout(back, 140); }; back(); } }, 2000);
-}
+function auto(){ clearInterval(bTimer); }
 function escolher(i){
   [...$("tabs").children].forEach((b, k) => b.setAttribute("aria-pressed", k === i));
   montar(APOSTILAS[i]); auto();
@@ -574,27 +571,26 @@ $("tabs").innerHTML = APOSTILAS.map(a => `<button class="tab" type="button" aria
 $("next").addEventListener("click", () => { parar(); ir(1); });
 $("prev").addEventListener("click", () => { parar(); ir(-1); });
 book.addEventListener("keydown", e => { if (e.key === "ArrowRight") { parar(); ir(1); } if (e.key === "ArrowLeft") { parar(); ir(-1); } });
-let sx = null, moved = false;
-book.addEventListener("pointerdown", e => { sx = e.clientX; moved = false; });
+let lastUp = 0;
+book.style.touchAction = "manipulation";
 book.addEventListener("pointermove", e => {
-  if (sx === null) {
-    if (e.pointerType !== "mouse") return;
-    const r = book.getBoundingClientRect(), right = e.clientX > r.left + r.width / 2;
-    leaves.forEach(l => l.classList.remove("peek"));
-    if (right && step > 0 && step < leaves.length) leaves[step].classList.add("peek");
-    return;
-  }
-  if (Math.abs(e.clientX - sx) > 40 && !moved){ moved = true; parar(); ir(e.clientX < sx ? 1 : -1); }
+  if (e.pointerType !== "mouse") return;
+  const r = book.getBoundingClientRect(), right = e.clientX > r.left + r.width / 2;
+  leaves.forEach(l => l.classList.remove("peek"));
+  if (right && step > 0 && step < leaves.length) leaves[step].classList.add("peek");
 });
 book.addEventListener("pointerup", e => {
-  if (!moved && sx !== null){
+  if (e.target.closest("a")) return;
+  const now = Date.now();
+  if (now - lastUp < 400){
+    lastUp = 0;
     const r = book.getBoundingClientRect();
     parar();
     if (step === 0) ir(1); else ir(e.clientX - r.left > r.width / 2 ? 1 : -1);
-  }
-  sx = null;
+  } else lastUp = now;
 });
-book.addEventListener("pointerleave", () => { sx = null; leaves.forEach(l => l.classList.remove("peek")); });
+book.addEventListener("dblclick", e => e.preventDefault());
+book.addEventListener("pointerleave", () => leaves.forEach(l => l.classList.remove("peek")));
 escolher(0);
 new IntersectionObserver(([en]) => { inView = en.isIntersecting; if (inView) auto(); else clearInterval(bTimer); }, {threshold:.3}).observe(book);
 
