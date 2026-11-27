@@ -133,10 +133,10 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 .card ul{list-style:none;padding:0;margin:12px 0 16px;display:grid;gap:7px;font-size:14px;flex:1}
 .card li{display:grid;grid-template-columns:10px minmax(0,1fr);gap:10px;align-items:start}
 .card li::before{content:"";width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--c)}
-.price{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:2px 0 14px;padding:14px 16px;border-radius:16px;background:color-mix(in srgb,var(--c) 13%,#fff)}
-.price b{font:800 28px/1 var(--sans);color:var(--ink);letter-spacing:-.02em;white-space:nowrap}
+.price{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:2px 0 14px;padding:14px;border-radius:16px;background:color-mix(in srgb,var(--c) 13%,#fff)}
+.price b{font:800 clamp(24px,2.1vw,28px)/1 var(--sans);color:var(--ink);letter-spacing:-.02em;white-space:nowrap}
 .price b.soon{font-size:17px;letter-spacing:0}
-.price span{font-size:13px;line-height:1.35;color:var(--muted);text-align:right}
+.price span{font-size:13px;line-height:1.35;color:var(--muted);text-align:right;white-space:nowrap}
 .buy{width:100%;min-height:48px;border-radius:999px;border:0;background:var(--pink);color:#fff;font:700 15px var(--sans);cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;transition:filter .15s,transform .15s}
 .buy:hover{filter:brightness(1.07);transform:translateY(-1px)}
 
