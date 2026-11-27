@@ -133,9 +133,12 @@ h2 .blob{display:inline-block;background:#fff;color:var(--deep);padding:0 .28em 
 .card ul{list-style:none;padding:0;margin:12px 0 16px;display:grid;gap:7px;font-size:14px;flex:1}
 .card li{display:grid;grid-template-columns:10px minmax(0,1fr);gap:10px;align-items:start}
 .card li::before{content:"";width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--c)}
-.price{margin-bottom:12px}
-.price small{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.price b{font:700 18px/1.3 var(--sans);color:var(--ink)}
+.price{display:flex;align-items:center;gap:12px;margin:2px 0 14px}
+.price b{display:flex;align-items:baseline;font:800 36px/1 var(--sans);color:var(--ink);letter-spacing:-.03em;white-space:nowrap}
+.price .cur{font-size:15px;font-weight:700;letter-spacing:0;margin-right:5px;color:var(--muted)}
+.price .cts{font-size:19px;letter-spacing:-.01em}
+.price b.soon{font-size:18px;letter-spacing:0}
+.price .pnote{font-size:13px;line-height:1.35;color:var(--muted);padding-left:12px;border-left:1px solid #e1e8f0}
 .buy{width:100%;min-height:48px;border-radius:999px;border:0;background:var(--pink);color:#fff;font:700 15px var(--sans);cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;transition:filter .15s,transform .15s}
 .buy:hover{filter:brightness(1.07);transform:translateY(-1px)}
 
@@ -519,6 +522,10 @@ if (!reduce) $("hero").addEventListener("pointermove", e => {
 });
 
 /* ---------- cartões ---------- */
+function precoHTML(p){
+  const m = (p || "").match(/R\$\s*(\d+)(,\d{2})?/);
+  return m ? `<b><span class="cur">R$</span>${m[1]}<span class="cts">${m[2] || ""}</span></b>` : `<b class="soon">Preço no lançamento</b>`;
+}
 $("grid").innerHTML = APOSTILAS.map((a, i) => `
   <article class="card reveal" id="card-${a.id}" style="--c:${a.cor}">
     <div class="top"><span class="ed">${a.edicao}</span>
@@ -530,7 +537,7 @@ $("grid").innerHTML = APOSTILAS.map((a, i) => `
       <p class="for">${a.para}</p>
       <div class="big"><div><b>${a.questoes}</b><span>questões</span></div><div><b>${a.nAssuntos}</b><span>assuntos</span></div></div>
       <ul>${a.itens.map(t => `<li>${t}</li>`).join("")}</ul>
-      <div class="price"><small>Investimento</small><b>${a.preco || "Preço no lançamento"}</b>${a.parcelas ? `<small>${a.parcelas}</small>` : ""}</div>
+      <div class="price">${precoHTML(a.preco)}${a.parcelas ? `<span class="pnote">${a.parcelas}</span>` : ""}</div>
       ${a.checkout
         ? `<a class="buy ${CHECKOUT_NA_PAGINA ? "hotmart-fb hotmart__button-checkout" : ""}" href="${a.checkout}" ${CHECKOUT_NA_PAGINA ? "" : 'target="_blank" rel="noopener"'}>Comprar apostila ${a.uni}</a>`
         : `<button class="buy" type="button" data-soon="${a.uni}">Comprar apostila ${a.uni}</button>`}
